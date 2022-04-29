@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
+import HomeApp from './Home';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Container } from '@mui/material';
+import AboutApp from './About';
+import ProjectsApp from './Projects';
+import ContactApp from './Contact';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Container>
+        <div className="App">
+          <HomeApp />
+          <AboutApp />
+          <ProjectsApp />
+          <ContactApp />
+        </div>
+      </Container>
+    </React.Fragment>
+
   );
 }
 
 export default App;
+
+

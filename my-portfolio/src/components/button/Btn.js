@@ -3,10 +3,15 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 
 
-export default function Btn() {
+export default function Btn(prop) {
+    function handleClick() {
+        document.querySelector('#contact').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
     return (
-
-        <Button 
+        <Button
+        onClick={handleClick}
         sx={{
             borderRadius: 0,
             p: .2,

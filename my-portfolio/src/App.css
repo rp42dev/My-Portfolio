@@ -1,0 +1,14 @@
+#home,
+#about,
+#projects,
+#contact {
+  min-height: 100vh;
+}
+
+.text-justify {
+  text-align: justify;
+  -moz-text-align-last: justify;
+  text-align-last: justify;
+  text-justify: inter-word;
+  letter-spacing: auto;
+}

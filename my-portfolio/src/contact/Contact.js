@@ -1,10 +1,11 @@
-import Btn from './components/button/Btn';
+import Btn from '../components/button/Btn';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
+import './Contact.css';
 
-function ProjectsApp() {
+function ContactApp() {
   return (
-    <Container id="projects">
+    <Container id="contact">
       <Box style={{ marginTop: "10%" }}>
         <Typography color="secondary" variant="h1">Hi. I'm Raivis</Typography>
         <Typography style={{ marginTop: "2rem" }} color="primary.dark" variant="h3">I'm a full-stack developer</Typography>
@@ -15,4 +16,4 @@ function ProjectsApp() {
   );
 }
 
-export default ProjectsApp;
+export default ContactApp;

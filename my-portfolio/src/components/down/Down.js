@@ -4,10 +4,11 @@ import Jump from 'react-reveal/Jump';
 import IconButton from '@mui/material/IconButton';
 
 
-function DownComp() {
+function DownComp(props) {
+    console.log(props.prop);
     const handleChange = (event) => {
-        document.querySelector('#about').scrollIntoView({
-            behavior: 'smooth'       
+        document.querySelector(props.prop).scrollIntoView({
+            behavior: 'smooth'
         });
     };
 
@@ -15,7 +16,7 @@ function DownComp() {
         <Box sx={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translate(-50%, 0)', opacity: .3 }} color="primary.dark">
             <Jump forever timeout={2000}>
                 <IconButton onClick={handleChange} aria-label="go to about section">
-                    <KeyboardArrowDownIcon sx={{ fontSize: 200}} />
+                    <KeyboardArrowDownIcon sx={{ fontSize: 200 }} />
                 </IconButton>
             </Jump>
         </Box>

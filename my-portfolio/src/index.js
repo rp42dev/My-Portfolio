@@ -3,21 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ContextWrapper } from './AppContext.js';
 
 const theme = createTheme({
   typography: {
-    h1: { fontFamily : '"Roboto", sans-serif' },
-    btn: { fontFamily : '"Roboto", sans-serif' },
+    h1: { fontFamily: '"Roboto", sans-serif' },
+    btn: { fontFamily: '"Roboto", sans-serif' },
     fontFamily: ['Roboto', 'sans-serif',].join(','),
-    breakpoints: {
-      values: {
-        mobile: 0,
-        tablet: 640,
-        laptop: 1024,
-        desktop: 1200,
-      },
-    },
   },
   palette: {
     mode: 'dark',
@@ -28,14 +21,34 @@ const theme = createTheme({
       main: '#C06800',
     },
   },
-
 });
+
+theme.typography.body1 = {
+  fontSize: '.7rem',
+  '@media (min-width:400px)': {
+    fontSize: '.8rem',
+  },
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.2rem',
+  },
+};
+
+theme.typography.body2 = {
+  fontSize: '.7rem',
+  '@media (min-width:400px)': {
+    fontSize: '.9rem',
+  },
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.1rem',
+  },
+};
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.Fragment>
-    < ThemeProvider theme = {theme}>
-    <App />
+    < ThemeProvider theme={theme}>
+      <App />
     </ThemeProvider>
   </React.Fragment>
 );

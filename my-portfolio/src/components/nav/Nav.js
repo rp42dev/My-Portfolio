@@ -3,36 +3,28 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
+import { useContext } from 'react';
+import { AppContext } from '../../AppContext.js';
 import './Nav.css';
 
 
-export default function LabTabs() {
-    const [value, setValue] = React.useState('1');
+export default function LabTabs(props) {
+    const context = useContext(AppContext);
+    const [value, setValue] = React.useState(context.store);
+    console.log(context.store);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-        if (newValue === '1') {
-            document.querySelector('#home').scrollIntoView({
-                behavior: 'smooth'
-            });
-        } else if (newValue === '2') {
-            document.querySelector('#about').scrollIntoView({
-                behavior: 'smooth'
-            });
-        } else if (newValue === '3') {
-            document.querySelector('#projects').scrollIntoView({
-                behavior: 'smooth'
-            });
-        } else {
-            document.querySelector('#contact').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+        let myObject = ['#home', '#about', '#projects', '#contact'];
+        let num = parseInt(newValue) - 1;
+        document.querySelector(myObject[parseInt(num)]).scrollIntoView({
+            behavior: 'smooth'
+        });
     };
 
     return (
         <Box sx={{ typography: 'btn', position: 'fixed', zIndex: 1100 }}>
-            <TabContext value={value}>
+            <TabContext value={context.store || value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList
                         onChange={handleChange}

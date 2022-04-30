@@ -5,7 +5,6 @@ import IconButton from '@mui/material/IconButton';
 
 
 function DownComp(props) {
-    console.log(props.prop);
     const handleChange = (event) => {
         document.querySelector(props.prop).scrollIntoView({
             behavior: 'smooth'
@@ -13,10 +12,10 @@ function DownComp(props) {
     };
 
     return (
-        <Box sx={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translate(-50%, 0)', opacity: .3 }} color="primary.dark">
+        <Box sx={{ position: 'absolute', bottom: 0, right: '0', transform: 'translate(20%, 10%)', opacity: .3 }} color="primary.dark">
             <Jump forever timeout={2000}>
                 <IconButton onClick={handleChange} aria-label="go to about section">
-                    <KeyboardArrowDownIcon sx={{ fontSize: 200 }} />
+                    <KeyboardArrowDownIcon sx={{ fontSize: 150 }} />
                 </IconButton>
             </Jump>
         </Box>

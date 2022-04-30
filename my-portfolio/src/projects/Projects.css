@@ -1,12 +1,14 @@
+@media only screen and (min-width: 900px) {
 
-.right{
-   width: 120%;
-    position: absolute;
-    transform: translate(-15%, -50%);
-}
+    .right {
+        width: 120%;
+        position: absolute;
+        transform: translate(-15%, -50%);
+    }
 
-.left{
-   width: 120%;
-    position: absolute;
-    transform: translate(-0%, -50%);
+    .left {
+        width: 120%;
+        position: absolute;
+        transform: translate(-0%, -50%);
+    }
 }

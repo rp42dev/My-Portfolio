@@ -3,18 +3,25 @@ import Btn from '../components/button/Btn';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import LightSpeed from 'react-reveal/LightSpeed';
-import Fade from 'react-reveal/Fade';
 import DownComp from '../components/down/Down';
+import { InView } from 'react-intersection-observer';
+import { useContext } from 'react';
+import { AppContext } from '../AppContext.js';
 import './Home.css';
 
 function HomeApp() {
+  const context = useContext(AppContext);
+  function handlePage() {
 
+    context.actions.addTask("1")
+
+  }
   return (
     <Container>
       <Box id="navigation"> <Nav /></Box>
 
       <Box id="home" sx={{ position: 'relative' }}>
-        <Box classList="home-content text-justify" >
+        <Box className="home-content" >
 
           <Typography color="secondary" variant="h1">
             <LightSpeed left cascade duration={1500}>
@@ -22,6 +29,7 @@ function HomeApp() {
               </LightSpeed>
           </Typography>
 
+      <InView as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
 
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h3">
             <LightSpeed left cascade delay={500} duration={1500}>
@@ -29,13 +37,12 @@ function HomeApp() {
               </LightSpeed>
           </Typography>
 
-
-          <Typography sx={{ mt: 2 }} color="primary" variant="h5">
+          <Typography sx={{ mt: 2 }} color="primary" variant="h6">
             <LightSpeed left cascade delay={800} duration={1500}>
               I enjoy creating Responsive and accessible websites.
               </LightSpeed>
           </Typography>
-
+          </InView>
           <LightSpeed left delay={1500} duration={2000}>
             <Btn />
           </LightSpeed>
@@ -44,6 +51,7 @@ function HomeApp() {
       </Box>
 
     </Container>
+    
   );
 }
 

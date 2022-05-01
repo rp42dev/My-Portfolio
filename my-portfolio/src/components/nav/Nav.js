@@ -11,8 +11,7 @@ import './Nav.css';
 export default function LabTabs(props) {
     const context = useContext(AppContext);
     const [value, setValue] = React.useState(context.store);
-    console.log(context.store);
-
+    
     const handleChange = (event, newValue) => {
         setValue(newValue);
         let myObject = ['#home', '#about', '#projects', '#contact'];

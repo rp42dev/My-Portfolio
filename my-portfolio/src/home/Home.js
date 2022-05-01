@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import LightSpeed from 'react-reveal/LightSpeed';
 import DownComp from '../components/down/Down';
-import { InView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 import './Home.css';
@@ -16,6 +16,11 @@ function HomeApp() {
     context.actions.addTask("1")
 
   }
+  const { ref, inView2, entry } = useInView({
+    /* Optional options */
+    onChange: (inView2, entry) => { if (inView2 === true) handlePage() },
+    threshold: 0,
+  });
   return (
     <Container>
       <Box id="navigation"> <Nav /></Box>
@@ -29,7 +34,7 @@ function HomeApp() {
               </LightSpeed>
           </Typography>
 
-      <InView as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+        <div ref={ref}></div>
 
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h3">
             <LightSpeed left cascade delay={500} duration={1500}>
@@ -42,7 +47,7 @@ function HomeApp() {
               I enjoy creating Responsive and accessible websites.
               </LightSpeed>
           </Typography>
-          </InView>
+        
           <LightSpeed left delay={1500} duration={2000}>
             <Btn />
           </LightSpeed>

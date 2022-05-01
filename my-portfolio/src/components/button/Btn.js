@@ -13,12 +13,14 @@ export default function Btn(prop) {
         <Button
         onClick={handleClick}
         sx={{
+            typography: 'btn',
             borderRadius: 0,
             p: .2,
             minWidth:200,
             fontSize: 20,
+            mt: 3,
         }} 
-        style={{ marginTop: "2rem" }} 
+        mt={2} 
         color="secondary" variant="contained">
             Contact
         </Button>

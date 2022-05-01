@@ -11,7 +11,7 @@ import './Nav.css';
 export default function LabTabs(props) {
     const context = useContext(AppContext);
     const [value, setValue] = React.useState(context.store);
-    
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
         let myObject = ['#home', '#about', '#projects', '#contact'];
@@ -23,7 +23,7 @@ export default function LabTabs(props) {
 
     return (
         <Box sx={{ typography: 'btn', position: 'fixed', zIndex: 1100 }}>
-            <TabContext value={context.store || value}>
+            <TabContext value={context.store}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList
                         onChange={handleChange}

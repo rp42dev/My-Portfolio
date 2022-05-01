@@ -1,15 +1,18 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import Skeleton from '@mui/material/Skeleton';
 
-export default function MediaCard() {
+export default function MediaCard(props) {
     return (
-        <Card >
+        <Card sx={{ maxWidth: 800 }}>
             <CardMedia
                 component="img"
-                
-                image="https://source.unsplash.com/random/360x240"
-                alt="green iguana"
+                height="auto"
+                width='100%'
+                image={props.image}
+                alt="Nicola Sturgeon on a TED talk stage"
             />
         </Card>
     );

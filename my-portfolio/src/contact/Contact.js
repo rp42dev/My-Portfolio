@@ -26,8 +26,8 @@ function ContactApp() {
             send me a message and I will  get back to you!
           </Typography>
           <InView as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
-        <ContactForm />
         </InView>
+        <ContactForm />
       </Box>
     </Container>
   );

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -11,6 +12,32 @@ import './Nav.css';
 export default function LabTabs(props) {
     const context = useContext(AppContext);
     const [value, setValue] = React.useState(context.store);
+    const [show, setShow] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    const controlNavbar = () => {
+        if (typeof window !== 'undefined') {
+            if (window.scrollY > lastScrollY) { // if scroll down hide the navbar
+                setShow(false);
+            } else { // if scroll up show the navbar
+                setShow(true);
+            }
+
+            // remember current page location to use in the next move
+            setLastScrollY(window.scrollY);
+        }
+    };
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar);
+
+            // cleanup function
+            return () => {
+                window.removeEventListener('scroll', controlNavbar);
+            };
+        }
+    }, [lastScrollY]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -22,7 +49,13 @@ export default function LabTabs(props) {
     };
 
     return (
-        <Box sx={{ typography: 'btn', position: 'fixed', zIndex: 1100 }}>
+        <Box
+            className={`active ${show && 'true'}`}
+            sx={{
+                typography: 'btn',
+                position: 'fixed',
+                zIndex: 1100
+            }}>
             <TabContext value={context.store}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList

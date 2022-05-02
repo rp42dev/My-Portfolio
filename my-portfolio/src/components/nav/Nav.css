@@ -12,3 +12,15 @@
 .MuiTabs-flexContainer {
   justify-content: end;
 }
+
+.active.false {
+  transform: translate(0, -50px);
+  opacity: 0;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) .8s;
+}
+
+.active.true {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) .8s;
+}

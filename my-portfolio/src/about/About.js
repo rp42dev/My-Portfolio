@@ -4,7 +4,6 @@ import { AppContext } from '../AppContext.js';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import LightSpeed from 'react-reveal/LightSpeed';
-import DownComp from '../components/down/Down';
 import DoneIcon from '@mui/icons-material/Done';
 import './About.css';
 
@@ -69,7 +68,6 @@ function AboutApp() {
           </Box>
         </LightSpeed>
       </Box>
-      <DownComp prop="#projects" />
     </Container>
 
   );

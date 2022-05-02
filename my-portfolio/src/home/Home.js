@@ -1,9 +1,8 @@
 import Nav from '../components/nav/Nav';
-import Btn from '../components/button/Btn';
+import Btn from '../components/buttons/Btn';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import LightSpeed from 'react-reveal/LightSpeed';
-import DownComp from '../components/down/Down';
 import { useInView } from 'react-intersection-observer';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
@@ -51,7 +50,6 @@ function HomeApp() {
           <LightSpeed left delay={1500} duration={2000}>
             <Btn />
           </LightSpeed>
-          <DownComp prop={'#about'} />
         </Box>
       </Box>
 

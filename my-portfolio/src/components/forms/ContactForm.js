@@ -28,14 +28,14 @@ const Form = () => {
         <Box
             component="form"
             sx={{
-                '& > :not(style)': { m: 1 },
+                '& > :not(style)': { m: 0 },
             }}
             noValidate
             onSubmit={handleSubmit}
             autoComplete="off"
         >
-            <Grid container alignItems="center" justify="center" direction="column">
-                <Grid sx={{ mb: 3, mt: 3, width: '100%' }} item>
+            <Grid container direction={'row'} gap={3}>
+                <Grid sx={{ mt: 3, width: '100%' }} item>
                     <TextField
                         id="name-input"
                         name="name"
@@ -48,7 +48,7 @@ const Form = () => {
                         onChange={handleInputChange}
                     />
                 </Grid>
-                <Grid sx={{ mb: 3, width: '100%' }} item>
+                <Grid sx={{ width: '100%' }} item>
                     <TextField
                         id="email-input"
                         required
@@ -61,7 +61,7 @@ const Form = () => {
                         onChange={handleInputChange}
                     />
                 </Grid>
-                <Grid sx={{ mb: 3, width: '100%' }} item>
+                <Grid sx={{ width: '100%' }} item>
                     <TextField
                         id="message-input"
                         required
@@ -76,7 +76,7 @@ const Form = () => {
                         onChange={handleInputChange}
                     />
                 </Grid>
-                <Grid sx={{ mb: 3, width: '100%' }} item>
+                <Grid sx={{ width: '100%' }} item>
                     <Button
                         type="submit"
                         sx={{
@@ -85,6 +85,7 @@ const Form = () => {
                             minWidth: 200,
                             fontSize: 20,
                         }}
+                        disabled
                         color="secondary"
                         variant="contained">
                         Submit

@@ -25,11 +25,11 @@ function DownComp(props) {
     return (
         <Box sx={{ position: 'absolute', bottom: 0, right: '0', transform: 'translate(15%, 10%)', opacity: .3 }} color="primary.dark">
             <Jump forever timeout={2000} sx={{ position: 'relative' }}>
-                <StyledTypography variant="h6">Scroll</StyledTypography>
                 <IconButton onClick={handleChange} aria-label="go to about section">
                     
                     <KeyboardArrowDownIcon sx={{ fontSize: 80 }} />
                 </IconButton>
+                <StyledTypography variant="h6">Scroll</StyledTypography>
             </Jump>
         </Box>
     )

@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/My-Portfolio/static/css/main.5ae454f3.css",
-    "main.js": "/My-Portfolio/static/js/main.2e0003e5.js",
+    "main.css": "/My-Portfolio/static/css/main.2fa8fe2a.css",
+    "main.js": "/My-Portfolio/static/js/main.2c7e7b5f.js",
     "static/js/787.128fc6e9.chunk.js": "/My-Portfolio/static/js/787.128fc6e9.chunk.js",
+    "static/media/flower.webp": "/My-Portfolio/static/media/flower.ea59cf708b56de1985ef.webp",
+    "static/media/emo.webp": "/My-Portfolio/static/media/emo.b04f52b9b53eeb5b9eba.webp",
+    "static/media/hats.webp": "/My-Portfolio/static/media/hats.d8521039a70379a5aa87.webp",
+    "static/media/game.webp": "/My-Portfolio/static/media/game.d0b488d6d550eb6eb81f.webp",
+    "static/media/tattoo.webp": "/My-Portfolio/static/media/tattoo.786f0d24d81199666486.webp",
     "index.html": "/My-Portfolio/index.html",
-    "main.5ae454f3.css.map": "/My-Portfolio/static/css/main.5ae454f3.css.map",
-    "main.2e0003e5.js.map": "/My-Portfolio/static/js/main.2e0003e5.js.map",
+    "main.2fa8fe2a.css.map": "/My-Portfolio/static/css/main.2fa8fe2a.css.map",
+    "main.2c7e7b5f.js.map": "/My-Portfolio/static/js/main.2c7e7b5f.js.map",
     "787.128fc6e9.chunk.js.map": "/My-Portfolio/static/js/787.128fc6e9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ae454f3.css",
-    "static/js/main.2e0003e5.js"
+    "static/css/main.2fa8fe2a.css",
+    "static/js/main.2c7e7b5f.js"
   ]
 }

@@ -7,14 +7,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useContext } from 'react';
 import { AppContext } from '../../AppContext.js';
-import { styled } from '@mui/material/styles';
-import { useThemeWithoutDefault } from '@mui/system';
 
-const StyledButton = styled(MenuIcon)(({ theme, color = 'secondary' }) => ({
-    ':hover': {
-        color: theme.palette.secondary.main,
-    },
-}));
 
 export default function MobileMenu(props) {
     const context = useContext(AppContext);
@@ -45,9 +38,10 @@ export default function MobileMenu(props) {
                             aria-haspopup="true"
                             aria-expanded={open ? 'true' : undefined}
                         >
-                            <StyledButton
+                            <MenuIcon
                                 fontSize="large"
-                                color="primary" />
+                                
+                                color="secondary" />
                         </IconButton>
                     </Tooltip>
                 </Box>

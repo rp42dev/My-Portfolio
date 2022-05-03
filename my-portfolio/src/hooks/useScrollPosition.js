@@ -1,29 +1,17 @@
-import { useState, useEffect } from 'react';
+import * as React from 'react';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Zoom from '@mui/material/Zoom';
 
-export default function useScrollDetect() {
+export default function HideOnScroll(props) {
+    const { children } = props;
 
-    const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const trigger = useScrollTrigger({
+        
+    });
 
-    useEffect(() => {
-        const controlNavbar = () => {
-            if (typeof window !== 'undefined') {
-                if (window.scrollY > lastScrollY) {
-                    setShow(false);
-                } else {
-                    setShow(true);
-                }
-                setLastScrollY(window.scrollY);
-            }
-        };
-
-        if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', controlNavbar);
-            return () => {
-                window.removeEventListener('scroll', controlNavbar);
-            };
-        }
-    }, [lastScrollY]);
-
-    return show;
+    return (
+        <Zoom appear={false} direction="down" in={!trigger}>
+            {children}
+        </Zoom>
+    );
 }

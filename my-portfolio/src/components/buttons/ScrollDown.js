@@ -4,36 +4,29 @@ import Jump from 'react-reveal/Jump';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 
-const StyledTypography = styled(Typography)(({ theme }) => ({ 
+const StyledTypography = styled(Typography)(({ theme }) => ({
     position: 'absolute',
     bottom: '-20px',
     left: '18px',
-    // transform: 'translate(-50%, -50%)',
     transform: 'rotate(90deg)',
     color: theme.palette.primary.light,
     fontSize: '1.5rem',
 
 }));
 
-function DownComp(props) {
-    const handleChange = (event) => {
-        document.querySelector(props.prop).scrollIntoView({
-            behavior: 'smooth'
-        });
-    };
+export default function DownComp(props) {
 
     return (
         <Box sx={{ position: 'absolute', bottom: 0, right: '0', transform: 'translate(15%, 10%)', opacity: .3 }} color="primary.dark">
             <Jump forever timeout={2000} sx={{ position: 'relative' }}>
-                <IconButton onClick={handleChange} aria-label="go to about section">
-                    
+                <StyledTypography variant="h6">Scroll</StyledTypography>
+                <IconButton aria-label="go to about section">
+
                     <KeyboardArrowDownIcon sx={{ fontSize: 80 }} />
                 </IconButton>
-                <StyledTypography variant="h6">Scroll</StyledTypography>
             </Jump>
         </Box>
     )
 }
 
-export default DownComp
 

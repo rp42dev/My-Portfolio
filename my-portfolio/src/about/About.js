@@ -11,7 +11,7 @@ function AboutApp() {
   const context = useContext(AppContext);
   function handlePage() {
 
-    context.actions.addTask("2")
+    context.actions.addTask(2)
 
   }
   return (

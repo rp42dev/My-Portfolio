@@ -11,7 +11,7 @@ function ContactApp() {
   const context = useContext(AppContext);
   function handlePage() {
 
-    context.actions.addTask("4")
+    context.actions.addTask(4)
 
   }
   return (

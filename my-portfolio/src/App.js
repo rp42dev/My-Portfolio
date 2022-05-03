@@ -6,7 +6,7 @@ import { ContextWrapper } from './AppContext.js';
 import AboutApp from './about/About';
 import ProjectsApp from './projects/Projects';
 import ContactApp from './contact/Contact';
-import Down from './components/buttons/Down';
+
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <CssBaseline />
       <ContextWrapper>
         <div className="App">
-          <Down />
+          
           <HomeApp />
           <AboutApp />
           <ProjectsApp />

@@ -15,7 +15,6 @@ import image3 from '../assets/images/emo.webp';
 import image4 from '../assets/images/game.webp';
 import image5 from '../assets/images/flower.webp';
 
-console.log(image1);
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -31,7 +30,7 @@ function ProjectsApp() {
 
   const context = useContext(AppContext);
   function handlePage() {
-    context.actions.addTask("3")
+    context.actions.addTask(3)
   }
 
   const { ref, inView } = useInView({

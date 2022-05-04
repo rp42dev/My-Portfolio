@@ -1,23 +1,20 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import MobileMenu from './MobileNav.js';
-import useMediaQuery from '../../hooks/ViewPort.js';
+import useMediaQuery from '../../hooks/viewPortWidth.js';
 import PcMenu from './PcNav.js';
 import './Nav.css';
-import useScrollToSection from '../../hooks/useScrollToSection.js';
-import HideOnScroll from '../../hooks/useScrollPosition.js';
+import useScrollToSection from '../../hooks/scrollToSection.js';
+import HideOnScroll from '../../hooks/scrollPosition.js';
 
 
 export default function Nav(props) {
     const { children } = props;
     const scrollTo = useScrollToSection();
-
     const handleChange = scrollTo.handleChange;
     const myObject = scrollTo.myObject;
-
     const hideTabs = useMediaQuery('(max-width: 800px)')
     const hideMobile = useMediaQuery('(min-width: 800px)')
-
 
     return (
         <HideOnScroll {...props}>

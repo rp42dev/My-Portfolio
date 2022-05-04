@@ -9,7 +9,8 @@ export default function useScrollTo() {
     
     const handleChange = (event, newValue) => {
         setValue(newValue);
-        document.querySelector('#' + myObject[newValue]).scrollIntoView({
+        let index = myObject.indexOf(newValue);
+        document.querySelector('#' + myObject[index]).scrollIntoView({
             behavior: 'smooth'
         });
     };

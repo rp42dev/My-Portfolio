@@ -11,9 +11,9 @@ function AboutApp() {
   const context = useContext(AppContext);
   function handlePage() {
 
-    context.actions.addTask(2)
-
+    context.actions.addTask('about')
   }
+  
   return (
  
     <Container id="about" sx={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -41,7 +41,8 @@ function AboutApp() {
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
             My top Priorities
           </Typography>
-          <InView as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+          <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+          </InView>
           <Box className="priorities-text" sx={{ mt: 1 }}>
             <Typography color="primary" variant="body2">
               <DoneIcon fontSize='1rem' /><span>Intuitive design provide meaningful experiences to users.</span> <br />
@@ -51,7 +52,6 @@ function AboutApp() {
               <DoneIcon fontSize='1rem' /><span>Website speed, performance optimization best practices.</span>
             </Typography>
           </Box>
-          </InView>
         </LightSpeed>
         <LightSpeed left delay={1500} duration={2000}>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">

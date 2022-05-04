@@ -5,21 +5,18 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import MediaCard from '../components/image/Image';
 import LightSpeed from 'react-reveal/LightSpeed';
-import { useInView } from 'react-intersection-observer';
+import { InView } from 'react-intersection-observer';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 import './Projects.css';
-import image1 from '../assets/images/tattoo.webp';
-import image2 from '../assets/images/hats.webp';
-import image3 from '../assets/images/emo.webp';
-import image4 from '../assets/images/game.webp';
-import image5 from '../assets/images/flower.webp';
+import itemData from '../data/ProjectData';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   '@media (min-width:400px)': {
-    padding: theme.spacing(3),
+    padding: theme.spacing('projects'),
   },
   color: theme.palette.text.secondary,
   opacity: 0,
@@ -30,18 +27,12 @@ function ProjectsApp() {
 
   const context = useContext(AppContext);
   function handlePage() {
-    context.actions.addTask(3)
+    context.actions.addTask('projects')
   }
-
-  const { ref, inView } = useInView({
-    threshold: .14,
-    onChange: (inView) => { if (inView === true) handlePage() },
-  });
 
   return (
     <Container id="projects">
-
-
+      <InView threshold={.14} as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
       <Box sx={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
 
         <Box sx={{ mt: 2 }}>
@@ -52,7 +43,7 @@ function ProjectsApp() {
         </Box>
         <Box sx={{ width: '100%', mt: 2 }}>
 
-          <Grid ref={ref} container rowSpacing={{ sx: 2, md: 10 }}>
+          <Grid container rowSpacing={{ sx: 2, md: 10 }}>
             <Grid item xs={12} md={7} order={{ xs: 1 }}>
               <LightSpeed left delay={500} duration={2000}>
                 <div>  <MediaCard image={itemData[0].img} /> </div>
@@ -147,7 +138,7 @@ function ProjectsApp() {
                   <div className='right'>
                     <Item elevation={12}>
                       <Typography variant="body2">
-                        {itemData[2].description}
+                        {itemData[4].description}
                       </Typography>
                     </Item>
                   </div>
@@ -159,36 +150,9 @@ function ProjectsApp() {
           </Grid>
         </Box>
       </Box>
+  </InView>
     </Container>
   );
 }
 
 export default ProjectsApp;
-
-const itemData = [
-  {
-    img: image1,
-    title: 'Breakfast',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem gravida, dictum ligula sit amet, auctor ligula. Etiam quis urna eu lorem consequat rutrum. In bibendum, est eu luctus congue itaner.',
-  },
-  {
-    img: image2,
-    title: 'Burger',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem gravida, dictum ligula sit amet, auctor ligula. Etiam quis urna eu lorem consequat rutrum. In bibendum, est eu luctus congue itaner.',
-  },
-  {
-    img: image3,
-    title: 'Camera',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem gravida, dictum ligula sit amet, auctor ligula. Etiam quis urna eu lorem consequat rutrum. In bibendum, est eu luctus congue itaner.',
-  },
-  {
-    img: image4,
-    title: 'Coffee',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem gravida, dictum ligula sit amet, auctor ligula. Etiam quis urna eu lorem consequat rutrum. In bibendum, est eu luctus congue itaner.',
-  },
-  {
-    img: image5,
-    title: 'Coffee',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id sem gravida, dictum ligula sit amet, auctor ligula. Etiam quis urna eu lorem consequat rutrum. In bibendum, est eu luctus congue itaner.',
-  },
-];

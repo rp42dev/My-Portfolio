@@ -3,7 +3,7 @@ import React from 'react';
 export const AppContext = React.createContext(null);
 
 export const ContextWrapper = (props) => {
-	const [ store, setStore ] = React.useState(1);
+	const [ store, setStore ] = React.useState('home');
 	
 	const [ actions ] = React.useState({
 		addTask: pageNum => setStore(pageNum)

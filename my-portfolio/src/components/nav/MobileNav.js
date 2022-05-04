@@ -7,6 +7,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useContext } from 'react';
 import { AppContext } from '../../AppContext.js';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 
 
 export default function MobileMenu(props) {
@@ -16,8 +18,6 @@ export default function MobileMenu(props) {
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
-        // console.log(event.currentTarget);
-        // context.setValue.setMenu(true)
         setValue()
     };
     const setValue = () => {
@@ -89,24 +89,26 @@ export default function MobileMenu(props) {
                     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                 >
-                    {props.myObject.map((option, index) => (
-                        <MenuItem
-                            key={index}
-                            onClick={(event) => props.handleChange(event, index)}
-                            selected={context.store - 1 === index}
-                            sx={{ borderBottom: 2,
-                                 borderColor: 'divider',
-                                 my: 1,
-                                '&.Mui-selected': {
-                                    color: "#C06800",
-                                    fontWeight: 'bolder',
-                                    borderColor: '#C06800',
-                                }
-                            }}
+                        
+                    <MenuItem key="1">
+                        <Tabs
+                            orientation="vertical"
+                            value={context.store}
+                            onChange={props.handleChange}
+                            textColor="secondary"
+                            indicatorColor="secondary"
                         >
-                            {option}
-                        </MenuItem>
-                    ))}
+                            {props.myObject.map((option, index) => (
+                                <Tab
+                                    key={index}
+                                    label={option}
+                                    value={option}
+                                >
+                                </Tab>
+                            ))}
+                        </Tabs>
+
+                    </MenuItem>
                 </Menu>
             </Box>
         </React.Fragment>

@@ -3,25 +3,20 @@ import Btn from '../components/buttons/Btn';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import LightSpeed from 'react-reveal/LightSpeed';
-import { useInView } from 'react-intersection-observer';
+import { InView } from 'react-intersection-observer';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
-import './Home.css';
 import BackToTop from '../components/buttons/ScrollTop';
 import ScrollDown from '../components/buttons/ScrollDown';
-
+import './Home.css';
 
 
 function HomeApp() {
+  
   const context = useContext(AppContext);
   function handlePage() {
-    context.actions.addTask(1)
+    context.actions.addTask('home')
   }
-
-  const { ref, inView2, entry } = useInView({
-    onChange: (inView2, entry) => { if (inView2 === true) handlePage() },
-    threshold: 0,
-  });
   
   return (
     <Container id="back-to-top-anchor">
@@ -37,9 +32,8 @@ function HomeApp() {
               Hi, I'm Raivis
               </LightSpeed>
           </Typography>
-
-        <div ref={ref}></div>
-
+          <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+          </InView>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h4">
             <LightSpeed left cascade delay={500} duration={1500}>
               A Junior Web Designer & Developer

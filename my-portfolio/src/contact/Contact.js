@@ -10,9 +10,7 @@ import ContactForm from '../components/forms/ContactForm';
 function ContactApp() {
   const context = useContext(AppContext);
   function handlePage() {
-
-    context.actions.addTask(4)
-
+    context.actions.addTask('contact')
   }
   return (
     <Container id="contact" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -25,7 +23,7 @@ function ContactApp() {
             If you have a question feel free to
             send me a message and I will  get back to you!
           </Typography>
-          <InView as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+        <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         </InView>
         <ContactForm />
       </Box>

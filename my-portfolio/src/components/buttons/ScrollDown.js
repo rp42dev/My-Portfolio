@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 const StyledTypography = styled(Typography)(({ theme }) => ({
     position: 'absolute',
     bottom: '-20px',
-    left: '18px',
+    left: '10px',
     transform: 'rotate(90deg)',
     color: theme.palette.primary.light,
     fontSize: '1.5rem',
@@ -15,15 +15,11 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 }));
 
 export default function DownComp(props) {
-
     return (
-        <Box sx={{ position: 'absolute', bottom: 0, right: '0', transform: 'translate(15%, 10%)', opacity: .3 }} color="primary.dark">
-            <Jump forever timeout={2000} sx={{ position: 'relative' }}>
+        <Box sx={{ position: 'absolute', bottom: 0, right: '0', transform: 'translate(0%, 0%)', opacity: .3 }} color="primary.dark">
+            <Jump forever timeout={2000} >
                 <StyledTypography variant="h6">Scroll</StyledTypography>
-                <IconButton aria-label="go to about section">
-
-                    <KeyboardArrowDownIcon sx={{ fontSize: 80 }} />
-                </IconButton>
+                <KeyboardArrowDownIcon sx={{ fontSize: 80 }} />
             </Jump>
         </Box>
     )

@@ -6,6 +6,7 @@
 
 .home-content{
   max-width: 570px;
+  position: relative;
 }
 
 /* Button */

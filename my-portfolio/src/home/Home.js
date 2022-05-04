@@ -19,7 +19,6 @@ function HomeApp() {
   }
 
   const { ref, inView2, entry } = useInView({
-    /* Optional options */
     onChange: (inView2, entry) => { if (inView2 === true) handlePage() },
     threshold: 0,
   });

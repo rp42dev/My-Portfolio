@@ -5,13 +5,11 @@ import useMediaQuery from '../../hooks/ViewPort.js';
 import PcMenu from './PcNav.js';
 import './Nav.css';
 import useScrollToSection from '../../hooks/useScrollToSection.js';
-
 import HideOnScroll from '../../hooks/useScrollPosition.js';
 
 
 export default function Nav(props) {
     const { children } = props;
-
     const scrollTo = useScrollToSection();
 
     const handleChange = scrollTo.handleChange;
@@ -20,11 +18,11 @@ export default function Nav(props) {
     const hideTabs = useMediaQuery('(max-width: 800px)')
     const hideMobile = useMediaQuery('(min-width: 800px)')
 
+
     return (
         <HideOnScroll {...props}>
             <Box
 
-                // className={`active ${show && 'true'}`}
                 sx={{
                     typography: 'btn',
                     position: 'fixed',
@@ -32,7 +30,6 @@ export default function Nav(props) {
                 }}>
 
                 {!hideMobile && <MobileMenu
-
                     myObject={myObject}
                     handleChange={handleChange} />
                 }

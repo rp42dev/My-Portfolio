@@ -92,7 +92,7 @@ function ProjectsApp() {
                 <Box sx={{ zIndex: 999 }}>
                   <LightSpeed left cascade delay={500}>
                     <div className='left'>
-                      <Typography color='primary.dark' variant="h6">
+                      <Typography color='primary.dark' sx={{ m: 1 }} variant="h6">
                         {itemData[1].title}
                       </Typography>
                       <Item elevation={12}>
@@ -162,7 +162,7 @@ function ProjectsApp() {
                 <Box sx={{ zIndex: 999, width: '100%' }}>
                   <LightSpeed left cascade delay={500}>
                     <div className='left'>
-                      <Typography color='primary.dark' variant="h6">
+                      <Typography color='primary.dark' sx={{ m: 1 }} variant="h6">
                         {itemData[3].title}
                       </Typography>
                       <Item elevation={12}>

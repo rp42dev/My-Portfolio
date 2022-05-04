@@ -6,7 +6,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 export default function MediaCard(props) {
     return (
-        <Card sx={{ maxWidth: 800 }}>
+        <Card sx={{ maxWidth: 900 }}>
             <CardMedia
                 component="img"
                 height="auto"

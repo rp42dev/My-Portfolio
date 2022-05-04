@@ -27,24 +27,24 @@ function HomeApp() {
       <Box id="home" sx={{ position: 'relative' }}>
         <Box className="home-content" >
 
-          <Typography color="secondary" variant="h1">
             <LightSpeed left cascade duration={1500}>
+          <Typography color="secondary" variant="h1">
               Hi, I'm Raivis
-              </LightSpeed>
           </Typography>
+              </LightSpeed>
           <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
           </InView>
-          <Typography sx={{ mt: 2 }} color="primary.dark" variant="h4">
             <LightSpeed left cascade delay={500} duration={1500}>
+          <Typography sx={{ mt: 2 }} color="primary.dark" variant="h4">
               A Junior Web Designer & Developer
-              </LightSpeed>
           </Typography>
+              </LightSpeed>
 
-          <Typography sx={{ mt: 2 }} color="primary" variant="h5">
             <LightSpeed left cascade delay={800} duration={1500}>
+          <Typography sx={{ mt: 2 }} color="primary" variant="h5">
               I enjoy creating Responsive and accessible websites
-              </LightSpeed>
           </Typography>
+              </LightSpeed>
         
           <LightSpeed left delay={1500} duration={2000}>
             <Btn />

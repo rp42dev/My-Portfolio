@@ -4,11 +4,38 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { ContextWrapper } from './AppContext.js';
 
 const theme = createTheme({
   typography: {
     h1: { fontFamily: '"Roboto", sans-serif' },
+    h6: {
+      fontSize: '1rem',
+      '@media (min-width:400px)': {
+        fontSize: '1.4rem',
+      },
+      fontWeight: 'lighter',
+      fontFamily: '"Roboto", sans-serif'
+    },
+    h2: {
+      fontSize: '3rem',
+      '@media (min-width:400px)': {
+        fontSize: '4rem',
+      },
+      fontWeight: 'lighter',
+      fontFamily: '"Roboto", sans-serif'
+    },
+    body1: {
+      fontSize: '.7rem',
+      '@media (min-width:400px)': {
+        fontSize: '1rem',
+      },
+    },
+    body2: {  
+      fontSize: '.7rem',
+      '@media (min-width:400px)': {
+        fontSize: '1rem',
+      },
+    },
     btn: { fontFamily: '"Roboto", sans-serif' },
     fontFamily: ['Roboto', 'sans-serif',].join(','),
   },
@@ -20,28 +47,11 @@ const theme = createTheme({
     secondary: {
       main: '#C06800',
     },
+    dark: {
+      main: '#1C1C1C',
+    },
   },
 });
-
-theme.typography.body1 = {
-  fontSize: '.7rem',
-  '@media (min-width:400px)': {
-    fontSize: '.8rem',
-  },
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '1.2rem',
-  },
-};
-
-theme.typography.body2 = {
-  fontSize: '.7rem',
-  '@media (min-width:400px)': {
-    fontSize: '.9rem',
-  },
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '1.1rem',
-  },
-};
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

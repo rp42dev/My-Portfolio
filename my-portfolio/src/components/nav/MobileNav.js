@@ -57,7 +57,6 @@ export default function MobileMenu(props) {
                     id="mobile-menu"
                     open={open}
                     onClose={handleClose}
-                    // onClick={handleClose}
                     PaperProps={{
                         elevation: 0,
                         sx: {

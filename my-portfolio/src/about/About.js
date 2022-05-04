@@ -60,8 +60,8 @@ function AboutApp() {
           <Box className="priorities-text">
             <Typography color="primary" component={'span'} variant="body2">
               <ul>
-                <li>Front-End: HTML, CSS, JavaScript</li>
-                <li>Back-End: Python Flask, Django</li>
+                <li>Front-End: HTML, CSS, JavaScript, React</li>
+                <li>Back-End: Python, Flask, Django</li>
                 <li>Databases: Postgres, MongoDB, MySQL</li>
               </ul>
             </Typography>

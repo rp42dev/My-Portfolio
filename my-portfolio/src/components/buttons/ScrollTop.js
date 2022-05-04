@@ -1,9 +1,11 @@
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-
 import Zoom from '@mui/material/Zoom';
+
 
 function ScrollTop(props) {
     const { children } = props;
@@ -42,12 +44,16 @@ function ScrollTop(props) {
 export default function BackToTop(props) {
     return (
         <Box color="primary.dark">
-        <ScrollTop {...props} >
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-                <KeyboardArrowUpIcon />
-            </Fab>
-        </ScrollTop>
+            <ScrollTop {...props} >
+                <Fab color="secondary" size="small" aria-label="scroll back to top">
+                    <Tooltip title="Back to top">
+                        <IconButton >
+                            <KeyboardArrowUpIcon fontSize='large' color="dark"/>
+                        </IconButton>
+                    </Tooltip>
+                </Fab>
+            </ScrollTop>
         </Box>
-       
+
     );
 }

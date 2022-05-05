@@ -9,13 +9,13 @@ import useScrollToSection from '../../hooks/scrollToSection.js';
 import ButtonBase from '@mui/material/ButtonBase';
 import HideOnScroll from '../../hooks/scrollPosition.js';
 import './Nav.css';
+import { Tooltip } from '@mui/material';
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: '100%',
     [theme.breakpoints.down('sm')]: {
         width: '100% !important',
-        height: 100,
     },
     '&:hover, &.Mui-focusVisible': {
         zIndex: 1,
@@ -32,7 +32,6 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 }));
 
 
-
 export default function Nav(props) {
     const scrollTo = useScrollToSection();
     const handleChange = scrollTo.handleChange;
@@ -47,12 +46,10 @@ export default function Nav(props) {
         window.location.reload(false);
     }
 
-
-
     return (
         <HideOnScroll {...props}>
             <AppBar 
-                elevation={0}
+                elevation={7}
             sx={{
                 px: 2,
                 typography: 'btn',
@@ -60,18 +57,19 @@ export default function Nav(props) {
                 zIndex: 1100
             }} >
                 <Toolbar 
-                sx={{ justifyContent: 'space-between', alignItems: 'center' }} disableGutters>
-
+                sx={{ justifyContent: 'space-between' }} disableGutters>
+                    <Tooltip title="Home" >
                     <ImageButton
-                        sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
+                        sx={{ display: 'flex', justifyContent: 'start' }}
                         id="nav-logo"
                         focusRipple
                         width='100%'
                         height='100%'
                         onClick={(event) => handleClick(event, 'home')}
                     >
-                        <img width={160} src={require('../../assets/images/logo.png')} alt="logo" />
+                        <img width={120} src={require('../../assets/images/logo.png')} alt="logo" />
                     </ImageButton>
+                    </Tooltip>
 
                     {!hideMobile && <MobileMenu
                         myObject={myObject}

@@ -6,6 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#E5E5E5',
+    },
+    secondary: {
+      main: '#b37142',
+    },
+    dark: {
+      main: '#141415',
+    },
+  },
   typography: {
     h1: { fontFamily: '"Roboto", sans-serif' },
     h6: {
@@ -28,7 +40,7 @@ const theme = createTheme({
         fontSize: '1rem',
       },
     },
-    body2: {  
+    body2: {
       fontSize: '.7rem',
       '@media (min-width:400px)': {
         fontSize: '1rem',
@@ -36,18 +48,6 @@ const theme = createTheme({
     },
     btn: { fontFamily: '"Roboto", sans-serif' },
     fontFamily: ['Roboto', 'sans-serif',].join(','),
-  },
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#E5E5E5',
-    },
-    secondary: {
-      main: '#C06800',
-    },
-    dark: {
-      main: '#1C1C1C',
-    },
   },
 });
 

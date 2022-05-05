@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { Box, Container, IconButton } from '@mui/material';
+import { Box, Container, Fab } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -70,14 +70,14 @@ function ProjectsApp() {
                       </Item>
                       <Stack justifyContent={!hideTabs ? 'flex-end' : 'flex-start'} direction="row" spacing={1}>
                         <Tooltip title="On GitHub">
-                          <IconButton onClick={() => window.open(itemData[0].github, '_blank')} color='secondary' aria-label="On GitHub">
-                            <GitHubIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[0].github, '_blank')} color='secondary' aria-label="On GitHub">
+                            <GitHubIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                         <Tooltip title="Website">
-                          <IconButton onClick={() => window.open(itemData[0].url, '_blank')} color='secondary' aria-label="Website">
-                            <RemoveRedEyeIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[0].url, '_blank')} color='secondary' aria-label="Website">
+                            <RemoveRedEyeIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                       </Stack>
                     </div>
@@ -100,14 +100,14 @@ function ProjectsApp() {
                       </Item>
                       <Stack direction="row" spacing={1}>
                         <Tooltip title="On GitHub">
-                          <IconButton onClick={() => window.open(itemData[1].github, '_blank')} color='secondary' aria-label="On GitHub">
-                            <GitHubIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[1].github, '_blank')} color='secondary' aria-label="On GitHub">
+                            <GitHubIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                         <Tooltip title="Website">
-                          <IconButton onClick={() => window.open(itemData[1].url, '_blank')} color='secondary' aria-label="Website">
-                            <RemoveRedEyeIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[1].url, '_blank')} color='secondary' aria-label="Website">
+                            <RemoveRedEyeIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                       </Stack>
                     </div>
@@ -141,14 +141,14 @@ function ProjectsApp() {
                       </Item>
                       <Stack justifyContent={!hideTabs ? 'flex-end' : 'flex-start' }  direction="row" spacing={1}>
                         <Tooltip title="On GitHub">
-                          <IconButton onClick={() => window.open(itemData[2].github, '_blank')} color='secondary' aria-label="On GitHub">
-                            <GitHubIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[2].github, '_blank')} color='secondary' aria-label="On GitHub">
+                            <GitHubIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                         <Tooltip title="Website">
-                          <IconButton onClick={() => window.open(itemData[2].url, '_blank')} color='secondary' aria-label="Website">
-                            <RemoveRedEyeIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[2].url, '_blank')} color='secondary' aria-label="Website">
+                            <RemoveRedEyeIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                       </Stack>
                     </div>
@@ -170,14 +170,14 @@ function ProjectsApp() {
                       </Item>
                       <Stack direction="row" spacing={1}>
                         <Tooltip title="On GitHub">
-                          <IconButton onClick={() => window.open(itemData[3].github, '_blank')} color='secondary' aria-label="On GitHub">
-                            <GitHubIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[3].github, '_blank')} color='secondary' aria-label="On GitHub">
+                            <GitHubIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                         <Tooltip title="Website">
-                          <IconButton onClick={() => window.open(itemData[3].url, '_blank')} color='secondary' aria-label="Website">
-                            <RemoveRedEyeIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[3].url, '_blank')} color='secondary' aria-label="Website">
+                            <RemoveRedEyeIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                       </Stack>
                     </div>
@@ -212,14 +212,14 @@ function ProjectsApp() {
                       </Item>
                       <Stack justifyContent={!hideTabs ? "flex-end" : "flex-start"} direction="row" spacing={1}>
                         <Tooltip title="On GitHub">
-                          <IconButton onClick={() => window.open(itemData[4].github, '_blank')} color='secondary' aria-label="On GitHub">
-                            <GitHubIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[4].github, '_blank')} color='secondary' aria-label="On GitHub">
+                            <GitHubIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                         <Tooltip title="Website">
-                          <IconButton onClick={() => window.open(itemData[4].url, '_blank')} color='secondary' aria-label="Website">
-                            <RemoveRedEyeIcon />
-                          </IconButton>
+                          <Fab size="small" onClick={() => window.open(itemData[4].url, '_blank')} color='secondary' aria-label="Website">
+                            <RemoveRedEyeIcon color='primary' />
+                          </Fab>
                         </Tooltip>
                       </Stack>
                     </div>

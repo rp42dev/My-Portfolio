@@ -46,11 +46,10 @@ export default function BackToTop(props) {
             <ScrollTop {...props} >
                 <Tooltip title="Back to top">
                     <Fab color="secondary" size="small" aria-label="scroll back to top">
-                        <KeyboardArrowUpIcon fontSize='large' color="dark" />
+                        <KeyboardArrowUpIcon fontSize='large' color='primary' />
                     </Fab>
                 </Tooltip>
             </ScrollTop>
         </Box>
-
     );
 }

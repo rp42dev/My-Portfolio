@@ -1,9 +1,4 @@
-#navigation {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
-}
+
 
 .MuiTab-root {
   letter-spacing: 2px;

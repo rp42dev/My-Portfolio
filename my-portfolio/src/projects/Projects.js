@@ -29,9 +29,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 function ProjectsApp() {
-
   const hideTabs = useMediaQuery('(max-width: 900px)')
-  console.log(hideTabs)
 
   const context = useContext(AppContext);
   function handlePage() {

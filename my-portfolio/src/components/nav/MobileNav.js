@@ -37,11 +37,11 @@ export default function MobileMenu(props) {
             }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
 
-                    <Tooltip title="Expand Menu">
+                    <Tooltip title="Expand Menu" >
                         <IconButton
                             onClick={handleClick}
-                            size="small"
-                            sx={{ mt: 2 }}
+                            size="large"
+                            sx={{ p: 0 }}
                             aria-controls={open ? 'mobile-menu' : undefined}
                             aria-haspopup="true"
                             aria-expanded={open ? 'true' : undefined}

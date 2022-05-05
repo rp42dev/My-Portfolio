@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 
-export default function useScrollTo() {
+export default function useScrollTo(newValue) {
     const context = useContext(AppContext);
     const [value, setValue] = useState(context.store);
     let myObject = ['home', 'about', 'projects', 'contact'];

@@ -13,7 +13,6 @@ const theme = createTheme({
       '@media (min-width:400px)': {
         fontSize: '1.4rem',
       },
-      fontWeight: 'lighter',
       fontFamily: '"Roboto", sans-serif'
     },
     h2: {
@@ -21,7 +20,6 @@ const theme = createTheme({
       '@media (min-width:400px)': {
         fontSize: '4rem',
       },
-      fontWeight: 'lighter',
       fontFamily: '"Roboto", sans-serif'
     },
     body1: {

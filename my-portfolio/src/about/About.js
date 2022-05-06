@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
-import LightSpeed from 'react-reveal/LightSpeed';
+import Fade from 'react-reveal/Fade';
 import DoneIcon from '@mui/icons-material/Done';
 import './About.css';
 
@@ -13,31 +13,31 @@ function AboutApp() {
 
     context.actions.addTask('about')
   }
-  
+
   return (
- 
+
     <Container id="about" sx={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
       <Box >
-       
-        <Typography color="secondary" variant="h2">
-          <LightSpeed left cascade duration={1500}>
+
+        <Fade bottom cascade >
+          <Typography color="secondary" variant="h2">
             About me
-          </LightSpeed>
-        </Typography>
+          </Typography>
+        </Fade>
 
 
-        <Box className="about-text" sx={{ mt: 2 }}>
-          <Typography sx={{ mt: 2 }} color="primary" variant="h6">
-            <LightSpeed left delay={500} duration={1500}>
+        <Fade bottom cascade delay={500}>
+          <Box className="about-text" sx={{ mt: 2 }}>
+            <Typography sx={{ mt: 2 }} color="primary" variant="h6">
               I'm a Full-Stack Software Development Bootcamp graduate
               with a passion for learning and problem-solving,
               with an extensive background in various coding languages and
               I have a strong foundation in Full-Stack web development.
-            </LightSpeed>
-          </Typography>
-        </Box>
+            </Typography>
+          </Box>
+        </Fade>
 
-        <LightSpeed left delay={1000} duration={2000}>
+        <Fade bottom cascade delay={700}>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
             My top Priorities
           </Typography>
@@ -52,8 +52,9 @@ function AboutApp() {
               <DoneIcon fontSize='1rem' /><span>Website speed, performance optimization best practices.</span>
             </Typography>
           </Box>
-        </LightSpeed>
-        <LightSpeed left delay={1500} duration={2000}>
+        </Fade>
+  
+        <Fade bottom cascade delay={1100}>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
             Technologies I’ve worked with
           </Typography>
@@ -66,7 +67,7 @@ function AboutApp() {
               </ul>
             </Typography>
           </Box>
-        </LightSpeed>
+        </Fade>
       </Box>
     </Container>
 

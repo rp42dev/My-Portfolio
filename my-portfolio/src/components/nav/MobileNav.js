@@ -58,7 +58,7 @@ export default function MobileMenu(props) {
                     open={open}
                     onClose={handleClose}
                     PaperProps={{
-                        elevation: 0,
+                        elevation: 4,
                         sx: {
                             typography: 'button',
                             letterSpacing: '2px',
@@ -88,26 +88,22 @@ export default function MobileMenu(props) {
                     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                 >
-                        
-                    <MenuItem key="1">
-                        <Tabs
-                            orientation="vertical"
-                            value={context.store}
-                            onChange={props.handleChange}
-                            textColor="secondary"
-                            indicatorColor="secondary"
-                        >
-                            {props.myObject.map((option, index) => (
-                                <Tab
-                                    key={index}
-                                    label={option}
-                                    value={option}
-                                >
-                                </Tab>
-                            ))}
-                        </Tabs>
-
-                    </MenuItem>
+                    <Tabs
+                        orientation="vertical"
+                        value={context.store}
+                        onChange={props.handleChange}
+                        textColor="secondary"
+                        indicatorColor="secondary"
+                    >
+                        {props.myObject.map((option, index) => (
+                            <Tab
+                                key={index}
+                                label={option}
+                                value={option}
+                            >
+                            </Tab>
+                        ))}
+                    </Tabs>
                 </Menu>
             </Box>
         </React.Fragment>

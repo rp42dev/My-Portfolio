@@ -49,7 +49,7 @@ export default function Nav(props) {
     return (
         <HideOnScroll {...props}>
             <AppBar 
-                elevation={7}
+                elevation={3}
             sx={{
                 px: 2,
                 typography: 'btn',

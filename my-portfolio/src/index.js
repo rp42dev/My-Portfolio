@@ -21,7 +21,7 @@ const theme = createTheme({
   typography: {
     h1: { fontFamily: '"Roboto", sans-serif' },
     h6: {
-      fontSize: '1rem',
+      fontSize: '1.2rem',
       '@media (min-width:400px)': {
         fontSize: '1.4rem',
       },
@@ -35,13 +35,13 @@ const theme = createTheme({
       fontFamily: '"Roboto", sans-serif'
     },
     body1: {
-      fontSize: '.7rem',
+      fontSize: '.8rem',
       '@media (min-width:400px)': {
         fontSize: '1rem',
       },
     },
     body2: {
-      fontSize: '.7rem',
+      fontSize: '.8rem',
       '@media (min-width:400px)': {
         fontSize: '1rem',
       },

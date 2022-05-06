@@ -21,11 +21,10 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 400,
     width: 100,
-    [theme.breakpoints.down('md')]: {
-        width: '100% !important',
-        height: 300,
-    },
+    
     '& .MuiTypography-root': {
+        fontStyle: theme.button,
+        opacity: .7,
         color: theme.palette.primary.main,
         borderBottom: '3px solid transparent',
         borderRadius: '4px',
@@ -44,6 +43,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
         },
         '& .MuiTypography-root': {
+            opacity: 1,
             borderBottom: '3px solid rgba(179, 113, 66)',
             backgroundColor: 'rgba(0, 0, 0, .3)',
         },
@@ -53,6 +53,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 
 const ImageSrc = styled('span')({
     position: 'absolute',
+    borderRadius: '4px 4px 0 0',
     left: 0,
     right: 0,
     top: 0,
@@ -63,12 +64,13 @@ const ImageSrc = styled('span')({
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
+    borderRadius: '4px 4px 0 0',
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.4,
+    opacity: 0.3,
     transition: theme.transitions.create('opacity'),
 }));
 
@@ -90,7 +92,7 @@ export default function ImageBases(data) {
         <>
             {data.data.map((image, i) => (
                 (i % 2 === 0) ? (
-                    <Grid container mt={{ xs: 3, md: 4 }} rowSpacing={{ sx: 2, md: 10 }}>
+                    <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
 
                         <Grid item xs={12} md={7} order={{ xs: 1 }}>
                             <Fade bottom>
@@ -105,8 +107,9 @@ export default function ImageBases(data) {
                                         <ImageSrc style={{ backgroundImage: `url(${image.img})` }} />
                                         <ImageBackdrop className="MuiImageBackdrop-root" />
                                         <Typography
+                                            onClick={() => window.open(image.url, '_blank')}
                                             component="span"
-                                            variant="subtitle1"
+                                            variant="button"
                                             color="inherit"
                                             sx={{
                                                 position: 'relative',
@@ -153,11 +156,12 @@ export default function ImageBases(data) {
                     </Grid>
 
                 ) : (
-                    <Grid container mt={{ xs: 3, md: 4 }} rowSpacing={{ sx: 2, md: 10 }}>
+                    <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
                         <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
                             <Fade bottom>
                                 <Box>
                                     <ImageButton
+                                        onClick={() => window.open(image.url, '_blank')}
                                         focusRipple
                                         key={image.title}
                                         style={{
@@ -168,7 +172,7 @@ export default function ImageBases(data) {
                                         <ImageBackdrop className="MuiImageBackdrop-root" />
                                         <Typography
                                             component="span"
-                                            variant="subtitle1"
+                                            variant="button"
                                             color="inherit"
                                             sx={{
                                                 position: 'relative',

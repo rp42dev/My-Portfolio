@@ -24,7 +24,7 @@ function ProjectsApp() {
 
           <Box sx={{ mt: 2 }}>
             <Typography color="secondary" variant="h2">My Portfolio</Typography>
-            <Typography sx={{ mt: 2 }} color="primary" variant="h6">
+            <Typography sx={{ mt: 2, mb: 3 }} color="primary" variant="h6">
               A collection of some of my work
             </Typography>
           </Box>

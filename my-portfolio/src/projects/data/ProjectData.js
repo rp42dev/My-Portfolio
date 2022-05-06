@@ -1,9 +1,9 @@
 
-import image1 from '../../assets/images/tattoo.webp';
-import image2 from '../../assets/images/hats.webp';
-import image3 from '../../assets/images/emo.webp';
-import image4 from '../../assets/images/game.webp';
-import image5 from '../../assets/images/flower.webp';
+import image1 from '../../assets/images/tattoo.png';
+import image2 from '../../assets/images/hats.png';
+import image3 from '../../assets/images/emotify.png';
+import image4 from '../../assets/images/game.png';
+import image5 from '../../assets/images/flower.png';
 
  
 const itemData = [

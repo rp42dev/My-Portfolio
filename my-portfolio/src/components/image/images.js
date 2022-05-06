@@ -21,7 +21,12 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 400,
     width: 100,
-    
+    boxShadow: theme.shadows[10],
+    '@media (max-width:400px)': {
+        height: 300,
+        width: 'auto',
+    },
+
     '& .MuiTypography-root': {
         fontStyle: theme.button,
         opacity: .7,
@@ -53,18 +58,19 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 
 const ImageSrc = styled('span')({
     position: 'absolute',
-    borderRadius: '4px 4px 0 0',
+    borderRadius: '4px',
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
     backgroundSize: 'cover',
     backgroundPosition: 'center 40%',
+
 });
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
-    borderRadius: '4px 4px 0 0',
+    borderRadius: '4px',
     left: 0,
     right: 0,
     top: 0,
@@ -96,8 +102,9 @@ export default function ImageBases(data) {
 
                         <Grid item xs={12} md={7} order={{ xs: 1 }}>
                             <Fade bottom>
-                                <Box >
+                                <Paper elevation={8}>
                                     <ImageButton
+                                        onClick={() => window.open(image.url, '_blank')}
                                         focusRipple
                                         key={image.title}
                                         style={{
@@ -107,7 +114,6 @@ export default function ImageBases(data) {
                                         <ImageSrc style={{ backgroundImage: `url(${image.img})` }} />
                                         <ImageBackdrop className="MuiImageBackdrop-root" />
                                         <Typography
-                                            onClick={() => window.open(image.url, '_blank')}
                                             component="span"
                                             variant="button"
                                             color="inherit"
@@ -122,13 +128,13 @@ export default function ImageBases(data) {
 
                                         </Typography>
                                     </ImageButton>
-                                </Box>
+                                </Paper>
                             </Fade>
                         </Grid>
                         <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                             <Box sx={{ zIndex: 999, width: '100%' }}>
                                 <Fade bottom cascade delay={500}>
-                                    <Box className={i % 2 ? 'left' : 'right'} >
+                                    <Paper elevation={8} className={i % 2 ? 'left' : 'right'} >
                                         <Typography color='primary.dark' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
@@ -149,7 +155,7 @@ export default function ImageBases(data) {
                                                 </IconButton>
                                             </Tooltip>
                                         </Stack>
-                                    </Box>
+                                    </Paper>
                                 </Fade>
                             </Box>
                         </Grid>
@@ -159,7 +165,7 @@ export default function ImageBases(data) {
                     <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
                         <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
                             <Fade bottom>
-                                <Box>
+                                <Paper elevation={6}>
                                     <ImageButton
                                         onClick={() => window.open(image.url, '_blank')}
                                         focusRipple
@@ -184,13 +190,13 @@ export default function ImageBases(data) {
                                             {image.title}
                                         </Typography>
                                     </ImageButton>
-                                </Box>
+                                </Paper>
                             </Fade>
                         </Grid>
                         <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                             <Box sx={{ zIndex: 999, width: '100%' }}>
                                 <Fade bottom cascade delay={500}>
-                                    <Box className={i % 2 ? 'left' : 'right'}>
+                                    <Paper elevation={6} className={i % 2 ? 'left' : 'right'}>
                                         <Typography color='primary.dark' align={hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
@@ -211,7 +217,7 @@ export default function ImageBases(data) {
                                                 </IconButton>
                                             </Tooltip>
                                         </Stack>
-                                    </Box>
+                                    </Paper>
                                 </Fade>
                             </Box>
                         </Grid>

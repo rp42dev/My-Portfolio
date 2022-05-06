@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/My-Portfolio/static/css/main.b35cada3.css",
-    "main.js": "/My-Portfolio/static/js/main.2784434b.js",
+    "main.css": "/My-Portfolio/static/css/main.ecd37866.css",
+    "main.js": "/My-Portfolio/static/js/main.f5cffaa3.js",
     "static/js/787.128fc6e9.chunk.js": "/My-Portfolio/static/js/787.128fc6e9.chunk.js",
-    "static/media/tattoo.webp": "/My-Portfolio/static/media/tattoo.f765fa973cd4e36a41f5.webp",
-    "static/media/flower.webp": "/My-Portfolio/static/media/flower.ea59cf708b56de1985ef.webp",
-    "static/media/emo.webp": "/My-Portfolio/static/media/emo.b04f52b9b53eeb5b9eba.webp",
-    "static/media/hats.webp": "/My-Portfolio/static/media/hats.d8521039a70379a5aa87.webp",
-    "static/media/game.webp": "/My-Portfolio/static/media/game.d0b488d6d550eb6eb81f.webp",
+    "static/media/tattoo.png": "/My-Portfolio/static/media/tattoo.705d9d5a1804bc0edf7d.png",
+    "static/media/flower.png": "/My-Portfolio/static/media/flower.7ab14ace916ae2a38260.png",
+    "static/media/hats.png": "/My-Portfolio/static/media/hats.fd42aa9470153277a6de.png",
+    "static/media/emotify.png": "/My-Portfolio/static/media/emotify.42871cb49a663c680480.png",
+    "static/media/game.png": "/My-Portfolio/static/media/game.c72bc7a6fe0b0a201167.png",
     "index.html": "/My-Portfolio/index.html",
-    "main.b35cada3.css.map": "/My-Portfolio/static/css/main.b35cada3.css.map",
-    "main.2784434b.js.map": "/My-Portfolio/static/js/main.2784434b.js.map",
+    "main.ecd37866.css.map": "/My-Portfolio/static/css/main.ecd37866.css.map",
+    "main.f5cffaa3.js.map": "/My-Portfolio/static/js/main.f5cffaa3.js.map",
     "787.128fc6e9.chunk.js.map": "/My-Portfolio/static/js/787.128fc6e9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b35cada3.css",
-    "static/js/main.2784434b.js"
+    "static/css/main.ecd37866.css",
+    "static/js/main.f5cffaa3.js"
   ]
 }

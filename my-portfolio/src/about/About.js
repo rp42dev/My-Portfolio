@@ -19,14 +19,14 @@ function AboutApp() {
     <Container id="about" sx={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
       <Box >
 
-        <Fade bottom cascade >
+        <Fade bottom distance="30%" cascade >
           <Typography color="secondary" variant="h2">
             About me
           </Typography>
         </Fade>
 
 
-        <Fade bottom cascade delay={500}>
+        <Fade bottom distance="30%" cascade delay={300}>
           <Box className="about-text" sx={{ mt: 2 }}>
             <Typography sx={{ mt: 2 }} color="primary" variant="h6">
               I'm a Full-Stack Software Development Bootcamp graduate
@@ -37,7 +37,7 @@ function AboutApp() {
           </Box>
         </Fade>
 
-        <Fade bottom cascade delay={700}>
+        <Fade bottom distance="30%" cascade delay={600}>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
             My top Priorities
           </Typography>
@@ -54,7 +54,7 @@ function AboutApp() {
           </Box>
         </Fade>
   
-        <Fade bottom cascade delay={1100}>
+        <Fade bottom distance="30%" cascade delay={900}>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
             Technologies I’ve worked with
           </Typography>

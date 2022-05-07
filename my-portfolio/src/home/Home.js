@@ -27,26 +27,26 @@ function HomeApp() {
       <Box id="home" sx={{ position: 'relative' }}>
         <Box className="home-content" >
 
-            <Fade bottom>
+            <Fade bottom distance="30%">
           <Typography color="secondary" variant="h1">
               Hi, I'm Raivis
           </Typography>
               </Fade>
           <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
           </InView>
-            <Fade bottom cascade delay={500}>
+            <Fade bottom distance="30%" cascade delay={300}>
           <Typography sx={{ mt: 2 }} color="primary.dark" variant="h4">
               A Junior Web Designer & Developer
           </Typography>
               </Fade>
 
-            <Fade bottom cascade delay={800}>
+            <Fade bottom distance="30%" cascade delay={600}>
           <Typography sx={{ mt: 2 }} color="primary" variant="h5">
               I enjoy creating Responsive and accessible websites
           </Typography>
               </Fade>
         
-          <Fade bottom delay={1100}>
+          <Fade bottom distance="30%" delay={900}>
             <Btn />
           </Fade>
         </Box>

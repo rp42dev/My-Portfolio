@@ -19,7 +19,7 @@ export default function Btn(prop) {
             minWidth:200,
             fontSize: 20,
             mt: 3,
-            color: 'primary.main',
+            color: 'dark.main',
         }} 
         mt={2} 
         color="secondary" variant="contained">

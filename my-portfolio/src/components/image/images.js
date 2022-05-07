@@ -9,6 +9,7 @@ import {
     Paper,
     Tooltip,
     ButtonBase,
+    Link,
 } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -17,26 +18,50 @@ import Fade from 'react-reveal/Fade';
 import '../../projects/Projects.css';
 
 
+const StyledPaper = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    color: theme.palette.text.primary,
+    backgroundColor: 'rgb(20, 20, 21, 0.5)',
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[5],
+    transition: theme.transitions.create('box-shadow', {
+        duration: theme.transitions.duration.st,
+    }),
+    '&:hover': {
+        boxShadow: theme.shadows[10],
+    }
+}));
+
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 400,
     width: 100,
-    boxShadow: theme.shadows[10],
-    '@media (max-width:400px)': {
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[5],
+    transition: theme.transitions.create('box-shadow', {
+        duration: theme.transitions.duration.short,
+    }),
+    '@media (max-width:600px)': {
         height: 300,
         width: 'auto',
     },
-
+    '@media (max-width:400px)': {
+        height: 200,
+        width: 'auto',
+    },
     '& .MuiTypography-root': {
         fontStyle: theme.button,
         opacity: .7,
         color: theme.palette.primary.main,
         borderBottom: '3px solid transparent',
         borderRadius: '4px',
-        transform: 'border translateX(0)', color: theme.palette.primary.main,
         transition: 'all .2s ease-in-out',
     },
     '&:hover': {
+        boxShadow: theme.shadows[10],
         zIndex: 1,
         '& .MuiImageBackdrop-root': {
             opacity: 0.15,
@@ -45,12 +70,13 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
             opacity: 1,
         },
         '& .MuiTypography-root': {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: 'rgb(20, 20, 21, 0.5))',
         },
         '& .MuiTypography-root': {
             opacity: 1,
             borderBottom: '3px solid rgba(179, 113, 66)',
-            backgroundColor: 'rgba(0, 0, 0, .3)',
+            backgroundColor: 'rgb(20, 20, 21, 0.3)',
+            color: theme.palette.secondary.main,
         },
 
     },
@@ -101,9 +127,11 @@ export default function ImageBases(data) {
                     <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
 
                         <Grid item xs={12} md={7} order={{ xs: 1 }}>
-                            <Fade bottom>
-                                <Paper elevation={8}>
+                            <Fade bottom distance="30%">
+
+                                <StyledPaper elevation={8}>
                                     <ImageButton
+                                        title='View live site'
                                         onClick={() => window.open(image.url, '_blank')}
                                         focusRipple
                                         key={image.title}
@@ -128,13 +156,13 @@ export default function ImageBases(data) {
 
                                         </Typography>
                                     </ImageButton>
-                                </Paper>
+                                </StyledPaper>
                             </Fade>
                         </Grid>
                         <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                             <Box sx={{ zIndex: 999, width: '100%' }}>
-                                <Fade bottom cascade delay={500}>
-                                    <Paper elevation={8} className={i % 2 ? 'left' : 'right'} >
+                                <Fade bottom distance="30%" cascade delay={500}>
+                                    <StyledPaper elevation={10} className={i % 2 ? 'left' : 'right'} >
                                         <Typography color='primary.dark' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
@@ -145,17 +173,18 @@ export default function ImageBases(data) {
                                         </Item>
                                         <Stack justifyContent={!hideTabs ? 'flex-end' : 'flex-start'} direction="row" spacing={1}>
                                             <Tooltip title="On GitHub">
-                                                <IconButton size="small" onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
+                                                <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
                                                     <GitHubIcon />
+                                                    {console.log(hideTabs)}
                                                 </IconButton>
                                             </Tooltip>
                                             <Tooltip title="Website">
-                                                <IconButton size="small" onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
-                                                    <RemoveRedEyeIcon />
+                                                <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
+                                                    <RemoveRedEyeIcon  sx={{ fontSize: 30  }} />
                                                 </IconButton>
                                             </Tooltip>
                                         </Stack>
-                                    </Paper>
+                                    </StyledPaper>
                                 </Fade>
                             </Box>
                         </Grid>
@@ -164,9 +193,10 @@ export default function ImageBases(data) {
                 ) : (
                     <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
                         <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
-                            <Fade bottom>
-                                <Paper elevation={6}>
+                            <Fade bottom distance="30%">
+                                <StyledPaper elevation={6}>
                                     <ImageButton
+                                        title='View live site'       
                                         onClick={() => window.open(image.url, '_blank')}
                                         focusRipple
                                         key={image.title}
@@ -190,14 +220,14 @@ export default function ImageBases(data) {
                                             {image.title}
                                         </Typography>
                                     </ImageButton>
-                                </Paper>
+                                </StyledPaper >
                             </Fade>
                         </Grid>
                         <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                             <Box sx={{ zIndex: 999, width: '100%' }}>
-                                <Fade bottom cascade delay={500}>
-                                    <Paper elevation={6} className={i % 2 ? 'left' : 'right'}>
-                                        <Typography color='primary.dark' align={hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
+                                <Fade bottom distance="30%" cascade delay={500}>
+                                    <StyledPaper elevation={6} className={i % 2 ? 'left' : 'right'}>
+                                        <Typography color='primary.dark' sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
                                         <Item elevation={10}>
@@ -205,19 +235,19 @@ export default function ImageBases(data) {
                                                 {image.description}
                                             </Typography>
                                         </Item>
-                                        <Stack justifyContent={hideTabs ? 'flex-end' : 'flex-start'} direction="row" spacing={1}>
+                                        <Stack direction="row" spacing={1}>
                                             <Tooltip title="On GitHub">
-                                                <IconButton size="small" onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
+                                                    <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
                                                     <GitHubIcon />
                                                 </IconButton>
                                             </Tooltip>
                                             <Tooltip title="Website">
-                                                <IconButton size="small" onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
-                                                    <RemoveRedEyeIcon />
+                                                    <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
+                                                        <RemoveRedEyeIcon  sx={{ fontSize: 30  }}/>
                                                 </IconButton>
                                             </Tooltip>
                                         </Stack>
-                                    </Paper>
+                                    </StyledPaper >
                                 </Fade>
                             </Box>
                         </Grid>

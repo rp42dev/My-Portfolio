@@ -17,10 +17,10 @@ function ContactApp() {
     <Container id="contact" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
       <Box mt={2} sx={{ maxWidth: '500px' }} >
-        <Fade bottom>
+        <Fade distance="30%" bottom>
           <Typography color="secondary" variant="h2">Get in Touch</Typography>
         </Fade>
-        <Fade bottom delay={500}>
+        <Fade bottom distance="30%" delay={300}>
           <Typography mt={2} color="primary" variant="body2">
             I’m  currently looking for new opportunities,
             If you have a question feel free to
@@ -29,7 +29,7 @@ function ContactApp() {
         </Fade>
         <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         </InView>
-        <Fade bottom delay={800}>
+        <Fade bottom distance="30%" delay={600}>
           <ContactForm />
         </Fade>
       </Box>

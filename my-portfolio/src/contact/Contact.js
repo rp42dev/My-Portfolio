@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 import './Contact.css';
 import ContactForm from '../components/forms/ContactForm';
+import SocialButtons from '../components/social/SocialBlock.js';
 
 
 function ContactApp() {
@@ -20,7 +21,7 @@ function ContactApp() {
         <Fade distance="30%" bottom>
           <Typography color="secondary" variant="h2">Get in Touch</Typography>
         </Fade>
-        <Fade bottom distance="30%" delay={300}>
+        <Fade bottom distance="30%" delay={200}>
           <Typography mt={2} color="primary" variant="body2">
             I’m  currently looking for new opportunities,
             If you have a question feel free to
@@ -29,8 +30,11 @@ function ContactApp() {
         </Fade>
         <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         </InView>
-        <Fade bottom distance="30%" delay={600}>
+        <Fade bottom distance="20%" delay={400}>
           <ContactForm />
+        </Fade>
+        <Fade bottom distance="20%" delay={800}>
+        <SocialButtons />
         </Fade>
       </Box>
     </Container>

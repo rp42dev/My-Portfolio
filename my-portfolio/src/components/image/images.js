@@ -55,7 +55,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     '& .MuiTypography-root': {
         fontStyle: theme.button,
         opacity: .7,
-        color: theme.palette.primary.main,
+        color: 'transparent',
         borderBottom: '3px solid transparent',
         borderRadius: '4px',
         transition: 'all .2s ease-in-out',
@@ -107,16 +107,6 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 }));
 
 
-const Item = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(1),
-    '@media (min-width:400px)': {
-        padding: theme.spacing('projects'),
-    },
-    color: theme.palette.text.secondary,
-    backgroundColor: 'rgb(20, 20, 21, 0.5)',
-}));
-
-
 export default function ImageBases(data) {
     const hideTabs = useMediaQuery('(max-width: 900px)');
 
@@ -124,12 +114,12 @@ export default function ImageBases(data) {
         <>
             {data.data.map((image, i) => (
                 (i % 2 === 0) ? (
-                    <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
+                    <Fade bottom distance="30%">
+                        <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
 
-                        <Grid item xs={12} md={7} order={{ xs: 1 }}>
-                            <Fade bottom distance="30%">
+                            <Grid item xs={12} md={7} order={{ xs: 1 }}>
 
-                                <StyledPaper elevation={8}>
+                                <Paper elevation={6}>
                                     <ImageButton
                                         title='View live site'
                                         onClick={() => window.open(image.url, '_blank')}
@@ -156,47 +146,47 @@ export default function ImageBases(data) {
 
                                         </Typography>
                                     </ImageButton>
-                                </StyledPaper>
-                            </Fade>
-                        </Grid>
-                        <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                            <Box sx={{ zIndex: 999, width: '100%' }}>
-                                <Fade bottom distance="30%" cascade delay={500}>
-                                    <StyledPaper elevation={10} className={i % 2 ? 'left' : 'right'} >
+                                </Paper>
+
+                            </Grid>
+                            <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+                                <Box sx={{ zIndex: 999, width: '100%' }}>
+
+                                    <StyledPaper elevation={8} className={i % 2 ? 'left' : 'right'} >
                                         <Typography color='primary.dark' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
-                                        <Item elevation={10}>
-                                            <Typography color='primary' variant="body2">
-                                                {image.description}
-                                            </Typography>
-                                        </Item>
+
+                                        <Typography color='primary' variant="body2">
+                                            {image.description}
+                                        </Typography>
+
                                         <Stack justifyContent={!hideTabs ? 'flex-end' : 'flex-start'} direction="row" spacing={1}>
                                             <Tooltip title="On GitHub">
                                                 <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
                                                     <GitHubIcon />
-                                                    {console.log(hideTabs)}
+                                                   
                                                 </IconButton>
                                             </Tooltip>
                                             <Tooltip title="Website">
                                                 <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
-                                                    <RemoveRedEyeIcon  sx={{ fontSize: 30  }} />
+                                                    <RemoveRedEyeIcon sx={{ fontSize: 30 }} />
                                                 </IconButton>
                                             </Tooltip>
                                         </Stack>
                                     </StyledPaper>
-                                </Fade>
-                            </Box>
+                                </Box>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Fade>
 
                 ) : (
-                    <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
-                        <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
-                            <Fade bottom distance="30%">
-                                <StyledPaper elevation={6}>
+                    <Fade bottom distance="30%">
+                        <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
+                            <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
+                                <Paper elevation={6}>
                                     <ImageButton
-                                        title='View live site'       
+                                        title='View live site'
                                         onClick={() => window.open(image.url, '_blank')}
                                         focusRipple
                                         key={image.title}
@@ -220,38 +210,38 @@ export default function ImageBases(data) {
                                             {image.title}
                                         </Typography>
                                     </ImageButton>
-                                </StyledPaper >
-                            </Fade>
-                        </Grid>
-                        <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                            <Box sx={{ zIndex: 999, width: '100%' }}>
-                                <Fade bottom distance="30%" cascade delay={500}>
-                                    <StyledPaper elevation={6} className={i % 2 ? 'left' : 'right'}>
+                                </Paper >
+
+                            </Grid>
+                            <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+                                <Box sx={{ zIndex: 999, width: '100%' }}>
+
+                                    <StyledPaper elevation={8} className={i % 2 ? 'left' : 'right'}>
                                         <Typography color='primary.dark' sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
-                                        <Item elevation={10}>
-                                            <Typography color='primary' variant="body2">
-                                                {image.description}
-                                            </Typography>
-                                        </Item>
+
+                                        <Typography color='primary' variant="body2">
+                                            {image.description}
+                                        </Typography>
+
                                         <Stack direction="row" spacing={1}>
                                             <Tooltip title="On GitHub">
-                                                    <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
+                                                <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
                                                     <GitHubIcon />
                                                 </IconButton>
                                             </Tooltip>
                                             <Tooltip title="Website">
-                                                    <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
-                                                        <RemoveRedEyeIcon  sx={{ fontSize: 30  }}/>
+                                                <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
+                                                    <RemoveRedEyeIcon sx={{ fontSize: 30 }} />
                                                 </IconButton>
                                             </Tooltip>
                                         </Stack>
                                     </StyledPaper >
-                                </Fade>
-                            </Box>
+                                </Box>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Fade>
                 )
             ))}
 

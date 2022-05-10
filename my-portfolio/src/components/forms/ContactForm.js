@@ -1,178 +1,123 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import LoadingButton from '@mui/lab/LoadingButton';
 import emailjs from 'emailjs-com';
 import Alert from '@mui/material/Alert';
-
+import { useForm, Controller } from "react-hook-form";
 
 
 const Form = () => {
-
-    const initialValues = { from_name: "", from_email: "", message: "" };
-    const [fieldError, setFieldErrors] = useState({ from_name: false, from_email: false, message: false });
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formValid, setFormValid] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
-    const [target, setTarget] = useState(null);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
-        setTarget(e.target);
-    };
-
-    useEffect(() => {
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log(formValues);
-            sendEmail(target);
+    const form = useRef();
+    const [mailController, setMailController] = useState({
+        isLoading: false,
+        isSuccess: false,
+        isError: false,
+        errorMessage: ''
+    });
+    const { control, formState: { errors }, handleSubmit } = useForm({
+        defaultValues: {
+            from_name: "",
+            from_email: "",
+            message: ""
         }
-    }, [formErrors]);
+    });
 
-    const sendEmail = (target) => {
-        setLoading(true);
-        setSuccess(false);
-        setErrorMessage('');
+    const sendMail = () => {
+        setMailController({
+            isLoading: true,
+            isSuccess: false,
+            isError: false,
+            errorMessage: ''
+        });
 
-        emailjs.sendForm("gmail", "rp80-portfolio", target, 'user_sNMdDrU9fds14TIEdBqW')
+        emailjs.sendForm("gmail", "rp80-portfolio", form.current, 'user_sNMdDrU9fds14TIEdBqW9')
             .then(() => {
+                setMailController({
+                    isLoading: false,
+                    isSuccess: true,
+                    isError: false,
+                    errorMessage: ''
+                });
                 console.log('success');
-                handleSuccess();
+
             }
-            , (error) => {
-                console.log('error');
-                setErrorMessage('Something went wrong please try again later! Status:' + error.status);
-                handleError(error);
-            }
+                , (error) => {
+                    setMailController({
+                        isLoading: false,
+                        isSuccess: false,
+                        isError: true,
+                        errorMessage: 'Something went wrong please try again later! Status:' + error.status
+                    });
+                    console.log('error: ', error);
+                }
             );
     }
 
-    const handleSuccess = () => {
-        setIsSubmit(false);
-        setLoading(false);
-        setFormValues(initialValues);
-        setFieldErrors({});
-        setSuccess(true);
-    }
-
-    const handleError = () => {
-        setIsSubmit(false);
-        setLoading(false);
-        setFormValues(initialValues);
-        setFieldErrors({});
-        setError(true);
-    }
-
-    const validate = (values) => {
-        const errors = {};
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (!values.from_name) {
-            errors.from_name = "Username is required!";
-            fieldError.from_name = true;
-        } else if (values.from_name.length < 3) {
-            errors.from_name = "Username must be at least 3 characters!";
-            fieldError.from_name = true;
-        } else {
-            fieldError.from_name = false;
-        }
-        if (!values.from_email) {
-            errors.from_email = "Email is required!";
-            fieldError.from_email = true;
-        } else if (!regex.test(values.from_email)) {
-            errors.from_email = "This is not a valid email format!";
-            fieldError.from_email = true;
-        } else {
-            fieldError.from_email = false;
-        }
-        if (!values.message) {
-            errors.message = "message is required";
-            fieldError.message = true;
-        } else if (values.message.length < 4) {
-            errors.message = "message must be more than 4 characters";
-            fieldError.message = true;
-        } else if (values.message.length > 500) {
-            errors.message = "message cannot exceed more than 500 characters";
-            fieldError.message = true;
-        } else {
-            fieldError.message = false;
-        }
-        setFieldErrors(errors);
-
-        return errors;
-    };
-
     return (
-        
-        <Box
-            component="form"
-            noValidate
-            sx={{
-                '& > :not(style)': { m: 0 },
-            }}
-            onSubmit={handleSubmit}
-            autoComplete="off"
-        >
-            <Grid container direction={'row'} gap={3}>
-                <Grid sx={{ mt: 3, width: '100%' }} item>
-                    <TextField
-                        required
-                        fullWidth
-                        type="text"
-                        id="name"
+        <form ref={form} noValidate onSubmit={handleSubmit(sendMail)}>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <Controller
                         name="from_name"
-                        label="Name"
-                        variant="filled"
-                        sx={{ width: '100%' }}
-                        onChange={handleChange}
-                        error={fieldError.from_name}
-                        helperText={formErrors.from_name}
+                        control={control}
+
+                        rules={{
+                            required: 'Name is required',
+                            pattern: { value: /^[a-zA-Z]*$/, message: 'Name must be alphabets only' },
+                            minLength: { value: 2, message: 'Name must be at least 2 characters' },
+                            maxLength: { value: 20, message: 'Name must be less than 20 characters' }
+                        }}
+                        render={({ field }) => <TextField helperText={errors.from_name ? errors.from_name.message : ''} {...field}
+                            fullWidth
+                            required
+                            variant="filled"
+                            label="Name"
+                            error={errors.from_name ? true : false}
+                        />}
                     />
+
                 </Grid>
-                <Grid sx={{ width: '100%' }} item>
-                    <TextField
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email"
-                        type="email"
-                        variant="filled"
+                <Grid item xs={12}>
+                    <Controller
                         name="from_email"
-                        sx={{ width: '100%' }}
-                        onChange={handleChange}
-                        error={fieldError.from_email}
-                        helperText={formErrors.from_email}
+                        control={control}
+                        rules={{
+                            required: 'Email is required',
+                            pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'Invalid email address' }
+                        }}
+                        render={({ field }) => <TextField helperText={errors.from_email ? errors.from_email.message : ''} {...field}
+                            fullWidth
+                            required
+                            variant="filled"
+                            label="Email"
+                            error={errors.from_email ? true : false}
+                        />}
                     />
                 </Grid>
-                <Grid sx={{ width: '100%' }} item>
-                    <TextField
-                        required
-                        fullWidth
-                        id="message"
-                        type="text"
-                        multiline
-                        minRows={4}
+                <Grid item xs={12}>
+
+                    <Controller
                         name="message"
-                        label="Message"
-                        variant="filled"
-                        sx={{ width: '100%' }}
-                        onChange={handleChange}
-                        error={fieldError.message}
-                        helperText={formErrors.message}
+                        control={control}
+                        rules={{
+                            required: 'Message is required',
+                            minLength: { value: 10, message: 'Message must be at least 10 characters' },
+                            maxLength: { value: 500, message: 'Message must be less than 500 characters' }
+                        }}
+                        render={({ field }) => <TextField helperText={errors.message ? errors.message.message : ''} {...field}
+                            fullWidth
+                            required
+                            multiline
+                            minRows={4}
+                            variant="filled"
+                            label="Message"
+                            error={errors.message ? true : false}
+                        />}
                     />
                 </Grid>
-                <Grid sx={{ width: '100%' }} item>
+                <Grid item xs={12}>
                     <LoadingButton
                         type="submit"
                         sx={{
@@ -181,21 +126,22 @@ const Form = () => {
                             minWidth: 200,
                             fontSize: 20,
                         }}
-                        
-                        disabled={loading || success}
                         color="secondary"
-                        loading={loading}
+                        loading={mailController.isLoading}
+                        disabled={mailController.isLoading}
                         variant="contained">
                         Send
                     </LoadingButton>
                 </Grid>
-                <Grid color='primary' item xs={12}>
-                    {error ? <Alert severity="error">{errorMessage}</Alert> : null}
-                    {success ? <Alert severity="success">Message sent successfully!</Alert> : null}
+                <Grid item xs={12}>
+                    {mailController.isSuccess ? <Alert severity="success">Message sent successfully!</Alert> : null}
+                    {mailController.isError ? <Alert severity="error">{mailController.errorMessage}</Alert> : null}
                 </Grid>
             </Grid>
-        </Box>
+        </form>
+
     );
+
 };
 
 export default Form

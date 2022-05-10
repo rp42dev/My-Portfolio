@@ -15,7 +15,13 @@ function ContactApp() {
     context.actions.addTask('contact')
   }
   return (
-    <Container id="contact" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Container
+      id="contact"
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
 
       <Box mt={2} sx={{ maxWidth: '500px' }} >
         <Fade distance="30%" bottom>
@@ -34,7 +40,7 @@ function ContactApp() {
           <ContactForm />
         </Fade>
         <Fade bottom distance="20%" delay={800}>
-        <SocialButtons />
+          <SocialButtons />
         </Fade>
       </Box>
     </Container>

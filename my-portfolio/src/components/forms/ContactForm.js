@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -10,132 +10,111 @@ import Alert from '@mui/material/Alert';
 
 const Form = () => {
 
-    const [formData, setFormData] = useState({
-        from_name: '',
-        from_email: '',
-        message: ''
-    });
-
-
-    const [fieldError, setFieldErrors] = useState({
-        from_name: false,
-        from_email: false,
-        message: false
-    });
-
-    const [fieldErrorMessage, setFieldErrorMessage] = useState({
-        from_name: '',
-        from_email: '',
-        message: ''
-    }
-    );
-
+    const initialValues = { from_name: "", from_email: "", message: "" };
+    const [fieldError, setFieldErrors] = useState({ from_name: false, from_email: false, message: false });
+    const [formValues, setFormValues] = useState(initialValues);
     const [formValid, setFormValid] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const [target, setTarget] = useState(null);
 
-    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        setFormErrors(validate(formValues));
+        setIsSubmit(true);
+        setTarget(e.target);
+    };
+
+    useEffect(() => {
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(formValues);
+            sendEmail(target);
+        }
+    }, [formErrors]);
+
+    const sendEmail = (target) => {
         setLoading(true);
         setSuccess(false);
         setErrorMessage('');
 
-        if (formValid) {
-
-            console.log(formData);
-            emailjs.sendForm("gmail", "rp80-portfolio", e.target, 'user_sNMdDrU9fds14TIEdBqW9')
-                .then(() => {
-                    console.log('success');
-                    handleSuccess();
-                }, (error) => {
-                    console.log('error');
-                    setErrorMessage('Something went wrong please try again later! Status:' + error.status);
-                    handleError(error);
-                });
-        } else {
-            setErrorMessage('Please fill in all the fields');
-            handleError();
-        }
-    }
-
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-        setFieldErrors({
-            ...fieldError,
-            [e.target.name]: false
-        });
-        setFieldErrorMessage({
-            ...fieldErrorMessage,
-            [e.target.name]: ''
-
-        });
-    }
-
-    const validateForm = () => {
-        let formValid = true;
-        if (formData.from_name === '') {
-            formValid = false;
-            fieldError.from_name = true;
-            fieldErrorMessage.from_name = 'Please enter your name';
-        }   else {
-            fieldError.from_name = false;
-            fieldErrorMessage.from_name = '';
-        } 
-        if (formData.from_email === '') {
-            formValid = false;
-            fieldError.from_email = true;
-            fieldErrorMessage.from_email = 'Please enter your email';
-        }  else {
-            fieldError.from_email = false;
-            fieldErrorMessage.from_email = '';
-        }
-        if (formData.message === '') {
-            formValid = false;
-            fieldError.message = true;
-            fieldErrorMessage.message = 'Please enter your message';
-        } else {
-            fieldError.message = false;
-            fieldErrorMessage.message = '';
-        }
-
-        setFieldErrors(fieldError);
-        setFieldErrorMessage(fieldErrorMessage);
-        setFormValid(formValid);
-
-        return formValid;
+        emailjs.sendForm("gmail", "rp80-portfolio", target, 'user_sNMdDrU9fds14TIEdBqW')
+            .then(() => {
+                console.log('success');
+                handleSuccess();
+            }
+            , (error) => {
+                console.log('error');
+                setErrorMessage('Something went wrong please try again later! Status:' + error.status);
+                handleError(error);
+            }
+            );
     }
 
     const handleSuccess = () => {
+        setIsSubmit(false);
         setLoading(false);
+        setFormValues(initialValues);
+        setFieldErrors({});
         setSuccess(true);
-        setError(false);
-        setErrorMessage('');
-        setFormData({
-            from_name: '',
-            from_email: '',
-            message: ''
-        });
     }
 
     const handleError = () => {
+        setIsSubmit(false);
         setLoading(false);
-        setSuccess(false);
+        setFormValues(initialValues);
+        setFieldErrors({});
         setError(true);
-        setFormData({
-            from_name: '',
-            from_email: '',
-            message: ''
-        });
     }
 
+    const validate = (values) => {
+        const errors = {};
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        if (!values.from_name) {
+            errors.from_name = "Username is required!";
+            fieldError.from_name = true;
+        } else if (values.from_name.length < 3) {
+            errors.from_name = "Username must be at least 3 characters!";
+            fieldError.from_name = true;
+        } else {
+            fieldError.from_name = false;
+        }
+        if (!values.from_email) {
+            errors.from_email = "Email is required!";
+            fieldError.from_email = true;
+        } else if (!regex.test(values.from_email)) {
+            errors.from_email = "This is not a valid email format!";
+            fieldError.from_email = true;
+        } else {
+            fieldError.from_email = false;
+        }
+        if (!values.message) {
+            errors.message = "message is required";
+            fieldError.message = true;
+        } else if (values.message.length < 4) {
+            errors.message = "message must be more than 4 characters";
+            fieldError.message = true;
+        } else if (values.message.length > 500) {
+            errors.message = "message cannot exceed more than 500 characters";
+            fieldError.message = true;
+        } else {
+            fieldError.message = false;
+        }
+        setFieldErrors(errors);
+
+        return errors;
+    };
+
     return (
+        
         <Box
             component="form"
             noValidate
@@ -145,21 +124,20 @@ const Form = () => {
             onSubmit={handleSubmit}
             autoComplete="off"
         >
-
             <Grid container direction={'row'} gap={3}>
                 <Grid sx={{ mt: 3, width: '100%' }} item>
                     <TextField
                         required
                         fullWidth
+                        type="text"
                         id="name"
                         name="from_name"
                         label="Name"
-                        onChange={handleChange}
-                        error={fieldError.from_name}
-                        helperText={fieldErrorMessage.from_name}
-                        type="text"
                         variant="filled"
                         sx={{ width: '100%' }}
+                        onChange={handleChange}
+                        error={fieldError.from_name}
+                        helperText={formErrors.from_name}
                     />
                 </Grid>
                 <Grid sx={{ width: '100%' }} item>
@@ -167,14 +145,14 @@ const Form = () => {
                         required
                         fullWidth
                         id="email"
-                        name="from_email"
                         label="Email"
-                        type="email"  
+                        type="email"
                         variant="filled"
+                        name="from_email"
+                        sx={{ width: '100%' }}
                         onChange={handleChange}
                         error={fieldError.from_email}
-                        helperText={fieldErrorMessage.from_email}
-                        sx={{ width: '100%' }}
+                        helperText={formErrors.from_email}
                     />
                 </Grid>
                 <Grid sx={{ width: '100%' }} item>
@@ -182,16 +160,16 @@ const Form = () => {
                         required
                         fullWidth
                         id="message"
+                        type="text"
+                        multiline
+                        minRows={4}
                         name="message"
                         label="Message"
-                        onChange={handleChange}
-                        type="text"
                         variant="filled"
-                        multiline
-                        error={fieldError.message}
-                        helperText={fieldErrorMessage.message}
-                        minRows={4}
                         sx={{ width: '100%' }}
+                        onChange={handleChange}
+                        error={fieldError.message}
+                        helperText={formErrors.message}
                     />
                 </Grid>
                 <Grid sx={{ width: '100%' }} item>
@@ -203,7 +181,7 @@ const Form = () => {
                             minWidth: 200,
                             fontSize: 20,
                         }}
-                        onClick={validateForm}
+                        
                         disabled={loading || success}
                         color="secondary"
                         loading={loading}

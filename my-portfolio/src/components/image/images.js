@@ -118,7 +118,6 @@ export default function ImageBases(data) {
                         <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
 
                             <Grid item xs={12} md={7} order={{ xs: 1 }}>
-
                                 <Paper elevation={3}>
                                     <ImageButton
                                         title='View live site'
@@ -150,7 +149,7 @@ export default function ImageBases(data) {
 
                             </Grid>
                             <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                                <Box sx={{ zIndex: 999, width: '100%' }}>
+                                <Paper elevation={hideTabs ? 2 : 0} sx={{ zIndex: 999, width: '100%' }}>
 
                                     <Typography color='primary' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                         {image.title}
@@ -184,7 +183,7 @@ export default function ImageBases(data) {
                                             </IconButton>
                                         </Tooltip>
                                     </Stack>
-                                </Box>
+                                </Paper>
                             </Grid>
                         </Grid>
                     </Fade>
@@ -223,7 +222,7 @@ export default function ImageBases(data) {
 
                             </Grid>
                             <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                                <Box sx={{ zIndex: 999, width: '100%' }}>
+                                <Paper elevation={hideTabs ? 2 : 0} sx={{ zIndex: 999, width: '100%' }}>
 
                                     <Typography color='primary' sx={{ m: .5 }} variant="h6">
                                         {image.title}
@@ -252,13 +251,12 @@ export default function ImageBases(data) {
                                             </IconButton>
                                         </Tooltip>
                                     </Stack>
-                                </Box>
+                                </Paper>
                             </Grid>
                         </Grid>
                     </Fade>
                 )
             ))}
-
         </>
     );
 }

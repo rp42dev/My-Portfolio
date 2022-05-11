@@ -13,7 +13,7 @@ const itemData = [
         description: 'Django Full Stack project created for a Tattoo artist business in Norway. Features Two Languages and backend functionality allowing owner to easily store and manipulate an image gallery and other content.',
         url: 'https://tattooskworkshop.no/',
         github: 'https://github.com/Raivis80/TattooSkWorkshop',
-        tech: ['HTML5', 'CSS3', 'JavaScript', 'Django', 'PostgreSQL', 'Engin-x']
+        tech: ['HTML', 'CSS', 'JS', 'Django', 'PostgreSQL', 'Engin-x']
     },
     {
         img: image2,
@@ -21,7 +21,7 @@ const itemData = [
         description: 'Django full-stack site based around business logic. With an user authentication, Stripe payment service, relational database schema to store and manipulate data records and structured and navigation.',
         url: 'https://a-hat-shop.herokuapp.com/',
         github: 'https://github.com/Raivis80/MS-4-Django-Full-Stack-Project',
-        tech: ['HTML5', 'CSS3', 'JavaScript', 'Django', 'PostgreSQL', 'AWS']
+        tech: ['HTML', 'CSS', 'JS', 'Django', 'PostgreSQL', 'AWS']
     },
     {
         img: image3,
@@ -29,7 +29,7 @@ const itemData = [
         description: "Flask full stack project with user authentication allowing users register and log in. Authenticated users are able to store and manipulate data records. Data handling: build on MongoDB-backed CRUD functionality.",
         url: 'https://emotify-ms-3.herokuapp.com/',
         github: 'https://github.com/Raivis80/Milestone-Project-3',
-        tech: ['HTML5', 'CSS3', 'JavaScript', 'Flask', 'MongoDB', 'Cloudinary']
+        tech: ['HTML', 'CSS', 'JS', 'Flask', 'MongoDB', 'Cloudinary']
     },
     {
         img: image4,
@@ -37,7 +37,7 @@ const itemData = [
         description: "Simple JavaScript, single-player game, the objective of this game is to click or tap the objects spawning randomly as quickly as you can. The difficulty will increase throughout the game",
         url: 'https://raivis80.github.io/The-Game/',
         github: 'https://github.com/Raivis80/The-Game',
-        tech: ['HTML5', 'CSS3', 'JavaScript', 'EmailJs']
+        tech: ['HTML', 'CSS', 'JS', 'EmailJs']
     },
     {
         img: image5,
@@ -45,7 +45,7 @@ const itemData = [
         description: 'This website was created using primarily HTML5 and CSS3. The main focus for the site is to create an online presence allowing users to view various flower arrangements from the best florists.',
         url: 'https://raivis80.github.io/First-Milestone-Project/',
         github: 'https://github.com/Raivis80/First-Milestone-Project',
-        tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap']
+        tech: ['HTML', 'CSS', 'JS', 'Bootstrap']
     },
 ];
 export default itemData;

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/My-Portfolio/static/css/main.ecd37866.css",
-    "main.js": "/My-Portfolio/static/js/main.b2537a97.js",
+    "main.css": "/My-Portfolio/static/css/main.b5fe55d7.css",
+    "main.js": "/My-Portfolio/static/js/main.60b396fc.js",
     "static/js/787.128fc6e9.chunk.js": "/My-Portfolio/static/js/787.128fc6e9.chunk.js",
     "static/media/tattoo.png": "/My-Portfolio/static/media/tattoo.705d9d5a1804bc0edf7d.png",
     "static/media/flower.png": "/My-Portfolio/static/media/flower.7ab14ace916ae2a38260.png",
@@ -9,12 +9,12 @@
     "static/media/emotify.png": "/My-Portfolio/static/media/emotify.42871cb49a663c680480.png",
     "static/media/game.png": "/My-Portfolio/static/media/game.c72bc7a6fe0b0a201167.png",
     "index.html": "/My-Portfolio/index.html",
-    "main.ecd37866.css.map": "/My-Portfolio/static/css/main.ecd37866.css.map",
-    "main.b2537a97.js.map": "/My-Portfolio/static/js/main.b2537a97.js.map",
+    "main.b5fe55d7.css.map": "/My-Portfolio/static/css/main.b5fe55d7.css.map",
+    "main.60b396fc.js.map": "/My-Portfolio/static/js/main.60b396fc.js.map",
     "787.128fc6e9.chunk.js.map": "/My-Portfolio/static/js/787.128fc6e9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ecd37866.css",
-    "static/js/main.b2537a97.js"
+    "static/css/main.b5fe55d7.css",
+    "static/js/main.60b396fc.js"
   ]
 }

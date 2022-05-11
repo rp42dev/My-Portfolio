@@ -1,7 +1,6 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box, Typography } from '@mui/material';
 import Jump from 'react-reveal/Jump';
-import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 
 const StyledTypography = styled(Typography)(({ theme }) => ({

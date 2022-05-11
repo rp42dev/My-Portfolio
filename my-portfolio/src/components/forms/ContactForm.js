@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import LoadingButton from '@mui/lab/LoadingButton';
 import emailjs from 'emailjs-com';
@@ -56,8 +55,9 @@ const Form = () => {
     }
 
     return (
+
         <form ref={form} noValidate onSubmit={handleSubmit(sendMail)}>
-            <Grid container spacing={2}>
+            <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <Controller
                         name="from_name"
@@ -125,6 +125,7 @@ const Form = () => {
                             p: .2,
                             minWidth: 200,
                             fontSize: 20,
+                            color: 'dark.main',
                         }}
                         color="secondary"
                         loading={mailController.isLoading}

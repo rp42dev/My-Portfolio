@@ -133,8 +133,8 @@ const Form = () => {
                         loading={mailController.isLoading}
                         disabled={mailController.isLoading}
                         variant="contained">
+                        Send&nbsp;
                        {!mailController.isLoading?  <SendIcon /> : ''}
-                        Send
                     </LoadingButton>
                 </Grid>
                 <Grid item xs={12}>

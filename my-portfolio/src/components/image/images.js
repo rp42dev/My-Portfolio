@@ -24,14 +24,15 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     color: theme.palette.text.primary,
-    backgroundColor: 'rgb(20, 20, 21, 0.5)',
+    backgroundColor: 'rgb(20, 20, 21, .6)',
     borderRadius: theme.shape.borderRadius,
     boxShadow: theme.shadows[5],
     transition: theme.transitions.create('box-shadow', {
         duration: theme.transitions.duration.st,
     }),
-    '&:hover': {
-        boxShadow: theme.shadows[10],
+    '@media (max-width:900px)': {
+        backgroundColor: 'rgb(20, 20, 21, .0)',
+        boxShadow: theme.shadows[0],
     }
 }));
 
@@ -101,7 +102,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.dark.main,
     opacity: 0.3,
     transition: theme.transitions.create('opacity'),
 }));
@@ -118,6 +119,7 @@ export default function ImageBases(data) {
                         <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
 
                             <Grid item xs={12} md={7} order={{ xs: 1 }}>
+
                                 <Paper elevation={3}>
                                     <ImageButton
                                         title='View live site'
@@ -149,12 +151,12 @@ export default function ImageBases(data) {
 
                             </Grid>
                             <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                                <Paper elevation={hideTabs ? 2 : 0} sx={{ zIndex: 999, width: '100%' }}>
+                                <Paper elevation={hideTabs ? 3 : 0} sx={{ zIndex: 999, width: '100%' }}>
 
                                     <Typography color='primary' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                         {image.title}
                                     </Typography>
-                                    <StyledPaper elevation={!hideTabs ? 2 : 0} className={i % 2 ? 'left' : 'right'} >
+                                    <StyledPaper elevation={!hideTabs? 3 : 0} className={i % 2 ? 'left' : 'right'} >
 
                                         <Typography color='primary.dark' variant="body2">
                                             {image.description}
@@ -222,12 +224,12 @@ export default function ImageBases(data) {
 
                             </Grid>
                             <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                                <Paper elevation={hideTabs ? 2 : 0} sx={{ zIndex: 999, width: '100%' }}>
+                                    <Paper elevation={hideTabs ? 3 : 0} sx={{ zIndex: 999, width: '100%' }}>
 
                                     <Typography color='primary' sx={{ m: .5 }} variant="h6">
                                         {image.title}
                                     </Typography>
-                                        <StyledPaper elevation={!hideTabs ? 2 : 0} className={i % 2 ? 'left' : 'right'}>
+                                        <StyledPaper elevation={!hideTabs ? 3 : 0} className={i % 2 ? 'left' : 'right'}>
 
                                         <Typography color='primary.dark' variant="body2">
                                             {image.description}
@@ -257,6 +259,7 @@ export default function ImageBases(data) {
                     </Fade>
                 )
             ))}
+
         </>
     );
 }

@@ -5,6 +5,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import emailjs from 'emailjs-com';
 import Alert from '@mui/material/Alert';
 import { useForm, Controller } from "react-hook-form";
+import SendIcon from '@mui/icons-material/Send';
 
 
 const Form = () => {
@@ -125,12 +126,14 @@ const Form = () => {
                             p: .2,
                             minWidth: 200,
                             fontSize: 20,
+                            height: 40,
                             color: 'dark.main',
                         }}
                         color="secondary"
                         loading={mailController.isLoading}
                         disabled={mailController.isLoading}
                         variant="contained">
+                       {!mailController.isLoading?  <SendIcon /> : ''}
                         Send
                     </LoadingButton>
                 </Grid>

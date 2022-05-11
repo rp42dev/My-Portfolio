@@ -6,8 +6,6 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 import './Contact.css';
 import ContactForm from '../components/forms/ContactForm';
-import SocialButtons from '../components/social/SocialBlock.js';
-
 
 function ContactApp() {
   const context = useContext(AppContext);
@@ -38,9 +36,6 @@ function ContactApp() {
         </InView>
         <Fade bottom distance="20%" delay={400}>
           <ContactForm />
-        </Fade>
-        <Fade bottom distance="20%" delay={800}>
-          <SocialButtons />
         </Fade>
       </Box>
     </Container>

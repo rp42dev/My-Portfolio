@@ -2,12 +2,15 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Stack from '@mui/material/Stack';
 import MobileMenu from './MobileNav.js';
 import useMediaQuery from '../../hooks/viewPortWidth.js';
 import PcMenu from './PcNav.js';
 import useScrollToSection from '../../hooks/scrollToSection.js';
 import ButtonBase from '@mui/material/ButtonBase';
 import HideOnScroll from '../../hooks/scrollPosition.js';
+import SocialButtons from '../social/SocialBlock.js';
+
 import './Nav.css';
 import { Tooltip } from '@mui/material';
 
@@ -48,29 +51,32 @@ export default function Nav(props) {
 
     return (
         <HideOnScroll {...props}>
-            <AppBar 
+            <AppBar
                 elevation={3}
-            sx={{
-                px: 2,
-                typography: 'btn',
-                position: 'fixed',
-                zIndex: 1100
-            }} >
-                <Toolbar 
-                sx={{ justifyContent: 'space-between' }} disableGutters>
-                    <Tooltip title="Home" >
-                    <ImageButton
-                        sx={{ display: 'flex', justifyContent: 'start' }}
-                        id="nav-logo"
-                        focusRipple
-                        width='100%'
-                        height='100%'
-                        onClick={(event) => handleClick(event, 'home')}
-                    >
-                        <img width={120} src={require('../../assets/images/logo.png')} alt="logo" />
-                    </ImageButton>
-                    </Tooltip>
+                sx={{
+                    px: 2,
+                    typography: 'btn',
+                    position: 'fixed',
+                    zIndex: 1100
+                }} >
+                <Toolbar
+                    sx={{ justifyContent: 'space-between' }} disableGutters>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <Tooltip title="Home" >
+                            <ImageButton
+                                sx={{ display: 'flex', justifyContent: 'start', pt: .5 }}
+                                id="nav-logo"
+                                focusRipple
 
+                                width='100%'
+                                height='100%'
+                                onClick={(event) => handleClick(event, 'home')}
+                            >
+                                <img width={120} src={require('../../assets/images/logo.png')} alt="logo" />
+                            </ImageButton>
+                        </Tooltip>
+                        <SocialButtons />
+                    </Stack>
                     {!hideMobile && <MobileMenu
                         myObject={myObject}
 

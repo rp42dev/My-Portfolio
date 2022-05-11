@@ -1,5 +1,5 @@
 {
-  "short_name": "RP 80 Web Designs",
+  "short_name": "RP 80",
   "name": "RP 80 Web Designs and Development - Portfolio Website",
   "description": "I'm a Full-Stack Software Developer with an extensive background in various coding languages and I have a strong foundation in Full-Stack web development.",
 
@@ -22,6 +22,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#323234",
-  "background_color": "#b37142",
+  "background_color": "#323234",
   "accentColor": "#b37142"
 }

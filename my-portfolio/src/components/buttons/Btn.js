@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Button from '@mui/material/Button';
 
 
@@ -18,12 +17,12 @@ export default function Btn(prop) {
             p: .2,
             minWidth:200,
             fontSize: 20,
-            mt: 3,
+            height: 40,
             color: 'dark.main',
         }} 
         mt={2} 
         color="secondary" variant="contained">
-            Contact
+        Message
         </Button>
 
     );

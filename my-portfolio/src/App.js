@@ -6,8 +6,6 @@ import { ContextWrapper } from './AppContext.js';
 import AboutApp from './about/About';
 import ProjectsApp from './projects/Projects';
 import ContactApp from './contact/Contact';
-import { useEffect } from 'react';
-
 
 
 function App() {

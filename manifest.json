@@ -1,6 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+   "developer": {
+     "name": "Raivis Petrovskis",
+     "websiteUrl": "https://raivis80.github.io/My-Portfolio/",
+   },
+   "name": {
+     "short": "RP 80 Web Designs and Development Portfolio",
+     "full": "RP 80 Web Designs and Development - Portfolio Website - My Portfolio"
+   },
+   "description": {
+     "short": "RP 80 Web Designs and Developer. I'm a Full-Stack Software Developer and Designer",
+     "full": "I'm a Full-Stack Software Developer with an extensive background in various coding languages and I have a strong foundation in Full-Stack web development."
+   },
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,5 +31,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#323234",
-  "background_color": "#323234"
+  "background_color": "#323234",
+  "accentColor": "#b37142"
 }

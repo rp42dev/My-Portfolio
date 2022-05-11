@@ -1,0 +1,9 @@
+.align-text{
+    text-align: end;
+}
+
+@media screen and (max-width: 900px) {
+    .align-text{
+        text-align: start;
+    }
+}

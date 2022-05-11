@@ -46,6 +46,11 @@ const theme = createTheme({
         fontSize: '1.1rem',
       },
     },
+    caption: {
+      fontSize: '.6rem',
+      letterSpacing: '0.1rem',
+      fontWeight: 'bolder',
+    },
     btn: { fontFamily: '"Roboto", sans-serif' },
     fontFamily: ['Roboto', 'sans-serif',].join(','),
   },

@@ -16,10 +16,10 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import useMediaQuery from '../../hooks/viewPortWidth.js';
 import Fade from 'react-reveal/Fade';
 import '../../projects/Projects.css';
-
+import './image.css';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -101,7 +101,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.secondary.main,
     opacity: 0.3,
     transition: theme.transitions.create('opacity'),
 }));
@@ -152,29 +152,38 @@ export default function ImageBases(data) {
                             <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                                 <Box sx={{ zIndex: 999, width: '100%' }}>
 
+                                    <Typography color='primary' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
+                                        {image.title}
+                                    </Typography>
                                     <StyledPaper elevation={3} className={i % 2 ? 'left' : 'right'} >
-                                        <Typography color='primary' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
-                                            {image.title}
-                                        </Typography>
 
                                         <Typography color='primary.dark' variant="body2">
                                             {image.description}
                                         </Typography>
 
-                                        <Stack justifyContent={!hideTabs ? 'flex-end' : 'flex-start'} direction="row" spacing={1}>
-                                            <Tooltip title="On GitHub">
-                                                <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
-                                                    <GitHubIcon />
-                                                   
-                                                </IconButton>
-                                            </Tooltip>
-                                            <Tooltip title="Website">
-                                                <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
-                                                    <RemoveRedEyeIcon sx={{ fontSize: 30 }} />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </Stack>
+
                                     </StyledPaper>
+
+                                    <Box className="align-text" sx={{ width: '100%' }}>
+                                        <Typography sx={{ width: '100%', px: 1 }} variant="caption" color="primary.dark" align={!hideTabs ? 'right' : 'left'} >
+                                            {image.tech.map((tech, i) => (
+                                                <span key={i}>{tech}, </span>
+                                            ))}
+                                        </Typography>
+                                    </Box>
+                                    <Stack justifyContent={!hideTabs ? 'flex-end' : 'flex-start'} direction="row" spacing={1}>
+                                        <Tooltip title="On GitHub">
+                                            <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
+                                                <GitHubIcon />
+
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Website">
+                                            <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
+                                                <RemoveRedEyeIcon sx={{ fontSize: 30 }} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Stack>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -216,28 +225,33 @@ export default function ImageBases(data) {
                             <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                                 <Box sx={{ zIndex: 999, width: '100%' }}>
 
+                                    <Typography color='primary' sx={{ m: .5 }} variant="h6">
+                                        {image.title}
+                                    </Typography>
                                     <StyledPaper elevation={3} className={i % 2 ? 'left' : 'right'}>
-                                        <Typography color='primary' sx={{ m: .5 }} variant="h6">
-                                            {image.title}
-                                        </Typography>
 
                                         <Typography color='primary.dark' variant="body2">
                                             {image.description}
                                         </Typography>
 
-                                        <Stack direction="row" spacing={1}>
-                                            <Tooltip title="On GitHub">
-                                                <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
-                                                    <GitHubIcon />
-                                                </IconButton>
-                                            </Tooltip>
-                                            <Tooltip title="Website">
-                                                <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
-                                                    <RemoveRedEyeIcon sx={{ fontSize: 30 }} />
-                                                </IconButton>
-                                            </Tooltip>
-                                        </Stack>
                                     </StyledPaper >
+                                    <Typography sx={{ width: '100%', px: 1 }} variant="caption" color="primary.dark" align={!hideTabs ? 'right' : 'left'} >
+                                        {image.tech.map((tech, i) => (
+                                            <span key={i}>{tech}, </span>
+                                        ))}
+                                    </Typography>
+                                    <Stack direction="row" spacing={1}>
+                                        <Tooltip title="On GitHub">
+                                            <IconButton size="small" component={Link} onClick={() => window.open(image.github, '_blank')} color='secondary' aria-label="On GitHub">
+                                                <GitHubIcon />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Website">
+                                            <IconButton size="small" component={Link} onClick={() => window.open(image.url, '_blank')} color='secondary' aria-label="Website">
+                                                <RemoveRedEyeIcon sx={{ fontSize: 30 }} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Stack>
                                 </Box>
                             </Grid>
                         </Grid>

@@ -28,7 +28,7 @@ function AboutApp() {
 
         <Fade bottom cascade delay={200} distance="30%">
           <Box className="about-text" sx={{ mt: 2 }}>
-            <Typography sx={{ mt: 2 }} color="primary" variant="h6">
+            <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
               I'm a Full-Stack Software Development Bootcamp graduate
               with a passion for learning and problem-solving,
               with an extensive background in various coding languages and
@@ -38,13 +38,13 @@ function AboutApp() {
         </Fade>
 
         <Fade bottom distance="30%" cascade delay={400}>
-          <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
+          <Typography sx={{ mt: 2 }} color="primary" variant="h6">
             My top Priorities
           </Typography>
           <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
           </InView>
           <Box className="priorities-text" sx={{ mt: 1 }}>
-            <Typography color="primary" variant="body2">
+            <Typography color="primary.dark" variant="body2">
               <DoneIcon fontSize='1rem' /><span>Intuitive design provide meaningful experiences to users.</span> <br />
               <DoneIcon fontSize='1rem' /><span>Website Accessibility Best Practices to Improve UX.</span> <br />
               <DoneIcon fontSize='1rem' /><span>I'm a firm believer that "less is more" design approach.</span> <br />
@@ -55,11 +55,11 @@ function AboutApp() {
         </Fade>
   
         <Fade bottom cascade delay={600} distance="30%">
-          <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
+          <Typography sx={{ mt: 2 }} color="primary.dark.dark" variant="h6">
             Technologies I’ve worked with
           </Typography>
           <Box className="priorities-text">
-            <Typography color="primary" component={'span'} variant="body2">
+            <Typography color="primary.dark" component={'span'} variant="body2">
               <ul>
                 <li>Front-End: HTML, CSS, JavaScript, React</li>
                 <li>Back-End: Python, Flask, Django</li>

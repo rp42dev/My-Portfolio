@@ -119,7 +119,7 @@ export default function ImageBases(data) {
 
                             <Grid item xs={12} md={7} order={{ xs: 1 }}>
 
-                                <Paper elevation={6}>
+                                <Paper elevation={3}>
                                     <ImageButton
                                         title='View live site'
                                         onClick={() => window.open(image.url, '_blank')}
@@ -152,12 +152,12 @@ export default function ImageBases(data) {
                             <Grid item xs={12} md={5} order={{ xs: 2 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                                 <Box sx={{ zIndex: 999, width: '100%' }}>
 
-                                    <StyledPaper elevation={8} className={i % 2 ? 'left' : 'right'} >
-                                        <Typography color='primary.dark' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
+                                    <StyledPaper elevation={3} className={i % 2 ? 'left' : 'right'} >
+                                        <Typography color='primary' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
 
-                                        <Typography color='primary' variant="body2">
+                                        <Typography color='primary.dark' variant="body2">
                                             {image.description}
                                         </Typography>
 
@@ -184,7 +184,7 @@ export default function ImageBases(data) {
                     <Fade bottom distance="30%">
                         <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
                             <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
-                                <Paper elevation={6}>
+                                <Paper elevation={3}>
                                     <ImageButton
                                         title='View live site'
                                         onClick={() => window.open(image.url, '_blank')}
@@ -216,12 +216,12 @@ export default function ImageBases(data) {
                             <Grid item xs={12} md={5} order={{ xs: 2, md: 1 }} sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                                 <Box sx={{ zIndex: 999, width: '100%' }}>
 
-                                    <StyledPaper elevation={8} className={i % 2 ? 'left' : 'right'}>
-                                        <Typography color='primary.dark' sx={{ m: .5 }} variant="h6">
+                                    <StyledPaper elevation={3} className={i % 2 ? 'left' : 'right'}>
+                                        <Typography color='primary' sx={{ m: .5 }} variant="h6">
                                             {image.title}
                                         </Typography>
 
-                                        <Typography color='primary' variant="body2">
+                                        <Typography color='primary.dark' variant="body2">
                                             {image.description}
                                         </Typography>
 

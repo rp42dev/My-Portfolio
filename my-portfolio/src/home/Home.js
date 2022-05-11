@@ -35,13 +35,13 @@ function HomeApp() {
           <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
           </InView>
             <Fade bottom distance="50%" delay={200}>
-          <Typography sx={{ mt: 2 }} color="primary.dark" variant="h4">
+          <Typography sx={{ mt: 2 }} color="primary" variant="h4">
               A Junior Web Designer & Developer
           </Typography>
               </Fade>
 
             <Fade bottom distance="50%" delay={400}>
-          <Typography sx={{ mt: 2 }} color="primary" variant="h5">
+          <Typography sx={{ mt: 2 }} color="primary.dark" variant="h5">
               I enjoy creating Responsive and accessible websites
           </Typography>
               </Fade>

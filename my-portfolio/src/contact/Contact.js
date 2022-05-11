@@ -28,7 +28,7 @@ function ContactApp() {
           <Typography color="secondary" variant="h2">Get in Touch</Typography>
         </Fade>
         <Fade bottom distance="30%" delay={200}>
-          <Typography my={2} color="primary" variant="body2">
+          <Typography my={2} color="primary.dark" variant="body2">
             I’m  currently looking for new opportunities,
             If you have a question feel free to
             send me a message and I will  get back to you!

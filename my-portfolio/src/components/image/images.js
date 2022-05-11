@@ -154,7 +154,7 @@ export default function ImageBases(data) {
                                     <Typography color='primary' align={!hideTabs ? 'right' : 'left'} sx={{ m: .5 }} variant="h6">
                                         {image.title}
                                     </Typography>
-                                    <StyledPaper elevation={3} className={i % 2 ? 'left' : 'right'} >
+                                    <StyledPaper elevation={!hideTabs ? 2 : 0} className={i % 2 ? 'left' : 'right'} >
 
                                         <Typography color='primary.dark' variant="body2">
                                             {image.description}
@@ -227,7 +227,7 @@ export default function ImageBases(data) {
                                     <Typography color='primary' sx={{ m: .5 }} variant="h6">
                                         {image.title}
                                     </Typography>
-                                    <StyledPaper elevation={3} className={i % 2 ? 'left' : 'right'}>
+                                        <StyledPaper elevation={!hideTabs ? 2 : 0} className={i % 2 ? 'left' : 'right'}>
 
                                         <Typography color='primary.dark' variant="body2">
                                             {image.description}

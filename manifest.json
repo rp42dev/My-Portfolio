@@ -1,20 +1,11 @@
 {
-   "developer": {
-     "name": "Raivis Petrovskis",
-     "websiteUrl": "https://raivis80.github.io/My-Portfolio/",
-   },
-   "name": {
-     "short": "RP 80 Web Designs and Development Portfolio",
-     "full": "RP 80 Web Designs and Development - Portfolio Website - My Portfolio"
-   },
-   "description": {
-     "short": "RP 80 Web Designs and Developer. I'm a Full-Stack Software Developer and Designer",
-     "full": "I'm a Full-Stack Software Developer with an extensive background in various coding languages and I have a strong foundation in Full-Stack web development."
-   },
-  "icons": [
-    {
+  "short_name": "RP 80 Web Designs",
+  "name": "RP 80 Web Designs and Development - Portfolio Website",
+  "description": "I'm a Full-Stack Software Developer with an extensive background in various coding languages and I have a strong foundation in Full-Stack web development.",
+
+  "icons": [{
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "48x48",
       "type": "image/x-icon"
     },
     {
@@ -31,6 +22,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#323234",
-  "background_color": "#323234",
+  "background_color": "#b37142",
   "accentColor": "#b37142"
 }

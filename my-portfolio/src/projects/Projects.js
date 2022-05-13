@@ -9,7 +9,6 @@ import { useContext } from 'react';
 import { InView } from 'react-intersection-observer';
 import './Projects.css';
 
-
 function ProjectsApp() {
 
   const context = useContext(AppContext);
@@ -19,7 +18,7 @@ function ProjectsApp() {
 
   return (
     <Container id="projects">
-      <InView threshold={.14} as="Box" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+      <InView threshold={.14} as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         <Box sx={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
 
           <Box sx={{ mt: 2 }}>

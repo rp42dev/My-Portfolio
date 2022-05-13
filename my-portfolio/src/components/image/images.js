@@ -115,7 +115,8 @@ export default function ImageBases(data) {
         <>
             {data.data.map((image, i) => (
                 (i % 2 === 0) ? (
-                    <Fade bottom distance="30%">
+                    <Fade key={i} bottom distance="30%">
+                        
                         <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
 
                             <Grid item xs={12} md={7} order={{ xs: 1 }}>
@@ -191,7 +192,7 @@ export default function ImageBases(data) {
                     </Fade>
 
                 ) : (
-                    <Fade bottom distance="30%">
+                        <Fade key={i} bottom distance="30%">
                         <Grid container mb={{ xs: 6, md: 10 }} rowSpacing={{ sx: 2, md: 10 }}>
                             <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
                                 <Paper elevation={3}>

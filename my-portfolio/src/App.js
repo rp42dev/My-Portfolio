@@ -8,7 +8,12 @@ import ProjectsApp from './projects/Projects';
 import ContactApp from './contact/Contact';
 
 
+
 function App() {
+  if (navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js');
+  }
+
   window.onbeforeunload = () => {
     window.scrollTo(0, 0);
   };

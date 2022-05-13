@@ -11,7 +11,8 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "logo512.png",
@@ -21,7 +22,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#121212;",
+  "theme_color": "#323234",
   "background_color": "#141415",
   "accentColor": "#b37142"
 }

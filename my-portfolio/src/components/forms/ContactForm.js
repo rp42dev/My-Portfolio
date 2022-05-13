@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import LoadingButton from '@mui/lab/LoadingButton';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import Alert from '@mui/material/Alert';
 import { useForm, Controller } from "react-hook-form";
 import SendIcon from '@mui/icons-material/Send';

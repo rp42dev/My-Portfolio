@@ -7,18 +7,9 @@ import AboutApp from './about/About';
 import ProjectsApp from './projects/Projects';
 import ContactApp from './contact/Contact';
 
-if ('serviceWorker' in navigator) {
-
-  navigator.serviceWorker.register('sw.js')
-    .then(reg => console.log('service worker registered', reg))
-    .catch(err => console.log('service worker not registered', err));
-}
-
-
 function App() {
-  if (navigator && navigator.serviceWorker) {
-    navigator.serviceWorker.register('sw.js');
-  }
+
+  
 
   window.onbeforeunload = () => {
     window.scrollTo(0, 0);

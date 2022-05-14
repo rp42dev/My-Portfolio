@@ -7,22 +7,33 @@
       "src": "favicon.ico",
       "sizes": "48x48",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
+    }, {
+      "src": "favicon-32x32.png",
       "type": "image/png",
+      "sizes": "32x32"
+    }, {
+      "src": "favicon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    }, {
+      "src": "android-192x192.png",
       "sizes": "192x192",
-      "purpose": "maskable"
-    },
-    {
+      "type": "image/png"
+
+    }, {
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    }, {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
     }
+
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#323234",
+  "theme_color": "#141415",
   "background_color": "#141415",
   "accentColor": "#b37142"
 }

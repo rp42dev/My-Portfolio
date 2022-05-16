@@ -10,6 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const StyledModal = styled(Modal) ({
     overflow: 'scroll',
+    justifyContent: 'center',
 });
 
 const style = {
@@ -36,7 +37,6 @@ export default function PrivacyPolicyModal() {
                 aria-describedby="transition-modal-description"
                 open={open}
                 color="theme.palette.primary.dark"
-                justifyContent="center"
                 onClose={handleClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
@@ -53,7 +53,7 @@ export default function PrivacyPolicyModal() {
                         <Typography id="transition-modal-title" variant="h3" component="h1">
                             Privacy Policy for RP 80
                         </Typography>
-                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                        <Box id="transition-modal-description" sx={{ mt: 2 }}>
                             <Typography color="primary.dark" variant="body1"> At RP 80, accessible from https://raivis80.github.io/My-Portfolio/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by RP 80 and how we use it.</Typography>
 
                             <Typography color="primary.dark" variant="body1"> If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</Typography>
@@ -144,7 +144,7 @@ export default function PrivacyPolicyModal() {
                             <Typography color="primary.dark" variant="body1"> Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</Typography>
 
                             <Typography color="primary.dark" variant="body1"> RP 80 does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</Typography>
-                        </Typography>
+                        </Box>
                     </Box>
                 </Fade>
             </StyledModal>

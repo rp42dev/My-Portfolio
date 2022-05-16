@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 export default function Footer() {
     return (
         <Paper>
-            <Fade bottom distance={30}>
+            <Fade bottom distance="30%">
             <Grid container direction="row" justify="center" alignItems="center" sx={{
 
                 width: '100%',

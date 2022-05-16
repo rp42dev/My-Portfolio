@@ -57,7 +57,7 @@ export default function PrivacyPolicyModal() {
                             </Toolbar>
                         </AppBar>
 
-                        <Typography color="primary" id="transition-modal-title" variant="h3" component="h1">
+                        <Typography color="primary" id="transition-modal-title" variant="h5" component="h1">
                             Privacy Policy for RP 80
                         </Typography>
                         <Box id="transition-modal-description" sx={{ mt: 2 }}>

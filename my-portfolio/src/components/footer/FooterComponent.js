@@ -6,11 +6,10 @@ import Fade from 'react-reveal/Fade';
 
 export default function Footer() {
     return (
-        <Paper>
-            <Container>
-                <Fade bottom distance="30%">
+        <Fade bottom delay={500}>
+            <Paper>
+                <Container>
                     <Grid container direction="row" justify="center" alignItems="center" sx={{
-
                         width: '100%',
                         height: '100px',
                         color: 'primary.contrastText',
@@ -18,7 +17,6 @@ export default function Footer() {
                         p: 2,
                         fontSize: '1.5rem',
                         zIndex: 1000,
-                        boxShadow: '0px -2px 4px rgba(0, 0, 0, 0.25)',
                     }}>
                         <Grid sx={{ display: 'flex', justifyContent: 'start' }} item xs={6} md={6}>
                             <ImageButton img={require('../../assets/images/logo.png')} />
@@ -36,9 +34,9 @@ export default function Footer() {
                         </Grid>
 
                     </Grid>
-                </Fade>
-            </Container>
-        </Paper>
+                </Container>
+            </Paper>
+        </Fade>
 
     );
 }

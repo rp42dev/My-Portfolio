@@ -3,13 +3,15 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import { Button, IconButton }from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { Button, Container, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-const StyledModal = styled(Modal) ({
-    overflow: 'scroll',
+const StyledModal = styled(Modal)({
+    overflowY: 'scroll',
     justifyContent: 'center',
 });
 
@@ -22,6 +24,7 @@ const style = {
     maxWidth: '900px',
     margin: 'auto',
     p: 3,
+    mt: 8,
 };
 
 export default function PrivacyPolicyModal() {
@@ -45,12 +48,16 @@ export default function PrivacyPolicyModal() {
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
-                        <Box fullWidth mb={2} sx={{ display: "flex", justifyContent: 'end' }}>
-                            <IconButton edge="end"  color="secondary" size="large" onClick={handleClose}><CloseIcon fontSize='large' /></IconButton>
-                        </Box>
-                            
-                        <Typography id="transition-modal-title" variant="h3" component="h1">
+                    <Container sx={style}>
+                        <AppBar>
+                            <Toolbar>
+                                <Container sx={{ display: 'flex', justifyContent: 'end' }}>
+                                    <IconButton color="secondary" size="large" onClick={handleClose}><CloseIcon fontSize='large' /></IconButton>
+                                </Container>
+                            </Toolbar>
+                        </AppBar>
+
+                        <Typography color="primary" id="transition-modal-title" variant="h3" component="h1">
                             Privacy Policy for RP 80
                         </Typography>
                         <Box id="transition-modal-description" sx={{ mt: 2 }}>
@@ -74,29 +81,29 @@ export default function PrivacyPolicyModal() {
 
                             <Typography color="primary.dark" variant="body1"> We use the information we collect in various ways, including to:</Typography>
 
-                                <ul>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Provide, operate, and maintain our website</Typography>
-                                    </li>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Improve, personalize, and expand our website</Typography>
-                                    </li>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Understand and analyze how you use our website</Typography>
-                                    </li>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Develop new products, services, features, and functionality</Typography>
-                                    </li>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</Typography>
-                                    </li>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Send you emails</Typography>
-                                    </li>
-                                    <li>
-                                        <Typography color="primary.dark" variant="body1"> Find and prevent fraud</Typography>
-                                    </li>
-                                </ul>
+                            <ul>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Provide, operate, and maintain our website</Typography>
+                                </li>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Improve, personalize, and expand our website</Typography>
+                                </li>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Understand and analyze how you use our website</Typography>
+                                </li>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Develop new products, services, features, and functionality</Typography>
+                                </li>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</Typography>
+                                </li>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Send you emails</Typography>
+                                </li>
+                                <li>
+                                    <Typography color="primary.dark" variant="body1"> Find and prevent fraud</Typography>
+                                </li>
+                            </ul>
 
 
                             <Typography color="primary" mt={3} variant="h6"> Log Files</Typography>
@@ -145,7 +152,7 @@ export default function PrivacyPolicyModal() {
 
                             <Typography color="primary.dark" variant="body1"> RP 80 does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</Typography>
                         </Box>
-                    </Box>
+                    </Container>
                 </Fade>
             </StyledModal>
         </div>

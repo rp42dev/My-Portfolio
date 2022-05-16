@@ -48,7 +48,7 @@ function HomeApp() {
         
           <Fade bottom distance="50%" delay={600}>
             <Box sx={{ mt: 3}}>
-            <Btn />
+            <Btn text="message"/>
             </Box>
           </Fade>
         </Box>

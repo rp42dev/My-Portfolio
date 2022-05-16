@@ -22,7 +22,7 @@ export default function Btn(prop) {
         }} 
         mt={2} 
         color="secondary" variant="contained">
-        Message
+        {prop.text}
         </Button>
 
     );

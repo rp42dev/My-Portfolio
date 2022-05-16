@@ -9,7 +9,7 @@ import PcMenu from './PcNav.js';
 import useScrollToSection from '../../hooks/scrollToSection.js';
 import ButtonBase from '@mui/material/ButtonBase';
 import HideOnScroll from '../../hooks/scrollPosition.js';
-import SocialButtons from '../social/SocialBlock.js';
+import SocialButtons from '../social/SocialButtons.js';
 
 import './Nav.css';
 import { Tooltip } from '@mui/material';
@@ -43,9 +43,6 @@ export default function Nav(props) {
     const hideMobile = useMediaQuery('(min-width: 800px)')
 
     const handleClick = () => {
-        window.onbeforeunload = () => {
-            window.scrollTo(0, 0);
-        };
         window.location.reload(false);
     }
 

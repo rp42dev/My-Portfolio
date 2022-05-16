@@ -6,6 +6,7 @@ import { ContextWrapper } from './AppContext.js';
 import AboutApp from './about/About';
 import ProjectsApp from './projects/Projects';
 import ContactApp from './contact/Contact';
+import Footer from './components/footer/FooterComponent';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <ProjectsApp />
 
           <ContactApp />
+          <Footer />
         </div>
       </ContextWrapper>
     </React.Fragment>

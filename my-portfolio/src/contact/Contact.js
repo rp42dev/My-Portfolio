@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
 import './Contact.css';
 import ContactForm from '../components/forms/ContactForm';
+import ScrollDown from '../components/buttons/ScrollDown';
+
 
 function ContactApp() {
   const context = useContext(AppContext);
@@ -19,6 +21,7 @@ function ContactApp() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'relative',
       }}>
 
       <Box mt={2} sx={{ maxWidth: '500px' }} >
@@ -32,12 +35,13 @@ function ContactApp() {
             send me a message and I will  get back to you!
           </Typography>
         </Fade>
-        <InView rootMargin='0% 0% -25%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+        <InView rootMargin='0% 0% -200%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         </InView>
         <Fade bottom distance="20%" delay={400}>
           <ContactForm />
         </Fade>
       </Box>
+      <ScrollDown />
     </Container>
   );
 }

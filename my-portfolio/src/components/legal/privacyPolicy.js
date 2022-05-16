@@ -14,7 +14,6 @@ const StyledModal = styled(Modal) ({
 
 const style = {
     position: 'relative',
-    
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,

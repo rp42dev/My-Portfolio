@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Stack from '@mui/material/Stack';
@@ -7,32 +6,10 @@ import MobileMenu from './MobileNav.js';
 import useMediaQuery from '../../hooks/viewPortWidth.js';
 import PcMenu from './PcNav.js';
 import useScrollToSection from '../../hooks/scrollToSection.js';
-import ButtonBase from '@mui/material/ButtonBase';
 import HideOnScroll from '../../hooks/scrollPosition.js';
 import SocialButtons from '../social/SocialButtons.js';
-
+import ImageButton from '../buttons/ImageButton.js';
 import './Nav.css';
-import { Tooltip } from '@mui/material';
-
-const ImageButton = styled(ButtonBase)(({ theme }) => ({
-    position: 'relative',
-    height: '100%',
-    [theme.breakpoints.down('sm')]: {
-        width: '100% !important',
-    },
-    '&:hover, &.Mui-focusVisible': {
-        zIndex: 1,
-        '& .MuiImageBackdrop-root': {
-            opacity: 0.15,
-        },
-        '& .MuiImageMarked-root': {
-            opacity: 0,
-        },
-        '& .MuiTypography-root': {
-            border: '4px solid currentColor',
-        },
-    },
-}));
 
 
 export default function Nav(props) {
@@ -41,10 +18,6 @@ export default function Nav(props) {
     const myObject = scrollTo.myObject;
     const hideTabs = useMediaQuery('(max-width: 800px)')
     const hideMobile = useMediaQuery('(min-width: 800px)')
-
-    const handleClick = () => {
-        window.location.reload(false);
-    }
 
     return (
         <HideOnScroll {...props}>
@@ -59,19 +32,7 @@ export default function Nav(props) {
                 <Toolbar
                     sx={{ justifyContent: 'space-between' }} disableGutters>
                     <Stack direction="row" spacing={2} alignItems="center">
-                        <Tooltip title="Home" >
-                            <ImageButton
-                                sx={{ display: 'flex', justifyContent: 'start', pt: .5 }}
-                                id="nav-logo"
-                                focusRipple
-
-                                width='100%'
-                                height='100%'
-                                onClick={(event) => handleClick(event, 'home')}
-                            >
-                                <img width={120} src={require('../../assets/images/logo.png')} alt="logo" />
-                            </ImageButton>
-                        </Tooltip>
+                        <ImageButton img={require('../../assets/images/logo.png')} />
                         <SocialButtons />
                     </Stack>
                     {!hideMobile && <MobileMenu

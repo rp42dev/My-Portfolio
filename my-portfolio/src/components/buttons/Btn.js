@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 
 
-export default function Btn(prop) {
+export default function Btn(props) {
     function handleClick() {
         document.querySelector('#contact').scrollIntoView({
             behavior: 'smooth'
@@ -22,7 +22,7 @@ export default function Btn(prop) {
         }} 
         mt={2} 
         color="secondary" variant="contained">
-        {prop.text}
+        {props.text}
         </Button>
 
     );

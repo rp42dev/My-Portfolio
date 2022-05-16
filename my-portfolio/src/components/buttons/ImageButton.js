@@ -30,14 +30,12 @@ export default function ImageButton(props) {
         <Tooltip title="Home" >
             <StyledImageButton
                 sx={{ display: 'flex', justifyContent: 'start', pt: .5 }}
-                id="nav-logo"
                 focusRipple
-
                 width='100%'
                 height='100%'
-                onClick={(event) => handleClick(event, 'home')}
+                onClick={handleClick}
             >
-                <img width={120} src={require('../../assets/images/logo.png')} alt="logo" />
+                <img width={120} src={props.img} alt="logo" />
             </StyledImageButton>
         </Tooltip>
     );

@@ -13,7 +13,9 @@ import './Projects.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Fade from 'react-reveal/Fade';
 
+
 function ProjectsApp() {
+ 
 
   const context = useContext(AppContext);
   function handlePage() {
@@ -21,7 +23,9 @@ function ProjectsApp() {
   }
 
   return (
+
     <Container id="projects">
+
       <InView threshold={.14} as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         <Box sx={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
 

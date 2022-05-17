@@ -1,12 +1,8 @@
 import * as React from 'react';
 import {
-    styled,
     Grid,
-    Paper,
-
 } from '@mui/material';
 
-import useMediaQuery from '../../hooks/viewPortWidth.js';
 import Fade from 'react-reveal/Fade';
 import '../../projects/Projects.css';
 import TextComponent    from './textComponent.js';
@@ -15,7 +11,6 @@ import './projectsComponent.css';
 
 
 export default function ProjectsComponent(data) {
-
 
     return (
         <>

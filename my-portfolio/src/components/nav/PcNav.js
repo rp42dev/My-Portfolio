@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import { useContext } from 'react';
 import { AppContext } from '../../AppContext.js';
+import { ThemeContext } from '@emotion/react';
 
 
 export default function PcMenu(props) {
@@ -15,7 +16,7 @@ export default function PcMenu(props) {
             <Tabs
                 value={context.store}
                 onChange={props.handleChange}
-                textColor="secondary"
+                textColor={context.colorMode === "dark" ? "primary.dark" : "secondary.dark"}
                 indicatorColor="secondary"
             >
                 {props.myObject.map((option, index) => (

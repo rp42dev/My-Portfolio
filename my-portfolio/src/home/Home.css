@@ -26,7 +26,6 @@
   height: 100px;
   top: 15%;
   left: 50px;
-  z-index: -1;
 }
 
 
@@ -49,13 +48,18 @@
 
 }
 
+h1{
+  position: relative;
+  z-index: 1000;
+
+}
+
 .box6 {
   position: absolute;
   top: 65%;
   right: 30%;
   width: 80px;
   height: 80px;
-  z-index: -1;
 }
 
 @media screen and (min-width: 2222px) {
@@ -64,11 +68,9 @@
     top: 60%;
     left: 15%;
     width: 250px;
-    z-index: -1;
     height: 250px;
   }
 }
-
 
 .box5 {
   position: absolute;
@@ -76,7 +78,6 @@
   left: 0;
   width: 100px;
   height: 108%;
- 
   border-left: 8px solid #b37142;
   border-top: 8px solid #b37142;
   border-bottom: 8px solid #b37142;

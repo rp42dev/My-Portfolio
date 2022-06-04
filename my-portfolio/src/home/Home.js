@@ -1,15 +1,17 @@
-import Nav from '../components/nav/Nav';
-import Btn from '../components/buttons/Btn';
-import Typography from '@mui/material/Typography';
-import { Box, Container, Paper, useTheme, styled } from '@mui/material';
-import Fade from 'react-reveal/Fade';
-import { InView } from 'react-intersection-observer';
-import { useContext } from 'react';
-import { AppContext } from '../AppContext.js';
-import { useColorContext  } from '../colorContext';
-import BackToTop from '../components/buttons/ScrollTop';
-import ScrollDown from '../components/buttons/ScrollDown';
-import './Home.css';
+import Nav from "../components/nav/Nav";
+import Btn from "../components/buttons/Btn";
+import Typography from "@mui/material/Typography";
+import { Box, Container, Paper, styled } from "@mui/material";
+import Fade from "react-reveal/Fade";
+import { InView } from "react-intersection-observer";
+import { useContext } from "react";
+import { AppContext } from "../AppContext.js";
+import { useColorContext } from "../colorContext";
+import BackToTop from "../components/buttons/ScrollTop";
+import ScrollDown from "../components/buttons/ScrollDown";
+
+import RunAwayBox from "../components/RunAwayBox";
+import "./Home.css";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor:
@@ -20,46 +22,60 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 
 function HomeApp() {
-  const theme = useTheme();
-  const colorTheme = useColorContext();
+
   const context = useContext(AppContext);
+
   function handlePage() {
-    context.actions.addTask('home')
+    context.actions.addTask("home");
   }
-  
+
   return (
-    <Container id="back-to-top-anchor">
+    <Container id="back-to-top-anchor" sx={{ position: "relative" }}>
       <Box id="navigation">
         <Nav />
       </Box>
 
-      <StyledPaper square elevation={8} className="box1"></StyledPaper>
-      <StyledPaper square elevation={12} className="box2"></StyledPaper>
-      <StyledPaper square elevation={8} className="box3"></StyledPaper>
-      <StyledPaper square elevation={10} className="box4"></StyledPaper>
-
-      <Paper
+      <StyledPaper
+        sx={{ zIndex: 3 }}
         square
-        sx={{
-          backgroundColor:
-            colorTheme.colorMode === "dark"
-              ? theme.palette.secondary.dark
-              : theme.palette.secondary.dark,
-        }}
-        elevation={6}
-        className="box6"
-      ></Paper>
+        elevation={8}
+        className="box1"
+      ></StyledPaper>
+      <StyledPaper
+        sx={{ zIndex: 3 }}
+        square
+        elevation={12}
+        className="box2"
+      ></StyledPaper>
+      <StyledPaper
+        sx={{ zIndex: 3 }}
+        square
+        elevation={8}
+        className="box3"
+      ></StyledPaper>
+      <StyledPaper
+        sx={{ zIndex: 3 }}
+        square
+        elevation={10}
+        className="box4"
+      ></StyledPaper>
+
+      <RunAwayBox />
 
       <BackToTop />
 
-      <Box id="home" sx={{ position: "relative" }}>
+      <Box id="home">
         <Box className="home-content" p-3>
-          <Box className="box5"></Box>
-          <Fade bottom distance="50%">
-            <Typography color="secondary" variant="h1">
-              Hi, I'm Raivis
-            </Typography>
-          </Fade>
+          <Box sx={{ zIndex: 4 }} className="box5"></Box>
+
+          <Typography
+            color="secondary"
+            variant="h1"
+            sx={{ position: "relative", zIndex: 4 }}
+          >
+            Hi, I'm Raivis
+          </Typography>
+
           <InView
             rootMargin="0% 0% -25%"
             as="div"
@@ -67,25 +83,29 @@ function HomeApp() {
               if (inView === true) handlePage();
             }}
           ></InView>
-          <Fade bottom distance="50%" delay={200}>
-            <Typography sx={{ mt: 2 }} color="primary" variant="h4">
-              A Junior Web Designer & Developer
-            </Typography>
-          </Fade>
 
-          <Fade bottom distance="50%" delay={400}>
-            <Typography sx={{ mt: 2 }} color="primary.dark" variant="h5">
-              I enjoy creating Responsive and accessible websites
-            </Typography>
-          </Fade>
+          <Typography
+            sx={{ mt: 2, position: "relative", zIndex: 4 }}
+            color="primary"
+            variant="h4"
+          >
+            A Junior Web Designer & Developer
+          </Typography>
 
-          <Fade bottom distance="50%" delay={600}>
-            <Box sx={{ mt: 3 }}>
-              <Btn text="message" />
-            </Box>
-          </Fade>
+          <Typography
+            sx={{ mt: 2, position: "relative", zIndex: 3 }}
+            color="primary.dark"
+            variant="h5"
+          >
+            I enjoy creating Responsive and accessible websites
+          </Typography>
+
+          <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+            <Btn text="message" />
+          </Box>
         </Box>
       </Box>
+
       <ScrollDown />
     </Container>
   );

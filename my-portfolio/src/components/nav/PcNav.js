@@ -39,10 +39,7 @@ export default function PcMenu(props) {
             ></Tab>
           ))}
         </Tabs>
-            <Tooltip title={toolTip}>
-              <span><ModeButton/></span>
-            </Tooltip>
-        
+        <ModeButton/> 
       </Box>
     </React.Fragment>
   );

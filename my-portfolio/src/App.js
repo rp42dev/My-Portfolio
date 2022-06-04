@@ -6,10 +6,9 @@ import AboutApp from './about/About';
 import ProjectsApp from './projects/Projects';
 import ContactApp from './contact/Contact';
 import Footer from './components/footer/FooterComponent';
-import { useTheme, createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useColorContext } from './colorContext';
-
 
 const themeMode = (mode) => ({
   palette: {
@@ -93,7 +92,7 @@ const themeMode = (mode) => ({
     caption: {
       fontSize: ".6rem",
       letterSpacing: "0.1rem",
-      fontWeight: "bolder",
+      fontWeight: "bold",
     },
     btn: { fontFamily: '"Roboto", sans-serif' },
     fontFamily: ["Roboto", "sans-serif"].join(","),

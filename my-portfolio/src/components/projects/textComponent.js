@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import ProjectIcons from '../icons/projectIcons.js';
 import useMediaQuery from '../../hooks/viewPortWidth.js';
+import { useColorContext } from '../../colorContext';
 
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -15,8 +16,10 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     color: theme.palette.text.primary,
-    backgroundColor: theme.palette.background.paper.main,
-    borderRadius: theme.shape.borderRadius,
+    backgroundColor: 
+        useColorContext().colorMode === "dark"
+      ? theme.palette.background.paper.light
+      : theme.palette.background.paper.main,
     transition: theme.transitions.create('box-shadow', {
         duration: theme.transitions.duration.st,
     }),
@@ -27,49 +30,49 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 export default function TextComponent(props) {
     const hideTabs = useMediaQuery('(max-width: 900px)');
     return (
-      <Box sx={{ zIndex: 999, width: "100%" }}
-      >
-
+      <Box sx={{ zIndex: 999, width: "100%" }}>
         <StyledPaper
+          square
           elevation={6}
           className={props.position === "right" ? "left" : "right"}
         >
-        <Typography
-          align={props.position === "left" && !hideTabs ? "right" : "left"}
-          color="primary"
-          
-          variant="h6"
-        >
-          {props.image.title}
-        </Typography>
+          <Typography
+            align={props.position === "left" && !hideTabs ? "right" : "left"}
+            color="primary.light"
+            variant="h6"
+          >
+            {props.image.title}
+          </Typography>
           <Typography color="primary.dark" variant="body2">
             {props.image.description}
           </Typography>
-        <Box
-          className={props.position === "left" && !hideTabs ? "align-text" : ""}
-          sx={{ width: "100%" }}
-        >
-          <Typography
-            sx={{ width: "100%", fontWeight: "bold" }}
-            variant="caption"
-            color="primary.dark"
-            align={!hideTabs ? "right" : "left"}
+          <Box
+            className={
+              props.position === "left" && !hideTabs ? "align-text" : ""
+            }
+            sx={{ width: "100%" }}
           >
-            {props.image.tech.map((tech, b) => (
-              <span key={b}>{tech}, </span>
-            ))}
-          </Typography>
-        </Box>
+            <Typography
+              sx={{ width: "100%", fontWeight: "bold" }}
+              variant="caption"
+              color="primary.light"
+              align={!hideTabs ? "right" : "left"}
+            >
+              {props.image.tech.map((tech, b) => (
+                <span key={b}>{tech}, </span>
+              ))}
+            </Typography>
+          </Box>
 
-        <Stack
-          justifyContent={
-            props.position === "left" && !hideTabs ? "flex-end" : "flex-start"
-          }
-          direction="row"
-          spacing={1}
-        >
-          <ProjectIcons github={props.image.github} url={props.image.url} />
-        </Stack>
+          <Stack
+            justifyContent={
+              props.position === "left" && !hideTabs ? "flex-end" : "flex-start"
+            }
+            direction="row"
+            spacing={1}
+          >
+            <ProjectIcons github={props.image.github} url={props.image.url} />
+          </Stack>
         </StyledPaper>
       </Box>
     );

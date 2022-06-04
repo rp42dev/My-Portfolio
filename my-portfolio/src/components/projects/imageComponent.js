@@ -9,8 +9,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 400,
     width: 100,
-    borderRadius: theme.shape.borderRadius,
-    boxShadow: theme.shadows[5],
+    boxShadow: theme.shadows[6],
     transition: theme.transitions.create('box-shadow', {
         duration: theme.transitions.duration.short,
     }),
@@ -48,7 +47,6 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 
 const ImageSrc = styled('span')({
     position: 'absolute',
-    borderRadius: '4px',
     left: 0,
     right: 0,
     top: 0,
@@ -60,7 +58,6 @@ const ImageSrc = styled('span')({
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
-    borderRadius: '4px',
     left: 0,
     right: 0,
     top: 0,

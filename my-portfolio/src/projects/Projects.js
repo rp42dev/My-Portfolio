@@ -15,7 +15,6 @@ import Fade from 'react-reveal/Fade';
 
 
 function ProjectsApp() {
- 
 
   const context = useContext(AppContext);
   function handlePage() {

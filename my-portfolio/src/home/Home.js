@@ -1,20 +1,27 @@
 import Nav from '../components/nav/Nav';
 import Btn from '../components/buttons/Btn';
 import Typography from '@mui/material/Typography';
-import { Box, Container, Paper, useTheme } from '@mui/material';
+import { Box, Container, Paper, useTheme, styled } from '@mui/material';
 import Fade from 'react-reveal/Fade';
 import { InView } from 'react-intersection-observer';
 import { useContext } from 'react';
 import { AppContext } from '../AppContext.js';
-import { ColorContext } from '../colorContext';
+import { useColorContext  } from '../colorContext';
 import BackToTop from '../components/buttons/ScrollTop';
 import ScrollDown from '../components/buttons/ScrollDown';
 import './Home.css';
 
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  backgroundColor:
+    useColorContext().colorMode === "dark"
+      ? theme.palette.background.paper.light
+      : theme.palette.background.paper.main,
+}));
+
 
 function HomeApp() {
   const theme = useTheme();
-  const colorTheme = useContext(ColorContext);
+  const colorTheme = useColorContext();
   const context = useContext(AppContext);
   function handlePage() {
     context.actions.addTask('home')
@@ -26,10 +33,10 @@ function HomeApp() {
         <Nav />
       </Box>
 
-      <Paper square elevation={8} className="box1"></Paper>
-      <Paper square elevation={12} className="box2"></Paper>
-      <Paper square elevation={8} className="box3"></Paper>
-      <Paper square elevation={10} className="box4"></Paper>
+      <StyledPaper square elevation={8} className="box1"></StyledPaper>
+      <StyledPaper square elevation={12} className="box2"></StyledPaper>
+      <StyledPaper square elevation={8} className="box3"></StyledPaper>
+      <StyledPaper square elevation={10} className="box4"></StyledPaper>
 
       <Paper
         square
@@ -37,7 +44,7 @@ function HomeApp() {
           backgroundColor:
             colorTheme.colorMode === "dark"
               ? theme.palette.secondary.dark
-              : theme.palette.secondary.main,
+              : theme.palette.secondary.dark,
         }}
         elevation={6}
         className="box6"

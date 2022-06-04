@@ -34,6 +34,7 @@ function ContactApp() {
     };
   }, [isVisible]);
 
+
   return (
     <Container
       id="contact"

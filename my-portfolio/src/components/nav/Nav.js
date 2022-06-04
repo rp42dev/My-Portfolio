@@ -10,22 +10,15 @@ import useScrollToSection from "../../hooks/scrollToSection.js";
 import HideOnScroll from "../../hooks/scrollPosition.js";
 import SocialButtons from "../social/SocialButtons.js";
 import ImageButton from "../buttons/ImageButton.js";
-import { ColorContext } from "../../colorContext.js";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useTheme } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import { useContext } from "react";
 import "./Nav.css";
 
+
 export default function Nav(props) {
-  const theme = useTheme();
   const scrollTo = useScrollToSection();
   const handleChange = scrollTo.handleChange;
   const myObject = scrollTo.myObject;
   const hideTabs = useMediaQuery("(max-width: 800px)");
   const hideMobile = useMediaQuery("(min-width: 800px)");
-  const colorMode = useContext(ColorContext);
 
   return (
     <HideOnScroll {...props}>
@@ -51,17 +44,7 @@ export default function Nav(props) {
             {!hideTabs && (
               <PcMenu myObject={myObject} handleChange={handleChange} />
             )}
-            <IconButton
-              sx={{ ml: 1 }}
-              onClick={colorMode.toggleColorMode}
-              color={"secondary"}
-            >
-              {theme.palette.mode === "dark" ? (
-                <Brightness7Icon />
-              ) : (
-                <Brightness4Icon />
-              )}
-            </IconButton>
+
           </Toolbar>
         </Container>
       </AppBar>

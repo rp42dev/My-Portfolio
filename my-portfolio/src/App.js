@@ -18,35 +18,47 @@ const themeMode = (mode) => ({
       ? {
           primary: {
             main: "#E5E5E5",
+            light: "#EEEEEE",
+            dark: "#D8D8D8",
           },
           secondary: {
             main: "#b37142",
+            light: "#BC855D",
+            dark: "#9C5F3F",
           },
           dark: {
-            main: "#28282a",
+            main: "#141415",
           },
           background: {
             default: "#28282a",
           },
           paper: {
             main: "#28282a",
+            light: "#333335",
+            dark: "#141415",
           },
         }
       : {
           primary: {
             main: "#28282a",
+            light: "#333335",
+            dark: "#141415",
           },
           secondary: {
             main: "#b37142",
+            light: "#BC855D",
+            dark: "#9C5F3F",
           },
           dark: {
-            main: "#E5E5E5",
+            main: "#D8D8D8",
           },
           background: {
-            default: "#ebebeb",
+            default: "#D8D8D8",
             paper: {
-              main: "#ebebeb",
-          },
+              main: "#E5E5E5",
+              light: "#EEEEEE",
+              dark: "#D8D8D8",
+            },
           },
         }),
   },
@@ -91,11 +103,8 @@ const themeMode = (mode) => ({
 
 
 function App() {
-
   const colorMode = useColorContext();
-
   const theme = createTheme(themeMode(colorMode.colorMode));
-  console.log(theme.palette.mode);
 
   window.onbeforeunload = () => {
     window.scrollTo(0, 0);

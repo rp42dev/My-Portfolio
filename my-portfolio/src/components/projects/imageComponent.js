@@ -24,7 +24,6 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     },
     '& .MuiTypography-root': {
         fontStyle: theme.button,
-        opacity: .7,
         color: 'transparent',
         borderBottom: '3px solid transparent',
         borderRadius: '4px',
@@ -36,12 +35,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
         '& .MuiImageBackdrop-root': {
             opacity: 0.15,
         },
-        '& .MuiImageMarked-root': {
-            opacity: 1,
-        },
-        '& .MuiTypography-root': {
-            backgroundColor: 'rgb(20, 20, 21, 0.5))',
-        },
+     
         '& .MuiTypography-root': {
             opacity: 1,
             borderBottom: '3px solid rgba(179, 113, 66)',
@@ -72,7 +66,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.dark.main,
-    opacity: 0.3,
+    opacity: 0,
     transition: theme.transitions.create('opacity'),
 }));
 

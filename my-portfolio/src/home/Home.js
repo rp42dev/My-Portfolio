@@ -27,20 +27,11 @@ const getElements = (element) => {
 };
 
 const generateRandomAnimation = (element) => {
+  console.log("generateRandomAnimation");
   let elements = getElements(element);
   for (let i = 0; i < elements.length; i++) {
     fadeIn(elements[i], getDuration());
-    console.log(getDuration());
   }
-      
-};
-
-window.onload = () => {
-  [...document.getElementsByClassName("box")].forEach((element) => {
-    element.style.opacity = 0;
-  }
-  );
-  generateRandomAnimation("box");
 };
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -51,6 +42,13 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 }));
 
 function HomeApp() {
+  useEffect(() => {
+    [...document.getElementsByClassName("box")].forEach((element) => {
+      element.style.opacity = 0;
+    });
+    generateRandomAnimation("box");
+  }, []);
+
   const context = useContext(AppContext);
   function handlePage() {
     context.actions.addTask("home");

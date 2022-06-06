@@ -2,16 +2,46 @@ import Nav from "../components/nav/Nav";
 import Btn from "../components/buttons/Btn";
 import Typography from "@mui/material/Typography";
 import { Box, Container, Paper, styled } from "@mui/material";
-import Fade from "react-reveal/Fade";
 import { InView } from "react-intersection-observer";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../AppContext.js";
 import { useColorContext } from "../colorContext";
 import BackToTop from "../components/buttons/ScrollTop";
 import ScrollDown from "../components/buttons/ScrollDown";
 
-import RunAwayBox from "../components/RunAwayBox";
+import RunAwayBox from "../components/runAwayBtn/RunAwayBox";
 import "./Home.css";
+
+//create Fade effect for the element
+const fadeIn = (element, duration) => {
+  element.style.transition = `opacity ${duration}ms ease-in-out`;
+  element.style.opacity = 1;
+};
+
+const getDuration = () => {
+  return Math.floor(Math.random() * 2000) + 500;
+};
+
+const getElements = (element) => {
+  return document.getElementsByClassName(element);
+};
+
+const generateRandomAnimation = (element) => {
+  let elements = getElements(element);
+  for (let i = 0; i < elements.length; i++) {
+    fadeIn(elements[i], getDuration());
+    console.log(getDuration());
+  }
+      
+};
+
+window.onload = () => {
+  [...document.getElementsByClassName("box")].forEach((element) => {
+    element.style.opacity = 0;
+  }
+  );
+  generateRandomAnimation("box");
+};
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor:
@@ -20,11 +50,8 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
       : theme.palette.background.paper.main,
 }));
 
-
 function HomeApp() {
-
   const context = useContext(AppContext);
-
   function handlePage() {
     context.actions.addTask("home");
   }
@@ -39,25 +66,25 @@ function HomeApp() {
         sx={{ zIndex: 3 }}
         square
         elevation={8}
-        className="box1"
+        className="box1 box"
       ></StyledPaper>
       <StyledPaper
         sx={{ zIndex: 3 }}
         square
         elevation={12}
-        className="box2"
+        className="box2 box"
       ></StyledPaper>
       <StyledPaper
         sx={{ zIndex: 3 }}
         square
         elevation={8}
-        className="box3"
+        className="box3 box"
       ></StyledPaper>
       <StyledPaper
         sx={{ zIndex: 3 }}
         square
         elevation={10}
-        className="box4"
+        className="box4 box"
       ></StyledPaper>
 
       <RunAwayBox />
@@ -65,8 +92,8 @@ function HomeApp() {
       <BackToTop />
 
       <Box id="home">
-        <Box className="home-content" p-3>
-          <Box sx={{ zIndex: 4 }} className="box5"></Box>
+        <Box className="home-content box" p-3>
+          <Box sx={{ zIndex: 4 }} className="box5 box"></Box>
 
           <Typography
             color="secondary"

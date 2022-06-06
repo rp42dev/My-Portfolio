@@ -3,7 +3,7 @@ import Btn from "../components/buttons/Btn";
 import Typography from "@mui/material/Typography";
 import { Box, Container, Paper, styled } from "@mui/material";
 import { InView } from "react-intersection-observer";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { AppContext } from "../AppContext.js";
 import { useColorContext } from "../colorContext";
 import BackToTop from "../components/buttons/ScrollTop";
@@ -41,21 +41,54 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
       : theme.palette.background.paper.main,
 }));
 
+
 function HomeApp() {
+  const [isVisible, setIsVisible] = useState(false);
+  const inViewRef = useRef(null);
+
   useEffect(() => {
     [...document.getElementsByClassName("box")].forEach((element) => {
       element.style.opacity = 0;
+        setTimeout(() => {
+          generateRandomAnimation("box");
+        }, 50);
     });
-    generateRandomAnimation("box");
   }, []);
 
+  const handleScroll = () => {
+    if (inViewRef.current.getBoundingClientRect().bottom + 300 < window.innerHeight) {
+      setIsVisible(false);
+      [...document.getElementsByClassName("box")].forEach((element) => {
+        element.style.opacity = 0;
+      });
+    } else {
+      setIsVisible(true);
+      generateRandomAnimation("box");
+    }
+  };
+  console.log(window.innerHeight);
+  console.log("isVisible", isVisible);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isVisible]);
+
   const context = useContext(AppContext);
-  function handlePage() {
+
+  function handlePage(inView, entry) {
     context.actions.addTask("home");
+
   }
 
   return (
-    <Container id="back-to-top-anchor" sx={{ position: "relative" }}>
+    <Container
+      id="back-to-top-anchor"
+      ref={inViewRef}
+    
+    >
       <Box id="navigation">
         <Nav />
       </Box>
@@ -105,7 +138,7 @@ function HomeApp() {
             rootMargin="0% 0% -25%"
             as="div"
             onChange={(inView, entry) => {
-              if (inView === true) handlePage();
+              if (inView === true) handlePage(inView, entry);
             }}
           ></InView>
 

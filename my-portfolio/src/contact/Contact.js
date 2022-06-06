@@ -12,6 +12,7 @@ import ScrollDown from '../components/buttons/ScrollDown';
 function ContactApp() {
   const context = useContext(AppContext);
   const [isVisible, setIsVisible] = useState(false);
+  
   function handlePage() {
     context.actions.addTask('contact')
   }

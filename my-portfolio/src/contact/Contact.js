@@ -19,7 +19,7 @@ function ContactApp() {
   const bottomRef = useRef(null);
   
   const handleScroll = () => {
-    if (bottomRef.current.getBoundingClientRect().bottom + 100 < window.innerHeight) {
+    if (bottomRef.current.getBoundingClientRect().bottom < window.innerHeight) {
       setIsVisible(true);
     }else
     {
@@ -58,7 +58,7 @@ function ContactApp() {
             send me a message and I will  get back to you!
           </Typography>
         </Fade>
-        <InView rootMargin='0% 0% -200%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
+        <InView rootMargin='0% 0% 0%' as="div" onChange={(inView, entry) => { if (inView === true) handlePage() }}>
         </InView>
         <Fade bottom distance="20%" delay={400}>
           <ContactForm />

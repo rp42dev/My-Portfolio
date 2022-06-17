@@ -4,13 +4,12 @@
   justify-content: center;
 }
 
-.home-content {
-  max-width: 650px;
-  position: relative;
-  padding-left: 24px;
-}
 
 /* Button */
+h1 {
+  position: relative;
+  z-index: 1000;
+}
 
 .MuiButton-root {
   font-size: 1.2rem;
@@ -20,45 +19,42 @@
 }
 
 .box {
-  opacity: 0;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: once;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
   position: absolute;
+  opacity: 0;
 }
 
-.box1 {
-  width: 100px;
-  height: 100px;
-  top: 15%;
-  left: 50px;
-}
-
-
-
-.box2 {
-  top: 15%;
-  right: 10%;
-  width: 300px;
-  height: 300px;
-}
-
-
-.box3 {
-  top: 70%;
-  right: 55%;
-  width: 150px;
-  height: 150px;
-
-}
-
-h1{
+.home-content {
+  left: -100%;
+  max-width: 650px;
   position: relative;
+  padding-left: 24px;
   z-index: 1000;
-
 }
 
-.box6 {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
+.home-content.animated {
+  animation-name: home;
+  animation-duration: 2s;
+}
+
+@keyframes home {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 2222px) {
@@ -71,8 +67,8 @@ h1{
 }
 
 .box5 {
+  left: -10%;
   top: 0px;
-  left: 0;
   width: 100px;
   height: 108%;
   border-left: 8px solid #b37142;
@@ -80,8 +76,132 @@ h1{
   border-bottom: 8px solid #b37142;
 }
 
+.box5.animated {
+  animation-name: box5;
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+
+@keyframes box5 {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+.box3 {
+  top: 110%;
+  width: 150px;
+  height: 150px;
+}
+
+.box3.animated {
+  animation-name: box3;
+  animation-duration: 1.5s;
+  animation-delay: .8s;
+}
+
+@keyframes box3 {
+  0% {
+    top: 110%;
+    right: 55%;
+    opacity: 0;
+  }
+
+  100% {
+    top: 70%;
+    right: 55%;
+    opacity: 1;
+  }
+}
+
+.box1 {
+  left: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.box1.animated {
+  animation-name: box1;
+  animation-duration: 1.5s;
+  animation-delay: 1s;
+}
+
+@keyframes box1 {
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
+
+  100% {
+    top: 15%;
+    opacity: 1;
+  }
+}
+
+.box2 {
+  right: -50%;
+  top: 15%;
+  width: 300px;
+  height: 300px;
+}
+
+.box2.animated {
+  animation-name: box2;
+  animation-duration: 2s;
+  animation-delay: .5s;
+}
+
+@keyframes box2 {
+  0% {
+    right: -20%;
+    opacity: 0;
+  }
+
+  100% {
+    right: 10%;
+    opacity: 1;
+  }
+}
+
+.box6 {
+  top: 68%;
+  left: 100%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.box6.animated {
+  animation-name: box6;
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
+@keyframes box6 {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    left: 60%;
+    opacity: 1;
+  }
+}
+
+
 @media screen and (max-width: 640px) {
   .box5 {
-   height: 105%;
+    height: 105%;
   }
 }

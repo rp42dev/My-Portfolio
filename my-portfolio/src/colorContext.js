@@ -21,6 +21,7 @@ export const ColorContextProvider = (props) => {
     const toggleColorMode = () => {
         setColorMode(colorMode === "dark" ? "light" : "dark");
         setColorModeStorage(colorMode === "dark" ? "light" : "dark");
+        window.location.reload(true);
     };
 
     if (colorModeStorage !== colorMode) {

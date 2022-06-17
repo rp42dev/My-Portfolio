@@ -14,8 +14,7 @@ import "./Home.css";
 
 //create Fade effect for the element
 const fadeIn = (element, duration) => {
-  element.style.transition = `opacity ${duration}ms ease-in-out`;
-  element.style.opacity = 1;
+  element.classList.add('animated')
 };
 
 const getDuration = () => {
@@ -27,7 +26,6 @@ const getElements = (element) => {
 };
 
 const generateRandomAnimation = (element) => {
-  console.log("generateRandomAnimation");
   let elements = getElements(element);
   for (let i = 0; i < elements.length; i++) {
     fadeIn(elements[i], getDuration());
@@ -48,7 +46,6 @@ function HomeApp() {
 
   useEffect(() => {
     [...document.getElementsByClassName("box")].forEach((element) => {
-      element.style.opacity = 0;
         setTimeout(() => {
           generateRandomAnimation("box");
         }, 50);
@@ -56,18 +53,16 @@ function HomeApp() {
   }, []);
 
   const handleScroll = () => {
-    if (inViewRef.current.getBoundingClientRect().bottom + 300 < window.innerHeight) {
+    if (inViewRef.current.getBoundingClientRect().bottom + 500 < window.innerHeight) {
       setIsVisible(false);
       [...document.getElementsByClassName("box")].forEach((element) => {
-        element.style.opacity = 0;
+        element.classList.remove("animated");
       });
     } else {
       setIsVisible(true);
       generateRandomAnimation("box");
     }
   };
-  console.log(window.innerHeight);
-  console.log("isVisible", isVisible);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -87,7 +82,6 @@ function HomeApp() {
     <Container
       id="back-to-top-anchor"
       ref={inViewRef}
-    
     >
       <Box id="navigation">
         <Nav />

@@ -6,14 +6,10 @@ setTimeout (() => {
   let height = window.innerHeight - 80;
   let width = window.innerWidth - 80;
 
-  button.style.top = "68%";
-  button.style.left = "60%";
-
   const animateMove = (element) => {
     let top = Math.random() * height;
     let left = Math.random() * width;
     let duration = 1000;
-
     element.style.top = top + "px";
     element.style.left = left + "px";
     element.style.transition = `top ${duration}ms ease-in-out, left ${duration}ms ease-in-out, opacity ${duration}ms ease-in-out`;

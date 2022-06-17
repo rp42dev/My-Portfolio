@@ -79,6 +79,7 @@ function HomeApp() {
   }
 
   return (
+    <div className="wrapper">
     <Container
       id="back-to-top-anchor"
       ref={inViewRef}
@@ -113,10 +114,10 @@ function HomeApp() {
       ></StyledPaper>
 
       <RunAwayBox />
+      <Box id="home">
 
       <BackToTop />
 
-      <Box id="home">
         <Box className="home-content box" p-3>
           <Box sx={{ zIndex: 4 }} className="box5 box"></Box>
 
@@ -160,6 +161,7 @@ function HomeApp() {
 
       <ScrollDown />
     </Container>
+    </div>
   );
 }
 

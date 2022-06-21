@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 
@@ -9,7 +9,8 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  max-width: 1920px;	
+  max-width: 1920px;
+
 }
 
 
@@ -38,6 +39,7 @@ h1 {
 
 .home-content {
   left: -100%;
+  width: 90vw;
   max-width: 650px;
   padding-left: 24px;
   z-index: 1000;

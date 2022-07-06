@@ -67,20 +67,85 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
+const spinner = `
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Loading...</title>
+  <style>
+    body {
+        background-color: #28282a;
+    }
+    #loader {
+      border: 12px solid #b37142;
+      border-radius: 50%;
+      border-top: 12px solid #28282a;
+      width: 70px;
+      height: 70px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    .center {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loader" class="center"></div>
+  <script>
+    document.onreadystatechange = function() {
+      if (document.readyState !== "complete") {
+        document.querySelector(
+        "body").style.visibility = "hidden";
+        document.querySelector(
+        "#loader").style.visibility = "visible";
+      } else {
+        document.querySelector(
+        "#loader").style.display = "none";
+        document.querySelector(
+        "body").style.visibility = "visible";
+      }
+    };
+  </script>
+</body>
+
+</html>
+`;
+
 export default function ImageComponent(props) {
   const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState(null);
 
   const LoadWebsite = (url) => {
     //fetch website url and open in new tab
     // repeat fetching for 5 times before giving up
     url = "https://" + url;
-
     setLoading(true);
+    const tab = window.open("about:blank");
+    tab.document.write(spinner);
     axios.get(url, {}).catch((reason) => {
       if (reason.response.status === 0) {
-        window.open(url, "_blank");
-        setLoading(false);
+        setTimeout(() => {
+          tab.location = url;
+          tab.focus();
+          setLoading(false);
+        }, 200);
       }
     });
   };
@@ -103,12 +168,11 @@ export default function ImageComponent(props) {
         {loading ? (
           <CircularProgress color="secondary" size={100} />
         ) : (
-            <Typography variant="h6" className="MuiTypography-root">
-              {props.image.title}
-            </Typography>
+          <Typography variant="h6" className="MuiTypography-root">
+            {props.image.title}
+          </Typography>
         )}
-            <ImageBackdrop className="MuiImageBackdrop-root">
-              </ImageBackdrop>
+        <ImageBackdrop className="MuiImageBackdrop-root"></ImageBackdrop>
       </ImageButton>
     </Paper>
   );

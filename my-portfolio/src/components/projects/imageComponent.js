@@ -1,6 +1,7 @@
 import { Typography, Paper, ButtonBase, styled } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
@@ -34,6 +35,10 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 
     "& .MuiTypography-root": {
       opacity: 1,
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
       borderBottom: "3px solid rgba(179, 113, 66)",
       backgroundColor: "rgb(20, 20, 21, 0.3)",
       color: theme.palette.secondary.main,
@@ -63,30 +68,22 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
 }));
 
 export default function ImageComponent(props) {
-    const LoadWebsite = (url) => {
-      //fetch website url and open in new tab
-      // repeat fetching for 5 times before giving up
-      let i = 0;
-      url = "https://" + url;
+  const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState(null);
 
-      while (i < 8) {
-        axios
-          .get(url, {
-            headers: { "Access-Control-Allow-Origin": "*" },
-          })
+  const LoadWebsite = (url) => {
+    //fetch website url and open in new tab
+    // repeat fetching for 5 times before giving up
+    url = "https://" + url;
 
-          .then((response) => {
-            if (response.status === 200) {
-              window.open(url, "_blank");
-            }
-            i = 8;
-          })
-          .catch((reason) => {
-            console.log(reason.message);
-          });
-        i++;
+    setLoading(true);
+    axios.get(url, {}).catch((reason) => {
+      if (reason.response.status === 0) {
+        window.open(url, "_blank");
+        setLoading(false);
       }
-    };
+    });
+  };
 
   return (
     <Paper elevation={3}>
@@ -99,21 +96,19 @@ export default function ImageComponent(props) {
           width: "100%",
         }}
       >
+        {/* overlay if loading */}
+
         <ImageSrc style={{ backgroundImage: `url(${props.image.img})` }} />
-        <ImageBackdrop className="MuiImageBackdrop-root" />
-        <Typography
-          component="span"
-          variant="button"
-          color="inherit"
-          sx={{
-            position: "relative",
-            p: 4,
-            pt: 2,
-            pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-          }}
-        >
-          {props.image.title}
-        </Typography>
+
+        {loading ? (
+          <CircularProgress color="secondary" size={100} />
+        ) : (
+            <Typography variant="h6" className="MuiTypography-root">
+              {props.image.title}
+            </Typography>
+        )}
+            <ImageBackdrop className="MuiImageBackdrop-root">
+              </ImageBackdrop>
       </ImageButton>
     </Paper>
   );

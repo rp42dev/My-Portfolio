@@ -1,5 +1,4 @@
 {
-  "proxy": "http://localhost:4200",
   "homepage": "http://raivis80.github.io/My-Portfolio",
   "name": "portfolio",
   "version": "0.1.0",

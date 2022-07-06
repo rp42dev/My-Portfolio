@@ -5,10 +5,6 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 
 export default function ProjectIcons(props) {
-    
-    if (props.github === undefined){
-        console.log(props);
-    }
     return (
       <Stack direction="row" spacing={2}>
         {props.github !== undefined ? (

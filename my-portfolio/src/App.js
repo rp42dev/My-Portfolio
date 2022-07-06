@@ -10,6 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useColorContext } from './colorContext';
 
+
 const themeMode = (mode) => ({
   palette: {
     mode,
@@ -128,5 +129,3 @@ function App() {
 }
 
 export default App;
-
-

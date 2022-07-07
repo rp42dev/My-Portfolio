@@ -80,6 +80,7 @@ const spinner = `
   <style>
     body {
         background-color: #28282a;
+        color: #fff;
     }
     #loader {
       border: 12px solid #b37142;
@@ -109,21 +110,6 @@ const spinner = `
 
 <body>
   <div id="loader" class="center"></div>
-  <script>
-    document.onreadystatechange = function() {
-      if (document.readyState !== "complete") {
-        document.querySelector(
-        "body").style.visibility = "hidden";
-        document.querySelector(
-        "#loader").style.visibility = "visible";
-      } else {
-        document.querySelector(
-        "#loader").style.display = "none";
-        document.querySelector(
-        "body").style.visibility = "visible";
-      }
-    };
-  </script>
 </body>
 
 </html>
@@ -132,22 +118,33 @@ const spinner = `
 export default function ImageComponent(props) {
   const [loading, setLoading] = useState(false);
 
-  const LoadWebsite = (url) => {
+  const  LoadWebsite = async(url) => {
     //fetch website url and open in new tab
-    // repeat fetching for 5 times before giving up
     url = "https://" + url;
     setLoading(true);
     const tab = window.open("about:blank");
     tab.document.write(spinner);
-    axios.get(url, {}).catch((reason) => {
-      if (reason.response.status === 0) {
+    try {
+      let res = await axios.get(url, {});
+      setTimeout(() => {
+        tab.location = url;
+        tab.focus();
+        setLoading(false);
+      }, 200);
+    } catch (e) {
+      if (e.response.readyState === 4) {
+        console.log("Status: " + e.code);
         setTimeout(() => {
           tab.location = url;
           tab.focus();
           setLoading(false);
         }, 200);
+      } else {
+        console.log('Status: '+e.code);
+        tab.alert(e.message + " " + e.code + "Please try again later");
+        setLoading(false);
       }
-    });
+    }
   };
 
   return (

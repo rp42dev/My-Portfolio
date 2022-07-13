@@ -80,87 +80,83 @@ function HomeApp() {
 
   return (
     <div className="wrapper">
-    <Container
-      id="back-to-top-anchor"
-      ref={inViewRef}
-    >
-      <Box id="navigation">
-        <Nav />
-      </Box>
+      <Container id="back-to-top-anchor" ref={inViewRef}>
+        <Box id="navigation">
+          <Nav />
+        </Box>
 
-      <StyledPaper
-        sx={{ zIndex: 3 }}
-        square
-        elevation={8}
-        className="box1 box"
-      ></StyledPaper>
-      <StyledPaper
-        sx={{ zIndex: 3 }}
-        square
-        elevation={12}
-        className="box2 box"
-      ></StyledPaper>
-      <StyledPaper
-        sx={{ zIndex: 3 }}
-        square
-        elevation={8}
-        className="box3 box"
-      ></StyledPaper>
-      <StyledPaper
-        sx={{ zIndex: 3 }}
-        square
-        elevation={10}
-        className="box4 box"
-      ></StyledPaper>
+        <StyledPaper
+          sx={{ zIndex: 3 }}
+          square
+          elevation={8}
+          className="box1 box"
+        ></StyledPaper>
+        <StyledPaper
+          sx={{ zIndex: 3 }}
+          square
+          elevation={12}
+          className="box2 box"
+        ></StyledPaper>
+        <StyledPaper
+          sx={{ zIndex: 3 }}
+          square
+          elevation={8}
+          className="box3 box"
+        ></StyledPaper>
+        <StyledPaper
+          sx={{ zIndex: 3 }}
+          square
+          elevation={10}
+          className="box4 box"
+        ></StyledPaper>
 
-      <RunAwayBox />
-      <Box id="home">
+        <RunAwayBox />
+        <Box id="home">
+          <BackToTop />
 
-      <BackToTop />
+          <Box className="home-content box" p-3>
+            <Box sx={{ zIndex: 4 }} className="box5 box"></Box>
 
-        <Box className="home-content box" p-3>
-          <Box sx={{ zIndex: 4 }} className="box5 box"></Box>
+            <Typography
+              color="secondary"
+              variant="h1"
+              sx={{ position: "relative", zIndex: 4 }}
+            >
+              Hi, I'm Raivis
+            </Typography>
 
-          <Typography
-            color="secondary"
-            variant="h1"
-            sx={{ position: "relative", zIndex: 4 }}
-          >
-            Hi, I'm Raivis
-          </Typography>
+            <InView
+              rootMargin="0% 0% -25%"
+              as="div"
+              onChange={(inView, entry) => {
+                if (inView === true) handlePage(inView, entry);
+              }}
+            ></InView>
 
-          <InView
-            rootMargin="0% 0% -25%"
-            as="div"
-            onChange={(inView, entry) => {
-              if (inView === true) handlePage(inView, entry);
-            }}
-          ></InView>
+            <Typography
+              sx={{ mt: 2, position: "relative", zIndex: 4 }}
+              color="primary"
+              variant="h4"
+            >
+              Junior Full-Stack coder developer
+            </Typography>
 
-          <Typography
-            sx={{ mt: 2, position: "relative", zIndex: 4 }}
-            color="primary"
-            variant="h4"
-          >
-            A Junior Web Designer & Developer
-          </Typography>
+            <Typography
+              sx={{ mt: 2, position: "relative", zIndex: 3 }}
+              color="primary.dark"
+              variant="h5"
+            >
+              I enjoy creating Responsive applications and websites.
+            </Typography>
 
-          <Typography
-            sx={{ mt: 2, position: "relative", zIndex: 3 }}
-            color="primary.dark"
-            variant="h5"
-          >
-            I enjoy creating Responsive and accessible websites
-          </Typography>
-
-          <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
-            <Btn text="message" />
+            <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+              <Btn text="message" />
+            </Box>
           </Box>
         </Box>
-      </Box>
 
-      <ScrollDown />
-    </Container>
+        <ScrollDown />
+      </Container>
     </div>
   );
 }

@@ -29,10 +29,10 @@ function AboutApp() {
         <Fade bottom cascade delay={200} distance="30%">
           <Box className="about-text" sx={{ mt: 2 }}>
             <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
-              I'm a Full-Stack Software Development Bootcamp graduate with a
-              passion for learning and problem-solving, with an extensive
-              background in various coding languages and I have a strong
-              foundation in Full-Stack web development.
+              I'm a Full-Stack coder developer with a passion for learning and
+              problem-solving. I have an extensive background in various coding
+              languages and I have a strong foundation in Full-Stack web
+              development.
             </Typography>
           </Box>
         </Fade>

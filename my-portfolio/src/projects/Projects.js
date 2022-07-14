@@ -54,7 +54,7 @@ function ProjectsApp() {
                     window.open("https://github.com/Raivis80", "_blank")
                   }
                   color="secondary"
-                  aria-label="delete"
+                  aria-label="github"
                 >
                   <GitHubIcon fontSize="large" />
                 </IconButton>

@@ -1,56 +1,73 @@
-import { Paper, useTheme } from "@mui/material";
+import { Paper, useTheme, Box } from "@mui/material";
 import { useColorContext } from "../../colorContext";
 
-setTimeout (() => {
-  const button = document.getElementById("runaway-btn");
+setTimeout(() => {
+  const box6 = document.querySelector(".box6");
+  const box9 = document.querySelector(".box9");
+
   let height = window.innerHeight - 80;
   let width = window.innerWidth - 80;
 
-  const animateMove = (element) => {
+  let currentTop = box9.offsetTop;
+  let currentLeft = box9.offsetLeft;
+
+  box9.style.top = `${currentTop}px`;
+  box9.style.left = `${currentLeft}px`;
+
+  box6.style.top = `${currentTop}px`;
+  box6.style.left = `${currentLeft}px`;
+
+  box9.style.opacity = "1";
+  box9.classList.remove("animated");
+
+  const animateMove = () => {
     let top = Math.random() * height;
     let left = Math.random() * width;
     let duration = 1000;
-    element.style.top = top + "px";
-    element.style.left = left + "px";
-    element.style.transition = `top ${duration}ms ease-in-out, left ${duration}ms ease-in-out, opacity ${duration}ms ease-in-out`;
+    box6.style.top = top + "px";
+    box6.style.left = left + "px";
+    box9.style.top = `${top}px`;
+    box9.style.left = `${left}px`;
+    box9.style.transition = `left ${duration}ms, top ${duration}ms, transform 100ms ease-in-out, color 500ms ease-in-out`;
+    box6.style.transition = `left ${duration}ms, top ${duration}ms`;
   };
 
-  const animateZoom = (element) => {
-    let duration = 500;
-    element.style.transition = `transform ${duration}ms ease-in-out`;
-    element.style.transform = "scale(1.1)";
-    setTimeout(() => {
-      element.style.transform = "scale(1)";
-    }, duration);
-  };
 
   ["mouseover", "click", "touchstart"].forEach(function (el) {
-    button.addEventListener(el, function (event) {
-      animateZoom(this);
-      animateMove(this);
+    box6.addEventListener(el, function (event) {
+      animateMove();
     });
   });
-}, 100);   // end of window.onload
-
+}, 3000); // end of window.onload
 
 const RunAwayBox = () => {
   const theme = useTheme();
   const colorTheme = useColorContext();
-
   return (
-    <Paper
-      sx={{
-        zIndex: "1",
-        backgroundColor:
-          colorTheme.colorMode === "dark"
-            ? theme.palette.secondary.dark
-            : theme.palette.secondary.dark,
-      }}
-      elevation={6}
-      square
-      className="box6 box"
-      id="runaway-btn"
-    ></Paper>
+    <>
+      <Box id="runaway-btn" className="box6"></Box>
+      <Paper
+        sx={{
+          width: "80px",
+          height: "80px",
+          zIndex: "1",
+          backgroundColor:
+            colorTheme.colorMode === "dark"
+              ? theme.palette.secondary.dark
+              : theme.palette.secondary.dark,
+        }}
+        className="box9 box"
+        elevation={6}
+        square
+      >
+        <Box className="aye">
+          <div className="shut">
+            <span></span>
+          </div>
+          <div className="ball"></div>
+        </Box>
+      </Paper>
+    </>
   );
 };
 

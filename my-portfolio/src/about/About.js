@@ -7,6 +7,13 @@ import Fade from 'react-reveal/Fade';
 import DoneIcon from '@mui/icons-material/Done';
 import './About.css';
 
+function spinCube() {
+  const cube = document.querySelector('.cube');
+  //rotate cube on hover random
+  cube.style.transition = 'transform 2s ease-in-out';
+  cube.style.transform = `translateZ(-100px) rotateX(${Math.floor(Math.random() * 360)}deg) rotateY(${Math.floor(Math.random() * 360)}deg)`;
+}
+
 function AboutApp() {
   const context = useContext(AppContext);
   function handlePage() {
@@ -19,6 +26,19 @@ function AboutApp() {
       id="about"
       sx={{ position: "relative", display: "flex", alignItems: "center" }}
     >
+      <Box className="cube-outer">
+        <div class="scene">
+          <div onMouseEnter={spinCube} class="cube">
+            <div class="cube__face cube__face--front"><p>Responsive</p></div>
+            <div class="cube__face cube__face--back"><p>Accessible</p></div>
+            <div class="cube__face cube__face--right"><p>Website</p></div>
+            <div class="cube__face cube__face--left"><p>Development</p></div>
+            <div class="cube__face cube__face--top"><p>Full-Stack</p></div>
+            <div class="cube__face cube__face--bottom"><p>Applications</p></div>
+          </div>
+         <div class="box__shadow"></div>
+        </div>
+      </Box>
       <Box>
         <Fade bottom cascade distance="30%">
           <Typography color="secondary" variant="h2">

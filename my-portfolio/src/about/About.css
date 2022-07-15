@@ -8,6 +8,7 @@
 
 #about {
   position: relative;
+  overflow: hidden;
 }
 
 /* cube */
@@ -53,16 +54,15 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  font-size: 1.6rem;
-  font-weight: bold;
   color: white;
-  text-align: center;
+  display: grid;
+  place-items: center;
   background-color: #121212;
   backface-visibility: hidden;
   background-image: linear-gradient(rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14));
 }
 
-.cube__face p {
+.cube__face span {
   margin-top: 50%;
   transform: translateY(-50%);
 }

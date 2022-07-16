@@ -1,25 +1,39 @@
-import { InView } from 'react-intersection-observer';
-import { useContext } from 'react';
-import { AppContext } from '../AppContext.js';
+import { InView } from "react-intersection-observer";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../AppContext.js";
 import { Box, Container, Typography } from "@mui/material";
-import Fade from 'react-reveal/Fade';
-import DoneIcon from '@mui/icons-material/Done';
-import './About.css';
-import TheCube from '../components/cube/Cube.js';
+import Fade from "react-reveal/Fade";
+import DoneIcon from "@mui/icons-material/Done";
+import "./About.css";
+import TheCube from "../components/cube/Cube.js";
 
 function AboutApp() {
   const context = useContext(AppContext);
-  function handlePage() {
-    context.actions.addTask('about')
-  }
+  let [isInView, setIsInView] = useState(false);
+
+  useEffect(
+    (isInView) => {
+      switch (isInView) {
+        case true:
+          context.actions.addTask("about");
+          break;
+        case false:
+          context.actions.removeTask("about");
+          break;
+        default:
+          break;
+      }
+    },
+    [isInView, context]
+  );
 
   return (
     <Container
       id="about"
       sx={{ position: "relative", display: "flex", alignItems: "center" }}
     >
-      <TheCube/>
-      <Box>
+      <Box sx={{ position: "relative", width: "100%" }}>
+        {isInView ? <TheCube /> : null}
         <Fade bottom cascade distance="30%">
           <Typography color="secondary" variant="h2">
             About me
@@ -45,7 +59,7 @@ function AboutApp() {
             rootMargin="0% 0% -25%"
             as="div"
             onChange={(inView, entry) => {
-              if (inView === true) handlePage();
+              setIsInView(inView);
             }}
           ></InView>
           <Box className="priorities-text" sx={{ mt: 1 }}>
@@ -79,10 +93,10 @@ function AboutApp() {
         </Fade>
 
         <Fade bottom cascade delay={600} distance="30%">
-          <Typography sx={{ mt: 2 }} color="primary.dark.dark" variant="h6">
+          <Typography sx={{ mt: 2 }} color="primary.main" variant="h6">
             Technologies I’ve worked with
           </Typography>
-          <Box className="priorities-text">
+          <Box className="">
             <Typography color="primary.dark" component={"span"} variant="body2">
               <ul>
                 <li>Front-End: HTML, CSS, JavaScript, React</li>

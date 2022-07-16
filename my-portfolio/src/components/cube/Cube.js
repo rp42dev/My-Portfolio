@@ -1,63 +1,17 @@
 import { Box, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
-
-
-var isAnimating = false;
-
-const addEventListeners = () => {
-  var cubeFaces = document.querySelectorAll(".cube__face");;
-
-  cubeFaces.forEach((face) => {
-    ["mouseenter", "click"].forEach((evt) => {
-      face.addEventListener(evt, (e) => {
-        
-      });
-    });
-  });
-};
-
-var SpinInterval;
-const startAnimation = () => {
-  addEventListeners();
-  SpinInterval = setInterval(spinCubeSetup, 13000);
-};
-
-// spin if mouse not over cube face
-function spinCubeSetup() {
-  const cubeFaces = document.querySelectorAll(".cube__face");
-    // spin each face for each face with delay of 1 second
-    for (let face = 0; face < cubeFaces.length; face++) {
-      setTimeout(() => {
-        spinCube(cubeFaces[face]);
-        console.log("spinCubeSetup");
-      }, 2000 * face);
-    }
-}
-
-// create spin function to rotate cube
-
-function spinCube(face) {
-    console.log("spinCube");
-  const cube = document.querySelector(".cube");
-    const faceIndex = [...cube.children].indexOf(face);
-    const faceToSpinClass = `cube__face--${faceIndex}--spin`;
-    cube.classList.add(faceToSpinClass, "cube__face--spin");
-    setTimeout(() => {
-        cube.classList.remove(faceToSpinClass, "cube__face--spin");
-        isAnimating = false;
-    }, 1000);
-}
+import { useEffect } from "react";
 
 function TheCube() {
-//   useEffect(() => {
-//     startAnimation();
-//     spinCubeSetup();
-//   }, []);
-
+  useEffect(() => {
+    const cubeOuter = document.querySelector(".cube-outer");
+    const cube = document.querySelector(".cube");
+    cubeOuter.classList.add("animated");
+    cube.classList.add("spin");
+  }, []);
   return (
     <Box className="cube-outer">
       <Box className="scene">
-        <Box className="cube spin">
+        <Box className="cube">
           <Box className="cube__face cube__face--0">
             <Typography variant="h6">Full-Stack</Typography>
           </Box>

@@ -41,7 +41,8 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 
 function HomeApp() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const context = useContext(AppContext);
   const inViewRef = useRef(null);
 
   useEffect(() => {
@@ -52,31 +53,20 @@ function HomeApp() {
     });
   }, []);
 
-  const handleScroll = () => {
-    if (inViewRef.current.getBoundingClientRect().bottom + 500 < window.innerHeight) {
-      setIsVisible(false);
-      [...document.getElementsByClassName("box")].forEach((element) => {
-        element.classList.remove("animated");
-      });
-    } else {
-      setIsVisible(true);
-      generateRandomAnimation("box");
+
+  useEffect((isInView) => {
+    switch (isInView) {
+      case true:
+        context.actions.addTask("home");
+        break;
+      case false:
+        context.actions.removeTask("home");
+        break;
+      default:
+        break;
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isVisible]);
-
-  const context = useContext(AppContext);
-
-  function handlePage(inView, entry) {
-    context.actions.addTask("home");
-
   }
+  , [isInView, context]);
 
   return (
     <div className="wrapper">
@@ -129,7 +119,7 @@ function HomeApp() {
               rootMargin="0% 0% -25%"
               as="div"
               onChange={(inView, entry) => {
-                if (inView === true) handlePage(inView, entry);
+                setIsInView(inView);
               }}
             ></InView>
 

@@ -32,21 +32,20 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
   transform: translateZ(-100px) rotateX(20deg) rotateY(30deg);
 }
 
 
 @keyframes zoom {
-  0% {
-   
-  }
+  0% {}
+
   50% {
     height: 300px;
     width: 300px;
   }
-  100% {
-    
-  }
+
+  100% {}
 }
 
 .cube__face {
@@ -67,30 +66,55 @@
   transform: translateY(-50%);
 }
 
-.cube__face--front {
+.cube__face--0 {
   transform: rotateY(0deg) translateZ(100px);
 }
 
-.cube__face--right {
+.cube__face--1 {
   transform: rotateY(90deg) translateZ(100px);
 }
 
-.cube__face--back {
+.cube__face--2 {
   transform: rotateY(180deg) translateZ(100px);
 }
 
-.cube__face--left {
+.cube__face--3 {
   transform: rotateY(-90deg) translateZ(100px);
 }
 
-.cube__face--top {
+.cube__face--4 {
   transform: rotateX(90deg) translateZ(100px);
 }
 
-.cube__face--bottom {
+.cube__face--5 {
   transform: rotateX(-90deg) translateZ(100px);
 }
 
 .cube.is-backface-hidden .cube__face {
   backface-visibility: hidden;
+}
+
+/* spin to */
+.cube__face--0--spin.cube__face--spin {
+  transform: translateZ(-100px) rotateX(0deg) rotateY(-360deg);
+}
+
+.cube__face--1--spin.cube__face--spin {
+  transform: translateZ(-100px) rotateX(0deg) rotateY(180deg);
+}
+
+.cube__face--2--spin.cube__face--spin {
+  transform: translateZ(-100px) rotateX(0deg) rotateY(270deg);
+}
+
+.cube__face--3--spin.cube__face--spin {
+  transform: translateZ(-100px) rotateX(360deg) rotateY(90deg);
+}
+
+.cube__face--4--spin.cube__face--spin {
+  transform: translateZ(-100px) rotateX(270deg) rotateY(0deg);
+}
+
+.cube__face--5--spin.cube__face--spin {
+  transform: translateZ(-100px) rotateX(90deg) rotateY(360deg);
 }

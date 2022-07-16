@@ -49,15 +49,15 @@ function spinCube(face) {
 }
 
 function TheCube() {
-  useEffect(() => {
-    startAnimation();
-    spinCubeSetup();
-  }, []);
+//   useEffect(() => {
+//     startAnimation();
+//     spinCubeSetup();
+//   }, []);
 
   return (
     <Box className="cube-outer">
       <Box className="scene">
-        <Box className="cube">
+        <Box className="cube spin">
           <Box className="cube__face cube__face--0">
             <Typography variant="h6">Full-Stack</Typography>
           </Box>
@@ -68,7 +68,7 @@ function TheCube() {
             <Typography variant="h6">Intuitive</Typography>
           </Box>
           <Box className="cube__face cube__face--3">
-            <Typography variant="h6">Web App</Typography>
+            <Typography variant="h6">Website</Typography>
           </Box>
           <Box className="cube__face cube__face--4">
             <Typography variant="h6">Design and</Typography>

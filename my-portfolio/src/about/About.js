@@ -11,21 +11,11 @@ function AboutApp() {
   const context = useContext(AppContext);
   let [isInView, setIsInView] = useState(false);
 
-  useEffect(
-    (isInView) => {
-      switch (isInView) {
-        case true:
-          context.actions.addTask("about");
-          break;
-        case false:
-          context.actions.removeTask("about");
-          break;
-        default:
-          break;
-      }
-    },
-    [isInView, context]
-  );
+  useEffect(() => {
+    if (isInView) {
+      context.actions.changePage("about");
+    }
+  }, [isInView]);
 
   return (
     <Container

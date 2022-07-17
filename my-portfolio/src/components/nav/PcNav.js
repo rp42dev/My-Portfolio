@@ -25,7 +25,7 @@ export default function PcMenu(props) {
     <React.Fragment>
       <Box sx={{ display: "flex" }}>
         <Tabs
-          value={context.store}
+          value={context.page}
           onChange={props.handleChange}
           indicatorColor="secondary"
           textColor="secondary"

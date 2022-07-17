@@ -9,7 +9,7 @@ import {
 import ProjectsComponent from '../components/projects/projectsComponent.js';
 import itemData from './data/ProjectData';
 import { AppContext } from '../AppContext.js';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import './Projects.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -17,11 +17,15 @@ import Fade from 'react-reveal/Fade';
 
 
 function ProjectsApp() {
-
+  const [isInView, setIsInView] = useState(false);
   const context = useContext(AppContext);
-  function handlePage() {
-    context.actions.addTask('projects')
-  }
+  
+  useEffect(() => {
+    if (isInView) {
+    context.actions.changePage("projects");
+    }
+  }, [isInView]);
+  
 
   return (
     <Container id="projects">
@@ -29,7 +33,7 @@ function ProjectsApp() {
         threshold={0.14}
         as="div"
         onChange={(inView, entry) => {
-          if (inView === true) handlePage();
+          setIsInView(inView);
         }}
       >
         <Box sx={{ position: "relative", height: "100%", overflow: "hidden" }}>

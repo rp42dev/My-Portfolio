@@ -3,11 +3,11 @@ import React from 'react';
 export const AppContext = React.createContext(null);
 
 export const ContextWrapper = (props) => {
-	const [ store, setStore ] = React.useState('home');
+	const [page, setPage ] = React.useState('home');
 	
-	const [ actions ] = React.useState({
-		addTask: pageNum => setStore(pageNum)
-	});
+	const [actions] = React.useState({
+    changePage: (pageNum) => setPage(pageNum),
+  });
 
 	const [menuOpen, setMenuOpen] = React.useState(false);
 	const [setValue] = React.useState({
@@ -15,7 +15,7 @@ export const ContextWrapper = (props) => {
 	});
 	
 	return (
-		<AppContext.Provider value={{ store, actions, menuOpen, setValue }}>
+		<AppContext.Provider value={{ page, actions, menuOpen, setValue }}>
 			{props.children}
 		</AppContext.Provider>
 	);

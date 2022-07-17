@@ -52,21 +52,12 @@ function HomeApp() {
     });
   }, []);
 
-  useEffect(
-    (isInView) => {
-      switch (isInView) {
-        case true:
-          context.actions.addTask("home");
-          break;
-        case false:
-          context.actions.removeTask("home");
-          break;
-        default:
-          break;
-      }
-    },
-    [isInView, context]
-  );
+  useEffect(() => {
+    if (isInView) {
+      context.actions.changePage("home");
+    }
+  }, [isInView]);
+    
 
   return (
     <div className="wrapper">

@@ -27,7 +27,6 @@ function setPositionOnstart(run__inner, run__outer) {
 
 
 function startAyeAnimation() {
-  console.log("startAyeAnimation");
   const aye = document.querySelector(".aye");
   const ball = document.querySelector(".ball");
   const lid = document.querySelector(".lid");
@@ -61,7 +60,6 @@ function animateAye(aye, ball, lid) {
 
 function addEventListener(elem) {
   ["mouseover", "click", "touchstart"].forEach(function (el) {
-    console.log(el);
     elem.addEventListener(el, function (event) {
       startAyeAnimation();
       animateMove(elem);

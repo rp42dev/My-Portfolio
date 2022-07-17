@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
+import './Cube.css';
 
 function TheCube() {
   useEffect(() => {

@@ -1,0 +1,209 @@
+.run__inner {
+    top: 80%;
+    width: 80px;
+    height: 80px;
+    z-index: 10000;
+    position: absolute;
+}
+
+.run__outer {
+    top: 68%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.run__outer.animated {
+    animation-name: run__inner;
+    animation-duration: 2s;
+    animation-delay: 1s;
+}
+
+@keyframes run__inner {
+    0% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        left: 60%;
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .box5 {
+        height: 105%;
+    }
+}
+
+@media screen and (max-width: 555px) {
+    .box1 {
+        display: none;
+    }
+}
+
+
+/* Aye opening */
+.aye {
+    background: radial-gradient(rgba(255, 254, 254) 10%, rgba(138, 2, 2, 0.5));
+    position: relative;
+    display: none;
+    /* Hide the opening */
+    left: 50%;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 75% 0;
+    overflow: hidden;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ball {
+    width: 35px;
+    height: 35px;
+    border: 5px solid rgb(59, 80, 3);
+    background: #222f3e;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ball.animated {
+    animation: ball;
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: once;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes ball {
+    0% {
+        transform: translate(-50%, -50%);
+        width: 35px;
+        height: 35px;
+        border: 10px solid rgb(59, 80, 3);
+    }
+
+    25% {
+        width: 35px;
+        height: 35px;
+        border: 5px solid rgb(59, 80, 3);
+        transform: translate(-60%, -80%);
+    }
+
+    40% {
+        width: 35px;
+        height: 35px;
+        border: 10px solid rgb(59, 80, 3);
+        transform: translate(-30%, -50%);
+    }
+
+    45% {
+        transform: translate(-20%, -80%);
+    }
+
+    60% {
+        width: 35px;
+        height: 35px;
+        border: 5px solid rgb(59, 80, 3);
+        transform: translate(-80%, 10%);
+    }
+
+    65% {
+        width: 35px;
+        height: 35px;
+        border: 10px solid rgb(59, 80, 3);
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        width: 35px;
+        height: 35px;
+        border: 13px solid rgb(59, 80, 3);
+        transform: translate(-50%, -50%);
+    }
+}
+
+.shut {
+    width: 100px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    border: none;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 999;
+}
+
+.lid {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: translate(0, 0%) rotateX(-30deg);
+    z-index: 1;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.11));
+    transition: all 1s ease-in-out;
+    background-color: #9C5F3F;
+    border-radius: 75%;
+}
+
+.lid.animated {
+    animation-name: aye-opening;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: once;
+}
+
+@keyframes aye-opening {
+    0% {
+        transform: translate(0, 0%) rotateX(-30deg);
+    }
+
+    10% {
+        transform: translate(0, -40%) rotateX(-80deg);
+    }
+
+    20% {
+        transform: translate(0, -40%) rotateX(-75deg);
+    }
+
+    25% {
+        transform: translate(0, 0%) rotateX(-30deg);
+    }
+
+    26% {
+        transform: translate(0, -40%) rotateX(-70deg);
+    }
+
+    31% {
+        transform: translate(0, 0%) rotateX(-30deg);
+    }
+
+    34% {
+        transform: translate(0, -40%) rotateX(-65deg);
+    }
+
+    80% {
+        transform: translate(0, -45%) rotateX(-70deg);
+    }
+
+    95% {
+        transform: translate(0, -30%) rotateX(-50deg);
+
+    }
+
+    100% {
+        transform: translate(0, 0%) rotateX(-30deg);
+    }
+
+}

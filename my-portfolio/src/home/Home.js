@@ -9,12 +9,12 @@ import { useColorContext } from "../colorContext";
 import BackToTop from "../components/buttons/ScrollTop";
 import ScrollDown from "../components/buttons/ScrollDown";
 
-import RunAwayBox from "../components/runAwayBtn/RunAwayBox";
+import RunAwayBox from "../components/runAwayBox/RunAwayBox";
 import "./Home.css";
 
 //create Fade effect for the element
 const fadeIn = (element, duration) => {
-  element.classList.add('animated')
+  element.classList.add("animated");
 };
 
 const getDuration = () => {
@@ -39,7 +39,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
       : theme.palette.background.paper.main,
 }));
 
-
 function HomeApp() {
   const [isInView, setIsInView] = useState(false);
   const context = useContext(AppContext);
@@ -47,26 +46,27 @@ function HomeApp() {
 
   useEffect(() => {
     [...document.getElementsByClassName("box")].forEach((element) => {
-        setTimeout(() => {
-          generateRandomAnimation("box");
-        }, 50);
+      setTimeout(() => {
+        generateRandomAnimation("box");
+      }, 50);
     });
   }, []);
 
-
-  useEffect((isInView) => {
-    switch (isInView) {
-      case true:
-        context.actions.addTask("home");
-        break;
-      case false:
-        context.actions.removeTask("home");
-        break;
-      default:
-        break;
-    }
-  }
-  , [isInView, context]);
+  useEffect(
+    (isInView) => {
+      switch (isInView) {
+        case true:
+          context.actions.addTask("home");
+          break;
+        case false:
+          context.actions.removeTask("home");
+          break;
+        default:
+          break;
+      }
+    },
+    [isInView, context]
+  );
 
   return (
     <div className="wrapper">

@@ -26,7 +26,7 @@ export default function MobileMenu(props) {
     } else {
       context.setValue.setMenu(false);
     }	
-  }, [anchorEl]);
+  }, [anchorEl, context.setValue, open]);
    
 
   return (

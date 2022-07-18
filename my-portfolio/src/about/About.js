@@ -23,7 +23,7 @@ function AboutApp() {
       sx={{ position: "relative", display: "flex", alignItems: "center" }}
     >
       <Box sx={{ position: "relative", width: "100%" }}>
-        {isInView ? <TheCube /> : null}
+        <TheCube isInView={isInView}/>
         <Fade bottom cascade distance="30%">
           <Typography color="secondary" variant="h2">
             About me

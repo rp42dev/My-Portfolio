@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 import { ContextWrapper } from "./AppContext.js";
-import { ColorContextProvider } from "./colorContext";
+import { ColorContextProvider } from "./ColorContext";
 ;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

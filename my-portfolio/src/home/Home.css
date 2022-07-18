@@ -37,6 +37,7 @@ h1 {
 
 .home-content {
   left: -100%;
+  opacity: 0;
   width: 90vw;
   max-width: 650px;
   padding-left: 24px;
@@ -71,11 +72,15 @@ h1 {
     width: 250px;
     height: 250px;
   }
+  .box4 div:first-child {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .box5 {
-  left: -10%;
-  top: 0px;
+  left: -100%;
+  opacity: 0;
   width: 100px;
   height: 108%;
   border-left: 8px solid #b37142;
@@ -83,7 +88,14 @@ h1 {
   border-bottom: 8px solid #b37142;
 }
 
+.box5 div:first-child {
+  width: 100%;
+  height: 100%;
+}
+
 .box5.animated {
+  left: 0;
+  opacity: 1;
   animation-name: box5;
   animation-delay: 1s;
   animation-duration: 2s;
@@ -103,8 +115,15 @@ h1 {
 
 .box3 {
   top: 110%;
+  right: 55%;
+  opacity: 0;
   width: 150px;
   height: 150px;
+}
+
+.box3 div:first-child {
+  width: 100%;
+  height: 100%;
 }
 
 .box3.animated {
@@ -116,21 +135,26 @@ h1 {
 @keyframes box3 {
   0% {
     top: 110%;
-    right: 55%;
     opacity: 0;
   }
 
   100% {
     top: 70%;
-    right: 55%;
     opacity: 1;
   }
 }
 
 .box1 {
   left: 50px;
+  top: -100%;
+  opacity: 0;
   width: 100px;
   height: 100px;
+}
+
+.box1 div:first-child {
+  height: 100%;
+  width: 100%;
 }
 
 .box1.animated {
@@ -158,6 +182,11 @@ h1 {
   height: 300px;
 }
 
+.box2 div:first-child {
+  width: 100%;
+  height: 100%;
+}
+
 .box2.animated {
   animation-name: box2;
   animation-duration: 2s;
@@ -175,4 +204,3 @@ h1 {
     opacity: 1;
   }
 }
-

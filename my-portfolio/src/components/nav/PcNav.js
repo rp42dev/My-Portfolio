@@ -4,7 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
 import { Tooltip } from "@mui/material";
 import ModeButton from "../buttons/ThemeButton";
-import { useColorContext } from "../../colorContext";
+import { useColorContext } from "../../ColorContext";
 
 
 import { AppContext } from "../../AppContext.js";

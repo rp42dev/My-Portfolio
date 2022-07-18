@@ -3,12 +3,12 @@ import Btn from "../components/buttons/Btn";
 import Typography from "@mui/material/Typography";
 import { Box, Container, Paper, styled } from "@mui/material";
 import { InView } from "react-intersection-observer";
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState, useRef, createTheme } from "react";
 import { AppContext } from "../AppContext.js";
-import { useColorContext } from "../colorContext";
+import { ColorContext, useColorContext } from "../ColorContext";
 import BackToTop from "../components/buttons/ScrollTop";
 import ScrollDown from "../components/buttons/ScrollDown";
-
+import { useTheme } from "@mui/material/styles";
 import RunAwayBox from "../components/runAwayBox/RunAwayBox";
 import "./Home.css";
 
@@ -32,18 +32,13 @@ const generateRandomAnimation = (element) => {
   }
 };
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  backgroundColor:
-    useColorContext().colorMode === "dark"
-      ? theme.palette.background.paper.light
-      : theme.palette.background.paper.main,
-}));
-
 function HomeApp() {
   const [isInView, setIsInView] = useState(false);
+  let theme = useTheme();
   const context = useContext(AppContext);
   const inViewRef = useRef(null);
 
+  console.log(useColorContext().colorMode);
   useEffect(() => {
     [...document.getElementsByClassName("box")].forEach((element) => {
       setTimeout(() => {
@@ -57,7 +52,6 @@ function HomeApp() {
       context.actions.changePage("home");
     }
   }, [isInView]);
-    
 
   return (
     <div className="wrapper">
@@ -65,38 +59,38 @@ function HomeApp() {
         <Box id="navigation">
           <Nav />
         </Box>
+        
+        <Box sx={{ zIndex: 3 }} className="box1 box">
+          <Paper  square elevation={8}></Paper>
+        </Box>
 
-        <StyledPaper
-          sx={{ zIndex: 3 }}
-          square
-          elevation={8}
-          className="box1 box"
-        ></StyledPaper>
-        <StyledPaper
-          sx={{ zIndex: 3 }}
+        <Box sx={{ zIndex: 3 }} className="box2 box">
+        <Paper
           square
           elevation={12}
-          className="box2 box"
-        ></StyledPaper>
-        <StyledPaper
-          sx={{ zIndex: 3 }}
+        ></Paper>
+        </Box>
+
+        <Box sx={{ zIndex: 3 } }className="box3 box">
+        <Paper  
           square
           elevation={8}
-          className="box3 box"
-        ></StyledPaper>
-        <StyledPaper
-          sx={{ zIndex: 3 }}
+        ></Paper>
+        </Box>
+
+        <Box sx={{ zIndex: 3 }} className="box4 box">
+        <Paper
           square
           elevation={10}
-          className="box4 box"
-        ></StyledPaper>
+        ></Paper>
+        </Box>
 
         <RunAwayBox />
         <Box id="home">
           <BackToTop />
 
-          <Box className="home-content box" p-3>
-            <Box sx={{ zIndex: 4 }} className="box5 box"></Box>
+          <Box sx={{ zIndex: 4 }} className="home-content box" p-3>
+            <Box className="box5 box"></Box>
 
             <Typography
               color="secondary"

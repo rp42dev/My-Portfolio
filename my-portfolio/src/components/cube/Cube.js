@@ -1,14 +1,49 @@
 import { Box, Typography } from "@mui/material";
-import { useEffect } from "react";
-import './Cube.css';
+import { useEffect, memo, useMemo } from "react";
+import "./Cube.css";
 
-function TheCube() {
+const GetBoxes = (props) => {
+  console.log("GetBoxes");
+  const cube = document.querySelector(".cube");
+  return [cube];
+};
+
+const SpinCube = () => {
+  const boxVar = GetBoxes();
+  boxVar[0].classList.add("spin");
+};
+
+const RemoveCube = () => {
+  const cube = document.querySelector(".cube");
+  cube.classList.remove("spin");
+};
+
+const InitAnimation = () => {
+  const cubeOuter = document.querySelector(".cube-outer");
+  cubeOuter.classList.add("animated");
+};
+
+const RemoveAnimation = () => {
+  const cubeOuter = document.querySelector(".cube-outer");
+  cubeOuter.classList.remove("animated");
+}
+
+
+function TheCube(props) {
   useEffect(() => {
-    const cubeOuter = document.querySelector(".cube-outer");
-    const cube = document.querySelector(".cube");
-    cubeOuter.classList.add("animated");
-    cube.classList.add("spin");
-  }, []);
+    if (props.isInView) {
+      SpinCube();
+    } else {
+      RemoveCube();
+    }
+  }, [props.isInView]);
+
+  useEffect(() => {
+    if (props.isInView) {
+      InitAnimation();
+    }
+  }, [props.isInView]);
+
   return (
     <Box className="cube-outer">
       <Box className="scene">

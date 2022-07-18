@@ -1,15 +1,14 @@
-import * as React from 'react';
-import './App.css';
-import HomeApp from './home/Home';
-import CssBaseline from '@mui/material/CssBaseline';
-import AboutApp from './about/About';
-import ProjectsApp from './projects/Projects';
-import ContactApp from './contact/Contact';
-import Footer from './components/footer/FooterComponent';
+import * as React from "react";
+import "./App.css";
+import HomeApp from "./home/Home";
+import CssBaseline from "@mui/material/CssBaseline";
+import AboutApp from "./about/About";
+import ProjectsApp from "./projects/Projects";
+import ContactApp from "./contact/Contact";
+import Footer from "./components/footer/FooterComponent";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { useColorContext } from './colorContext';
-
+import { useColorContext } from "./ColorContext";
 
 const themeMode = (mode) => ({
   palette: {
@@ -27,15 +26,11 @@ const themeMode = (mode) => ({
             dark: "#9C5F3F",
           },
           dark: {
-            main: "#141415",
+            main: "#121212",
           },
           background: {
             default: "#28282a",
-          },
-          paper: {
-            main: "#28282a",
-            light: "#333335",
-            dark: "#141415",
+            paper: '#121212',
           },
         }
       : {
@@ -52,13 +47,10 @@ const themeMode = (mode) => ({
           dark: {
             main: "#D8D8D8",
           },
+   
           background: {
             default: "#D8D8D8",
-            paper: {
-              main: "#E5E5E5",
-              light: "#EEEEEE",
-              dark: "#D8D8D8",
-            },
+            paper: "#E5E5E5",
           },
         }),
   },
@@ -100,8 +92,6 @@ const themeMode = (mode) => ({
   },
 });
 
-
-
 function App() {
   const colorMode = useColorContext();
   const theme = createTheme(themeMode(colorMode.colorMode));
@@ -114,14 +104,14 @@ function App() {
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline>
-        <div className="App">
-          <HomeApp />
-          <AboutApp />
-          <ProjectsApp />
+          <div className="App">
+            <HomeApp />
+            <AboutApp />
+            <ProjectsApp />
 
-          <ContactApp />
-          <Footer />
-        </div>
+            <ContactApp />
+            <Footer />
+          </div>
         </CssBaseline>
       </ThemeProvider>
     </React.Fragment>

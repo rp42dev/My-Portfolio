@@ -1,6 +1,6 @@
 import { Paper, useTheme, Box } from "@mui/material";
 import { useEffect } from "react";
-import { useColorContext } from "../../colorContext";
+import { useColorContext } from "../../ColorContext";
 import "./RunAwayBox.css";
 
 const startAnimation = () => {
@@ -111,10 +111,7 @@ const RunAwayBox = () => {
           width: "80px",
           height: "80px",
           zIndex: "1",
-          backgroundColor:
-            colorTheme.colorMode === "dark"
-              ? theme.palette.secondary.dark
-              : theme.palette.secondary.dark,
+          backgroundColor: theme.palette.secondary.dark,
         }}
         className="run__outer box"
         elevation={6}
@@ -122,7 +119,7 @@ const RunAwayBox = () => {
       >
         <Box className="aye">
           <Box className="shut">
-            <Box className="lid"></Box>
+            <Box sx={{backgroundColor: theme.palette.secondary.dark}} className="lid"></Box>
           </Box>
           <Box className="ball"></Box>
         </Box>

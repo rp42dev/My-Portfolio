@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import ProjectIcons from '../icons/projectIcons.js';
 import useMediaQuery from '../../hooks/viewPortWidth.js';
-import { useColorContext } from '../../colorContext';
+import { useColorContext } from '../../ColorContext';
 
 
 const StyledPaper = styled(Paper)(({ theme }) => ({

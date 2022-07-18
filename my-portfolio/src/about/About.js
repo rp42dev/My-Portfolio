@@ -1,6 +1,6 @@
 import { InView } from "react-intersection-observer";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../AppContext.js";
+import { NavContext } from "../NavContext.js";
 import { Box, Container, Typography } from "@mui/material";
 import Fade from "react-reveal/Fade";
 import DoneIcon from "@mui/icons-material/Done";
@@ -8,7 +8,7 @@ import "./About.css";
 import TheCube from "../components/cube/Cube.js";
 
 function AboutApp() {
-  const context = useContext(AppContext);
+  const context = useContext(NavContext);
   let [isInView, setIsInView] = useState(false);
 
   useEffect(() => {

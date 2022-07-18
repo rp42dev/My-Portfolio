@@ -2,18 +2,16 @@ import * as React from "react";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
-import { Tooltip } from "@mui/material";
 import ModeButton from "../buttons/ThemeButton";
 import { useColorContext } from "../../ColorContext";
 
-
-import { AppContext } from "../../AppContext.js";
+import { NavContext } from "../../NavContext.js";
 import { useContext } from "react";
 
 export default function PcMenu(props) {
   let mode = useColorContext();
-  const context = useContext(AppContext);
-  
+  const context = useContext(NavContext);
+
   let toolTip = "";
   if (mode.colorMode === "light") {
     toolTip = "Dark Mode";
@@ -26,20 +24,22 @@ export default function PcMenu(props) {
       <Box sx={{ display: "flex" }}>
         <Tabs
           value={context.page}
-          onChange={props.handleChange}
           indicatorColor="secondary"
           textColor="secondary"
         >
-          {props.myObject.map((option, index) => (
+          {context.menuItems.map((option, index) => (
             <Tab
               sx={{ color: "#D8D8D8" }}
               key={index}
               label={option}
               value={option}
+              onClick={() => {
+                context.setScrollTo.setScroll(option);
+              }}
             ></Tab>
           ))}
         </Tabs>
-        <ModeButton/> 
+        <ModeButton />
       </Box>
     </React.Fragment>
   );

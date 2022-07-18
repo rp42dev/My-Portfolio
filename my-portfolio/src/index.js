@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-import { ContextWrapper } from "./AppContext.js";
+import { ContextWrapper } from "./NavContext.js";
 import { ColorContextProvider } from "./ColorContext";
 ;
 

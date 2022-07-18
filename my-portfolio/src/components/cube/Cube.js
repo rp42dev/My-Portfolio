@@ -3,7 +3,6 @@ import { useEffect, memo, useMemo } from "react";
 import "./Cube.css";
 
 const GetBoxes = (props) => {
-  console.log("GetBoxes");
   const cube = document.querySelector(".cube");
   return [cube];
 };

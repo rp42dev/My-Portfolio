@@ -1,11 +1,9 @@
-import Nav from "../components/nav/Nav";
 import Btn from "../components/buttons/Btn";
 import Typography from "@mui/material/Typography";
 import { Box, Container, Paper, styled } from "@mui/material";
 import { InView } from "react-intersection-observer";
 import { useContext, useEffect, useState, useRef, createTheme } from "react";
-import { AppContext } from "../AppContext.js";
-import { ColorContext, useColorContext } from "../ColorContext";
+import { NavContext } from "../NavContext.js";
 import BackToTop from "../components/buttons/ScrollTop";
 import ScrollDown from "../components/buttons/ScrollDown";
 import { useTheme } from "@mui/material/styles";
@@ -35,10 +33,9 @@ const generateRandomAnimation = (element) => {
 function HomeApp() {
   const [isInView, setIsInView] = useState(false);
   let theme = useTheme();
-  const context = useContext(AppContext);
+  const context = useContext(NavContext);
   const inViewRef = useRef(null);
 
-  console.log(useColorContext().colorMode);
   useEffect(() => {
     [...document.getElementsByClassName("box")].forEach((element) => {
       setTimeout(() => {
@@ -56,9 +53,7 @@ function HomeApp() {
   return (
     <div className="wrapper">
       <Container id="back-to-top-anchor" ref={inViewRef}>
-        <Box id="navigation">
-          <Nav />
-        </Box>
+
         
         <Box sx={{ zIndex: 3 }} className="box1 box">
           <Paper  square elevation={8}></Paper>

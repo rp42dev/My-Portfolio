@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import ProjectsComponent from '../components/projects/projectsComponent.js';
 import itemData from './data/ProjectData';
-import { AppContext } from '../AppContext.js';
+import { NavContext } from '../NavContext.js';
 import { useContext, useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import './Projects.css';
@@ -18,7 +18,7 @@ import Fade from 'react-reveal/Fade';
 
 function ProjectsApp() {
   const [isInView, setIsInView] = useState(false);
-  const context = useContext(AppContext);
+  const context = useContext(NavContext);
   
   useEffect(() => {
     if (isInView) {

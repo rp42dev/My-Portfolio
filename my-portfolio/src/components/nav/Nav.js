@@ -6,7 +6,6 @@ import Container from "@mui/material/Container";
 import MobileMenu from "./MobileNav.js";
 import useMediaQuery from "../../hooks/viewPortWidth.js";
 import PcMenu from "./PcNav.js";
-import useScrollToSection from "../../hooks/scrollToSection.js";
 import HideOnScroll from "../../hooks/scrollPosition.js";
 import SocialButtons from "../social/SocialButtons.js";
 import ImageButton from "../buttons/ImageButton.js";
@@ -14,9 +13,7 @@ import "./Nav.css";
 
 
 export default function Nav(props) {
-  const scrollTo = useScrollToSection();
-  const handleChange = scrollTo.handleChange;
-  const myObject = scrollTo.myObject;
+  
   const hideTabs = useMediaQuery("(max-width: 800px)");
   const hideMobile = useMediaQuery("(min-width: 800px)");
 
@@ -38,11 +35,11 @@ export default function Nav(props) {
               <SocialButtons />
             </Stack>
             {!hideMobile && (
-              <MobileMenu myObject={myObject} handleChange={handleChange} />
+              <MobileMenu/>
             )}
 
             {!hideTabs && (
-              <PcMenu myObject={myObject} handleChange={handleChange} />
+              <PcMenu/>
             )}
 
           </Toolbar>

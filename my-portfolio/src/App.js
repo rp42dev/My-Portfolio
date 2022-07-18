@@ -7,6 +7,7 @@ import ProjectsApp from "./projects/Projects";
 import ContactApp from "./contact/Contact";
 import Footer from "./components/footer/FooterComponent";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Nav from "./components/nav/Nav";
 
 import { useColorContext } from "./ColorContext";
 
@@ -105,6 +106,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline>
           <div className="App">
+            <Nav />
             <HomeApp />
             <AboutApp />
             <ProjectsApp />

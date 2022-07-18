@@ -2,10 +2,10 @@ import * as React from 'react';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import { useContext } from 'react';
-import { AppContext } from '../AppContext.js';
+import { NavContext } from '../NavContext.js';
 
 export default function HideOnScroll(props) {
-    const context = useContext(AppContext);
+    const context = useContext(NavContext);
     const open = context.menuOpen;
     const { children } = props;
 

@@ -22,7 +22,7 @@ function ProjectsApp() {
     if (isInView) {
       context.actions.changePage("projects");
     }
-  }, [isInView]);
+  }, [isInView, context.actions]);
 
   return (
     <Container id="projects">

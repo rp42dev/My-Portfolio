@@ -10,7 +10,6 @@ import ScrollDown from "../components/buttons/ScrollDown";
 import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
 import "./Home.css";
 
-
 //create Fade effect for the element
 const fadeIn = (element, duration) => {
   element.classList.add("animated");
@@ -32,7 +31,6 @@ const generateRandomAnimation = (element) => {
 };
 
 const Boxes = memo(() => {
-  
   const boxes = [
     {
       className: "box1 animate",
@@ -55,7 +53,7 @@ const Boxes = memo(() => {
       zIndex: 3,
     },
   ];
-  
+
   return (
     <>
       {[...boxes].map((box, index) => {
@@ -70,7 +68,6 @@ const Boxes = memo(() => {
 });
 
 function HomeApp() {
-
   const homeContent = [
     {
       text: "Hi, I'm Raivis",
@@ -89,7 +86,6 @@ function HomeApp() {
     },
   ];
 
-
   const [isInView, setIsInView] = useState(false);
   const context = useContext(NavContext);
   const inViewRef = useRef(null);
@@ -104,7 +100,7 @@ function HomeApp() {
   }, [isMobile]);
 
   useEffect(() => {
-
+    console.log("isInView", isInView);
     if (isInView) {
       context.actions.changePage("home");
     }
@@ -112,7 +108,7 @@ function HomeApp() {
 
   return (
     <div className="wrapper">
-        {isMobile ? null : <Boxes />}
+      {isMobile ? null : <Boxes />}
       <Container id="back-to-top-anchor" ref={inViewRef}>
         {isMobile ? null : <RunAwayBox isMobile />}
 
@@ -125,24 +121,24 @@ function HomeApp() {
             p-3
           >
             <InView threshold={0.5} onChange={(inView) => setIsInView(inView)}>
-              {({ inView }) => (
-                
-            <Paper square sx={{ px: 3, pb: 3}} elevation={8}>
-              {homeContent.map((content, index) => {
-                return (
-                  <Box key={index}>
-                    <Typography color={content.color} variant={content.variant}>
-                      {content.text}
-                    </Typography>
-                  </Box>
-                );
-              })}
+              <Paper square sx={{ px: 3, pb: 3 }} elevation={8}>
+                {homeContent.map((content, index) => {
+                  return (
+                    <Box key={index}>
+                      <Typography
+                        color={content.color}
+                        variant={content.variant}
+                      >
+                        {content.text}
+                      </Typography>
+                    </Box>
+                  );
+                })}
 
-              <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
-                <Btn text="message me" />
-              </Box>
-            </Paper>
-              )}
+                <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+                  <Btn text="message me" />
+                </Box>
+              </Paper>
             </InView>
           </Box>
         </Box>

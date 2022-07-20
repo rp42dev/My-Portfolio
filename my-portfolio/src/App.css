@@ -2,6 +2,11 @@
   min-height: 100vh;
 }
 
+#home, #about, #projects, #contact {
+  padding-top: 4vmin;
+  padding-bottom: 4vmin;
+}
+
 @media screen and (max-width: 768px) {
   #home {
     min-height: 105vh;

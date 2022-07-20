@@ -1,5 +1,5 @@
 import { useState, useContext, Fragment, useEffect } from "react";
-import ModeButton from "../buttons/ThemeButton.js";
+import ModeButton from "./ThemeButton.js";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   useTheme, 
@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from "@mui/material";
 
-import { NavContext } from "../../NavContext.js";
+import { NavContext } from "./NavContext.js";
 
 
 export default function MobileMenu(props) {

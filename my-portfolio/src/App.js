@@ -31,7 +31,7 @@ const themeMode = (mode) => ({
           },
           background: {
             default: "#28282a",
-            paper: '#121212',
+            paper: "rgba(18, 18, 18, 0.8)",
           },
         }
       : {
@@ -48,10 +48,10 @@ const themeMode = (mode) => ({
           dark: {
             main: "#D8D8D8",
           },
-   
+
           background: {
             default: "#D8D8D8",
-            paper: "#E5E5E5",
+            paper: "rgba(229, 229, 229, 0.8)",
           },
         }),
   },

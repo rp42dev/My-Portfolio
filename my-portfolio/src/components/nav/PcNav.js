@@ -1,11 +1,9 @@
 import * as React from "react";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-import Box from "@mui/material/Box";
-import ModeButton from "../buttons/ThemeButton";
-import { useColorContext } from "../../ColorContext";
+import { Tab, Tabs, Box } from "@mui/material/";
 
-import { NavContext } from "../../NavContext.js";
+import ModeButton from "./ThemeButton";
+import { useColorContext } from "../../ColorContext";
+import { NavContext } from "./NavContext.js";
 import { useContext } from "react";
 
 export default function PcMenu(props) {

@@ -1,14 +1,15 @@
 import Btn from "../components/buttons/Btn";
 import Typography from "@mui/material/Typography";
-import { Box, Container, Paper, styled } from "@mui/material";
+import { Box, Container, Paper } from "@mui/material";
 import { InView } from "react-intersection-observer";
-import { useContext, useEffect, useState, useRef, createTheme } from "react";
-import { NavContext } from "../NavContext.js";
+import { useContext, useEffect, useState, useRef, memo } from "react";
+import useMediaQuery from "../hooks/viewPortWidth.js";
+import { NavContext } from "../components/nav/NavContext.js";
 import BackToTop from "../components/buttons/ScrollTop";
 import ScrollDown from "../components/buttons/ScrollDown";
-import { useTheme } from "@mui/material/styles";
-import RunAwayBox from "../components/runAwayBox/RunAwayBox";
+import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
 import "./Home.css";
+
 
 //create Fade effect for the element
 const fadeIn = (element, duration) => {
@@ -30,98 +31,119 @@ const generateRandomAnimation = (element) => {
   }
 };
 
+const Boxes = memo(() => {
+  
+  const boxes = [
+    {
+      className: "box1 animate",
+      elevation: 4,
+      zIndex: 3,
+    },
+    {
+      className: "box2 animate",
+      elevation: 8,
+      zIndex: 3,
+    },
+    {
+      className: "box3 animate",
+      elevation: 6,
+      zIndex: 3,
+    },
+    {
+      className: "box4 animate",
+      elevation: 7,
+      zIndex: 3,
+    },
+  ];
+  
+  return (
+    <>
+      {[...boxes].map((box, index) => {
+        return (
+          <Box zIndex={box.zIndex} key={index} className={box.className}>
+            <Paper square elevation={box.elevation} />
+          </Box>
+        );
+      })}
+    </>
+  );
+});
+
 function HomeApp() {
+
+  const homeContent = [
+    {
+      text: "Hi, I'm Raivis",
+      color: "secondary",
+      variant: "h1",
+    },
+    {
+      text: "I'm a full-stack web, app developer",
+      color: "primary",
+      variant: "h4",
+    },
+    {
+      text: "I'm a coding Boot-camp graduate with a passion for learning and creating new things that live on the internet.",
+      color: "primary.dark",
+      variant: "h6",
+    },
+  ];
+
+
   const [isInView, setIsInView] = useState(false);
-  let theme = useTheme();
   const context = useContext(NavContext);
   const inViewRef = useRef(null);
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
-    [...document.getElementsByClassName("box")].forEach((element) => {
+    [...document.getElementsByClassName("animate")].forEach((element) => {
       setTimeout(() => {
-        generateRandomAnimation("box");
+        generateRandomAnimation("animate");
       }, 50);
     });
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
+
     if (isInView) {
       context.actions.changePage("home");
     }
-  }, [isInView]);
+  }, [isInView, context.actions]);
 
   return (
     <div className="wrapper">
+        {isMobile ? null : <Boxes />}
       <Container id="back-to-top-anchor" ref={inViewRef}>
+        {isMobile ? null : <RunAwayBox isMobile />}
 
-        
-        <Box sx={{ zIndex: 3 }} className="box1 box">
-          <Paper  square elevation={8}></Paper>
-        </Box>
-
-        <Box sx={{ zIndex: 3 }} className="box2 box">
-        <Paper
-          square
-          elevation={12}
-        ></Paper>
-        </Box>
-
-        <Box sx={{ zIndex: 3 } }className="box3 box">
-        <Paper  
-          square
-          elevation={8}
-        ></Paper>
-        </Box>
-
-        <Box sx={{ zIndex: 3 }} className="box4 box">
-        <Paper
-          square
-          elevation={10}
-        ></Paper>
-        </Box>
-
-        <RunAwayBox />
         <Box id="home">
           <BackToTop />
 
-          <Box sx={{ zIndex: 4 }} className="home-content box" p-3>
-            <Box className="box5 box"></Box>
+          <Box
+            sx={{ zIndex: 4 }}
+            className="home-content animate angle-border"
+            p-3
+          >
+            <InView threshold={0.5} onChange={(inView) => setIsInView(inView)}>
+              {({ inView }) => (
+                
+            <Paper square sx={{ px: 3, pb: 3}} elevation={8}>
+              {homeContent.map((content, index) => {
+                return (
+                  <Box key={index}>
+                    <Typography color={content.color} variant={content.variant}>
+                      {content.text}
+                    </Typography>
+                  </Box>
+                );
+              })}
 
-            <Typography
-              color="secondary"
-              variant="h1"
-              sx={{ position: "relative", zIndex: 4 }}
-            >
-              Hi, I'm Raivis
-            </Typography>
-
-            <InView
-              rootMargin="0% 0% -25%"
-              as="div"
-              onChange={(inView, entry) => {
-                setIsInView(inView);
-              }}
-            ></InView>
-
-            <Typography
-              sx={{ mt: 2, position: "relative", zIndex: 4 }}
-              color="primary"
-              variant="h4"
-            >
-              Junior Full-Stack coder developer
-            </Typography>
-
-            <Typography
-              sx={{ mt: 2, position: "relative", zIndex: 3 }}
-              color="primary.dark"
-              variant="h5"
-            >
-              I enjoy creating Responsive applications and websites.
-            </Typography>
-
-            <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
-              <Btn text="message" />
-            </Box>
+              <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+                <Btn text="message me" />
+              </Box>
+            </Paper>
+              )}
+            </InView>
           </Box>
         </Box>
 

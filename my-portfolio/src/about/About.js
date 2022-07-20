@@ -1,14 +1,53 @@
+import { useContext, useEffect, useState, memo } from "react";
+import { NavContext } from "../components/nav/NavContext.js";
+import { Box, Container, Typography, Paper, Grid } from "@mui/material";
+import useMediaQuery from "../hooks/viewPortWidth.js";
+import TheCube from "../components/about/cube/Cube.js";
 import { InView } from "react-intersection-observer";
-import { useContext, useEffect, useState } from "react";
-import { NavContext } from "../NavContext.js";
-import { Box, Container, Typography } from "@mui/material";
+import CardComponent from "../components/SimpleCard.js";
 import Fade from "react-reveal/Fade";
-import DoneIcon from "@mui/icons-material/Done";
 import "./About.css";
-import TheCube from "../components/cube/Cube.js";
+
+const aboutContent = [
+  {
+    title: "About Me",
+    text: 'I am a full stack web developer with a passion for building beautiful, responsive websites and a passion for learning new technologies. I am currently volunteering as a web developer for a local charity called, "From lads to dads".',
+  },
+  {
+    title: "Skills",
+    text: "I have a strong foundation in HTML, CSS, JavaScript, Python, React, Django and more.",
+  },
+  {
+    title: "Experience",
+    text: 'I have spearheaded a number of projects including a website for a local charity, a website for a tattoo workshop, and many sprint-like coding events called "Hackathons".',
+  },
+];
+
+const About = memo((props) => {
+  return (
+    <>
+     <Fade bottom distance="30%" delay={400}>
+      <Typography color="secondary" variant="h2">
+        About
+      </Typography>
+      </Fade>
+      <Box className="priorities-text" sx={{ mt: 1 }}>
+        <Grid container rowSpacing={{ xs: 3, md: 6 }}>
+          {aboutContent.map((text, index) => (
+            <Grid item xs={12} key={index}>
+             
+                <CardComponent title={text.title} text={text.text} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </>
+  );
+});
 
 function AboutApp() {
   const context = useContext(NavContext);
+  const isMobile = useMediaQuery("(max-width: 600px)");
   let [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -23,80 +62,15 @@ function AboutApp() {
       sx={{ position: "relative", display: "flex", alignItems: "center" }}
     >
       <Box sx={{ position: "relative", width: "100%" }}>
-        <TheCube isInView={isInView}/>
-        <Fade bottom cascade distance="30%">
-          <Typography color="secondary" variant="h2">
-            About me
-          </Typography>
-        </Fade>
-
-        <Fade bottom cascade delay={200} distance="30%">
-          <Box className="about-text" sx={{ mt: 2 }}>
-            <Typography sx={{ mt: 2 }} color="primary.dark" variant="h6">
-              I'm a Full-Stack coder developer with a passion for learning and
-              problem-solving. I have an extensive background in various coding
-              languages and I have a strong foundation in Full-Stack web
-              development.
-            </Typography>
-          </Box>
-        </Fade>
-
-        <Fade bottom distance="30%" cascade delay={400}>
-          <Typography sx={{ mt: 2 }} color="primary.main" variant="h6">
-            Design Approach
-          </Typography>
-          <InView
-            rootMargin="0% 0% -25%"
-            as="div"
-            onChange={(inView, entry) => {
-              setIsInView(inView);
-            }}
-          ></InView>
-          <Box className="priorities-text" sx={{ mt: 1 }}>
-            <Typography color="primary.dark" variant="body2">
-              <DoneIcon fontSize="1rem" />
-              <span>
-                Intuitive design provide meaningful experiences to users.
-              </span>{" "}
-              <br />
-              <DoneIcon fontSize="1rem" />
-              <span>
-                Website Accessibility Best Practices to Improve UX.
-              </span>{" "}
-              <br />
-              <DoneIcon fontSize="1rem" />
-              <span>
-                I'm a firm believer that "less is more" design approach.
-              </span>{" "}
-              <br />
-              <DoneIcon fontSize="1rem" />
-              <span>
-                Responsive web design that works across all screen sizes.
-              </span>{" "}
-              <br />
-              <DoneIcon fontSize="1rem" />
-              <span>
-                Website speed, performance optimization best practices.
-              </span>
-            </Typography>
-          </Box>
-        </Fade>
-
-        <Fade bottom cascade delay={600} distance="30%">
-          <Typography sx={{ mt: 2 }} color="primary.main" variant="h6">
-            Technologies I’ve worked with
-          </Typography>
-          <Box className="">
-            <Typography color="primary.dark" component={"span"} variant="body2">
-              <ul>
-                <li>Front-End: HTML, CSS, JavaScript, React</li>
-                <li>Back-End: Python, Flask, Django</li>
-                <li>Databases: Postgres, MongoDB, MySQL</li>
-                <li>Other library's: Mui, Bootstrap, htmx</li>
-              </ul>
-            </Typography>
-          </Box>
-        </Fade>
+        {isMobile ? null : <TheCube isInView />}
+        <InView
+          rootMargin="0% 0% -25%"
+          as="div"
+          onChange={(inView, entry) => {
+            setIsInView(inView);
+          }}
+        ></InView>
+        <About />
       </Box>
     </Container>
   );

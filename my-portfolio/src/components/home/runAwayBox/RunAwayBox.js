@@ -1,17 +1,24 @@
 import { Paper, useTheme, Box } from "@mui/material";
-import { useEffect } from "react";
-import { useColorContext } from "../../ColorContext";
+import { useEffect, memo, useState } from "react";
 import "./RunAwayBox.css";
 
-const startAnimation = () => {
-  const run__inner = document.querySelector(".run__inner");
-  const run__outer = document.querySelector(".run__outer");
+const getElement = (elem) => {
+  return document.querySelector(elem);
+};
 
-  setTimeout(() => {
-    setPositionOnstart(run__inner, run__outer);
-    startAyeAnimation();
-    addEventListener(run__inner);
-  }, 3000);
+const startAnimation = (isMobile) => {
+  const run__inner = getElement(".run__inner");
+  const run__outer = getElement(".run__outer");
+
+  if (isMobile) {
+    run__inner.classList.add("animated");
+    run__outer.classList.add("animated");
+  } else {
+    setTimeout(() => {
+      setPositionOnstart(run__inner, run__outer);
+      addEventListener(run__inner);
+    }, 3000);
+  }
 };
 
 function setPositionOnstart(run__inner, run__outer) {
@@ -24,7 +31,6 @@ function setPositionOnstart(run__inner, run__outer) {
   run__outer.classList.remove("animated");
   run__outer.style.opacity = "1";
 }
-
 
 function startAyeAnimation() {
   const aye = document.querySelector(".aye");
@@ -95,13 +101,18 @@ const animateMove = (run__inner) => {
   run__inner.style.left = left + "px";
 };
 
-const RunAwayBox = () => {
+const RunAwayBox = (isMobile) => {
   const theme = useTheme();
-  const colorTheme = useColorContext();
 
   useEffect(() => {
     startAnimation();
   }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      startAnimation(isMobile);
+    }
+  }, [isMobile]);
 
   return (
     <>
@@ -113,13 +124,16 @@ const RunAwayBox = () => {
           zIndex: "1",
           backgroundColor: theme.palette.secondary.dark,
         }}
-        className="run__outer box"
+        className="run__outer animate"
         elevation={6}
         square
       >
         <Box className="aye">
           <Box className="shut">
-            <Box sx={{backgroundColor: theme.palette.secondary.dark}} className="lid"></Box>
+            <Box
+              sx={{ backgroundColor: theme.palette.secondary.dark }}
+              className="lid"
+            ></Box>
           </Box>
           <Box className="ball"></Box>
         </Box>
@@ -128,4 +142,4 @@ const RunAwayBox = () => {
   );
 };
 
-export default RunAwayBox;
+export default memo(RunAwayBox);

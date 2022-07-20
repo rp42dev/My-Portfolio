@@ -19,6 +19,7 @@
         top: 200%;
         opacity: 0;
     }
+
     50% {
         opacity: 0;
     }
@@ -35,11 +36,6 @@
         top: 50%;
         transform: translate(-50%, -20%);
     }
-
-    .priorities-text {
-        visibility: hidden;
-        min-height: 250px;
-    }
 }
 
 @media screen and (max-width: 560px) {
@@ -50,7 +46,7 @@
 
 @media screen and (max-width: 472px) {
     .cube-outer {
-        transform: translate(-50%, 0%);
+        transform: translate(-50%, -1%);
     }
 }
 
@@ -67,6 +63,7 @@
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(-100px) rotateX(20deg) rotateY(30deg);
+    cursor: pointer;
 }
 
 
@@ -78,7 +75,6 @@
     color: white;
     display: grid;
     place-items: center;
-    background-color: #121212;
     backface-visibility: hidden;
     background-image: linear-gradient(rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14));
 }

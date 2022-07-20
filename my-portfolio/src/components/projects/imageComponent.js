@@ -1,7 +1,7 @@
 import { Typography, Paper, ButtonBase, styled } from "@mui/material";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
+import LoadWebpage from "./LoadWebpage";
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
@@ -67,91 +67,40 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-const spinner = `
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Loading...</title>
-  <style>
-    body {
-        background-color: #28282a;
-        color: #fff;
-    }
-    #loader {
-      border: 12px solid #b37142;
-      border-radius: 50%;
-      border-top: 12px solid #28282a;
-      width: 70px;
-      height: 70px;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-    
-    .center {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="loader" class="center"></div>
-</body>
-
-</html>
-`;
-
 export default function ImageComponent(props) {
+  const [url, setUrl] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [success, setResult] = useState(true);
 
-  const  LoadWebsite = async(url) => {
-    //fetch website url and open in new tab
-    url = "https://" + url;
-    setLoading(true);
-    const tab = window.open("about:blank");
-    tab.document.write(spinner);
-    try {
-      let res = await axios.get(url, {});
-      setTimeout(() => {
-        tab.location = url;
-        tab.focus();
-        setLoading(false);
-      }, 200);
-    } catch (e) {
-      if (e.response.readyState === 4) {
-        console.log("Status: " + e.code);
-        setTimeout(() => {
-          tab.location = url;
-          tab.focus();
-          setLoading(false);
-        }, 200);
-      } else {
-        console.log('Status: '+e.code);
-        tab.alert(e.message + " " + e.code + "Please try again later");
-        setLoading(false);
-      }
-    }
+  let call = async (url) => {
+    let success = await LoadWebpage(url);
+    setResult(success);
+    console.log(success);
   };
+
+  useEffect(() => {
+    if (url) {
+      call(url);
+      setLoading(true);
+    } 
+
+  }, [url]);
+
+  useEffect(() => {
+    if (success) {
+      setLoading(false);
+    } if (!success) {
+      setLoading(false);
+    }
+    console.log(success);
+  }, [success]);
+
 
   return (
     <Paper elevation={3}>
       <ImageButton
         title="View live site"
-        onClick={() => LoadWebsite(props.image.url)}
+        onClick={() => setUrl(props.image.url)}
         focusRipple
         key={props.image.title}
         style={{

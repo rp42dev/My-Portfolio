@@ -1,3 +1,10 @@
+import ProjectsComponent from "../components/projects/projectsComponent.js";
+import { NavContext } from "../components/nav/NavContext.js";
+import { useContext, useEffect, useState } from "react";
+import { InView } from "react-intersection-observer";
+import "./Projects.css";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Fade from "react-reveal/Fade";
 import {
   Typography,
   Box,
@@ -6,26 +13,16 @@ import {
   Tooltip,
   Link,
 } from "@mui/material";
-import ProjectsComponent from '../components/projects/projectsComponent.js';
-import itemData from './data/ProjectData';
-import { NavContext } from '../NavContext.js';
-import { useContext, useEffect, useState } from 'react';
-import { InView } from 'react-intersection-observer';
-import './Projects.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import Fade from 'react-reveal/Fade';
-
 
 function ProjectsApp() {
   const [isInView, setIsInView] = useState(false);
   const context = useContext(NavContext);
-  
+
   useEffect(() => {
     if (isInView) {
-    context.actions.changePage("projects");
+      context.actions.changePage("projects");
     }
   }, [isInView]);
-  
 
   return (
     <Container id="projects">
@@ -38,14 +35,16 @@ function ProjectsApp() {
       >
         <Box sx={{ position: "relative", height: "100%", overflow: "hidden" }}>
           <Box sx={{ mt: 2 }}>
-            <Typography color="secondary" variant="h2">
-              Projects
-            </Typography>
+            <Fade bottom distance="30%" delay={400}>
+              <Typography color="secondary" variant="h2">
+                Projects
+              </Typography>
             <Typography sx={{ mt: 2, mb: 3 }} color="primary" variant="h6">
               A collection of some of my work
             </Typography>
+            </Fade>
           </Box>
-          <ProjectsComponent data={itemData} />
+          <ProjectsComponent />
         </Box>
         <Box>
           <Fade bottom distance="30%">

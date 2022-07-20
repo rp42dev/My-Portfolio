@@ -15,6 +15,7 @@
 }
 
 .run__outer.animated {
+    left: 60%;
     animation-name: run__inner;
     animation-duration: 2s;
     animation-delay: 1s;
@@ -38,7 +39,7 @@
 
 
 @media screen and (max-width: 640px) {
-    .box5 {
+    .rectFeature {
         height: 105%;
     }
 }

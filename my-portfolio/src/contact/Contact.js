@@ -3,7 +3,7 @@ import { Box, Container } from '@mui/material';
 import { InView } from 'react-intersection-observer';
 import Fade from 'react-reveal/Fade';
 import { useContext, useEffect, useState, useRef } from 'react';
-import { NavContext } from '../NavContext.js';
+import { NavContext } from "../components/nav/NavContext.js";
 import './Contact.css';
 import ContactForm from '../components/forms/ContactForm';
 import ScrollDown from '../components/buttons/ScrollDown';

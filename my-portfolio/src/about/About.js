@@ -54,7 +54,7 @@ function AboutApp() {
     if (isInView) {
       context.actions.changePage("about");
     }
-  }, [isInView]);
+  }, [isInView, context.actions]);
 
   return (
     <Container

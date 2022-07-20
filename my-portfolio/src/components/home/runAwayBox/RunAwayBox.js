@@ -1,5 +1,5 @@
 import { Paper, useTheme, Box } from "@mui/material";
-import { useEffect, memo, useState } from "react";
+import { useEffect, memo } from "react";
 import "./RunAwayBox.css";
 
 const getElement = (elem) => {

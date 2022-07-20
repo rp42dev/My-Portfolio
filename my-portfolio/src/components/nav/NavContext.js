@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import _ from "lodash";
 
 export const NavContext = React.createContext(null);
 

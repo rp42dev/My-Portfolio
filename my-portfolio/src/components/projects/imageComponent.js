@@ -92,7 +92,6 @@ export default function ImageComponent(props) {
     } if (!success) {
       setLoading(false);
     }
-    console.log(success);
   }, [success]);
 
 

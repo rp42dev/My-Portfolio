@@ -10,6 +10,24 @@ import ScrollDown from "../components/buttons/ScrollDown";
 import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
 import "./Home.css";
 
+const homeContent = [
+  {
+    text: "Hi, I'm Raivis",
+    color: "secondary",
+    variant: "h1",
+  },
+  {
+    text: "I'm a full-stack web, app developer",
+    color: "primary",
+    variant: "h4",
+  },
+  {
+    text: "I'm a coding Boot-camp graduate with a passion for learning and creating new things that live on the internet.",
+    color: "primary.dark",
+    variant: "h6",
+  },
+];
+
 //create Fade effect for the element
 const fadeIn = (element, duration) => {
   element.classList.add("animated");
@@ -68,24 +86,6 @@ const Boxes = memo(() => {
 });
 
 function HomeApp() {
-  const homeContent = [
-    {
-      text: "Hi, I'm Raivis",
-      color: "secondary",
-      variant: "h1",
-    },
-    {
-      text: "I'm a full-stack web, app developer",
-      color: "primary",
-      variant: "h4",
-    },
-    {
-      text: "I'm a coding Boot-camp graduate with a passion for learning and creating new things that live on the internet.",
-      color: "primary.dark",
-      variant: "h6",
-    },
-  ];
-
   const [isInView, setIsInView] = useState(false);
   const context = useContext(NavContext);
   const inViewRef = useRef(null);
@@ -100,7 +100,6 @@ function HomeApp() {
   }, [isMobile]);
 
   useEffect(() => {
-    console.log("isInView", isInView);
     if (isInView) {
       context.actions.changePage("home");
     }

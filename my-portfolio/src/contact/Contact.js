@@ -16,9 +16,9 @@ function ContactApp() {
   
   useEffect(() => {
     if (isInView) {
-    context.actions.changePage("contact");
+      context.actions.changePage("contact");
     }
-  }, [isInView])
+  }, [isInView, context.actions]);
   
 
   const bottomRef = useRef(null);

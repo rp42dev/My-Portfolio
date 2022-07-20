@@ -5,7 +5,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "react";
 import Fade from "react-reveal/Fade";
 
 const bull = (
@@ -18,7 +17,6 @@ const bull = (
 );
 
 export default function CardComponent(props) {
-  const theme = useTheme;
   return (
     <Fade bottom distance="30%" delay={400}>
       <Card className="border-left" elevation={6} square sx={{ minWidth: 275 }}>

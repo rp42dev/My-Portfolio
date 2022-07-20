@@ -1,21 +1,11 @@
 import * as React from "react";
 import { Tab, Tabs, Box } from "@mui/material/";
-
 import ModeButton from "./ThemeButton";
-import { useColorContext } from "../../ColorContext";
 import { NavContext } from "./NavContext.js";
 import { useContext } from "react";
 
 export default function PcMenu(props) {
-  let mode = useColorContext();
   const context = useContext(NavContext);
-
-  let toolTip = "";
-  if (mode.colorMode === "light") {
-    toolTip = "Dark Mode";
-  } else {
-    toolTip = "Light Mode";
-  }
 
   return (
     <React.Fragment>

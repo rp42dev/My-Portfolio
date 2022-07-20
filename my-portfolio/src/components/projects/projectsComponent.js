@@ -7,6 +7,7 @@ import TextComponent from "./textComponent.js";
 import ImageComponent from "./imageComponent.js";
 import "./projectsComponent.css";
 
+
 export default memo(function ProjectsComponent() {
   
   return (

@@ -14,6 +14,7 @@ import {
   Link,
 } from "@mui/material";
 
+
 function ProjectsApp() {
   const [isInView, setIsInView] = useState(false);
   const context = useContext(NavContext);

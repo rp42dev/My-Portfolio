@@ -68,38 +68,20 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
 }));
 
 export default function ImageComponent(props) {
-  const [url, setUrl] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [success, setResult] = useState(true);
 
   let call = async (url) => {
-    let success = await LoadWebpage(url);
-    setResult(success);
-    console.log(success);
+    setLoading(true);
+      let res = await LoadWebpage(url);
+      setLoading(false);
+      console.log('res' + res);
   };
-
-  useEffect(() => {
-    if (url) {
-      call(url);
-      setLoading(true);
-    } 
-
-  }, [url]);
-
-  useEffect(() => {
-    if (success) {
-      setLoading(false);
-    } if (!success) {
-      setLoading(false);
-    }
-  }, [success]);
-
 
   return (
     <Paper elevation={3}>
       <ImageButton
         title="View live site"
-        onClick={() => setUrl(props.image.url)}
+        onClick={() => call(props.image.url)}
         focusRipple
         key={props.image.title}
         style={{

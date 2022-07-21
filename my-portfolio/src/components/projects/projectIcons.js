@@ -9,10 +9,11 @@ import PreLoader from "./PreLoader";
 export default function ProjectIcons(props) {
     let theme = useColorContext();
     let colorMode = theme.colorMode;
-    
+
     let call = async (url) => {
       await PreLoader(url, colorMode);
     };
+
     return (
       <Stack direction="row" spacing={2}>
         {props.github !== undefined ? (
@@ -32,7 +33,7 @@ export default function ProjectIcons(props) {
               <IconButton
                 size="small"
                 component={Link}
-                onClick={() => window.open(props.url, "_blank")}
+                onClick={() => call(props.url)}
                 color="secondary"
                 aria-label="Website"
               >
@@ -45,7 +46,7 @@ export default function ProjectIcons(props) {
             <IconButton
               size="small"
               component={Link}
-              onClick={() => call(props.image.url)}
+              onClick={() => call(props.url)}
               color="secondary"
               aria-label="Website"
             >

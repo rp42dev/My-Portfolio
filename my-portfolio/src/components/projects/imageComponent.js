@@ -1,6 +1,4 @@
 import { Typography, Paper, ButtonBase, styled } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
 import PreLoader from "./PreLoader";
 import { useColorContext } from "../../ColorContext";
 

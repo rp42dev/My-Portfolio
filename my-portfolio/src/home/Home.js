@@ -127,7 +127,7 @@ function HomeApp() {
           </Box>
         </Box>
 
-        <ScrollDown />
+    
       </Container>
     </div>
   );

@@ -2,49 +2,26 @@ import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/material';
 import { InView } from 'react-intersection-observer';
 import Fade from 'react-reveal/Fade';
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavContext } from "../components/nav/NavContext.js";
 import './Contact.css';
 import ContactForm from '../components/forms/ContactForm';
-import ScrollDown from '../components/buttons/ScrollDown';
 
 
 function ContactApp() {
   const context = useContext(NavContext);
   const [isInView, setIsInView] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     if (isInView) {
       context.actions.changePage("contact");
     }
   }, [isInView, context.actions]);
-  
-
-  const bottomRef = useRef(null);
-  
-  const handleScroll = () => {
-    if (bottomRef.current.getBoundingClientRect().bottom < window.innerHeight) {
-      setIsVisible(true);
-    }else
-    {
-      setIsVisible(false);
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isVisible]);
 
 
   return (
     <Container
       id="contact"
-      onScroll={handleScroll}
-      ref={bottomRef}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -75,7 +52,6 @@ function ContactApp() {
           <ContactForm />
         </Fade>
       </Box>
-      {!isVisible ? <ScrollDown /> : null}
     </Container>
   );
 }

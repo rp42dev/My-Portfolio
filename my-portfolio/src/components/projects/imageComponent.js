@@ -1,7 +1,8 @@
 import { Typography, Paper, ButtonBase, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import LoadWebpage from "./LoadWebpage";
+import PreLoader from "./PreLoader";
+import { useColorContext } from "../../ColorContext";
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
@@ -68,13 +69,11 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
 }));
 
 export default function ImageComponent(props) {
-  const [loading, setLoading] = useState(false);
+  let theme = useColorContext();
+  let colorMode = theme.colorMode;
 
   let call = async (url) => {
-    setLoading(true);
-      let res = await LoadWebpage(url);
-      setLoading(false);
-      console.log('res' + res);
+    await PreLoader(url, colorMode);
   };
 
   return (
@@ -88,17 +87,12 @@ export default function ImageComponent(props) {
           width: "100%",
         }}
       >
-        {/* overlay if loading */}
-
         <ImageSrc style={{ backgroundImage: `url(${props.image.img})` }} />
 
-        {loading ? (
-          <CircularProgress color="secondary" size={100} />
-        ) : (
-          <Typography variant="h6" className="MuiTypography-root">
-            {props.image.title}
-          </Typography>
-        )}
+        <Typography variant="h6" className="MuiTypography-root">
+          {props.image.title}
+        </Typography>
+
         <ImageBackdrop className="MuiImageBackdrop-root"></ImageBackdrop>
       </ImageButton>
     </Paper>

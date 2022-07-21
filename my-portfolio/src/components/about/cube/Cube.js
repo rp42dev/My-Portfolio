@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, Paper } from "@mui/material";
 import { useColorContext } from "../../../ColorContext";
 import { useEffect, memo } from "react";
 import "./Cube.css";
@@ -79,22 +79,17 @@ const Cube = memo(() => {
     <>
       {cubeText.map((text, index) => {
         return (
-          <Box
+          <Paper
+            key={index}
+            square
             sx={{
-              boxShadow:
-                colorTheme === "dark"
-                  ? "0 0 0 rgba(18, 18, 18, 0.151)"
-                  : "0 0 2px rgba(168, 124, 100) 0 0 2px",
-              backgroundColor:
-                colorTheme === "dark"
-                  ? theme.palette.background.paper
-                  : theme.palette.secondary.dark,
+              color: "primary",
+              backgroundColor: theme.palette.background.paper,
             }}
             className={"cube__face cube__face--" + index}
-            key={index}
           >
             <Typography variant="h6">{text}</Typography>
-          </Box>
+          </Paper>
         );
       })}
     </>
@@ -110,7 +105,7 @@ function TheCube(props) {
       stopSpinCube();
     }
   }, [props.isInView]);
- 
+
   return (
     <Box className="cube-outer">
       <Box className="scene">

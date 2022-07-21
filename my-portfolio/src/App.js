@@ -56,40 +56,37 @@ const themeMode = (mode) => ({
         }),
   },
   typography: {
-    h1: { fontFamily: '"Roboto", sans-serif' },
-    h6: {
-      fontSize: "1.3rem",
-      "@media (min-width:400px)": {
-        fontSize: "1.4rem",
-      },
-      fontFamily: '"Roboto", sans-serif',
+    fontFamily: "'Iceland', cursive",
+    h1: {
+      lineHeight: ".8em",
+      fontWeight: "bolder",
     },
     h2: {
-      fontSize: "3rem",
-      "@media (min-width:400px)": {
-        fontSize: "4rem",
-      },
-      fontFamily: '"Roboto", sans-serif',
+      lineHeight: ".8em",
+      fontWeight: "bolder",
+    },
+    h3: {
+      fontWeight: "bolder",
+    },
+    h6: {
+      fontSize: "1.3em",
+      lineHeight: ".8em",
+      letterSpacing: "0.06rem",
+      marginBottom: "0.35em",
     },
     body1: {
-      fontSize: ".9rem",
-      "@media (min-width:400px)": {
-        fontSize: "1.2rem",
-      },
+      fontSize: "1.2rem",
+      letterSpacing: "0.01rem",
     },
     body2: {
-      fontSize: ".9rem",
-      "@media (min-width:400px)": {
-        fontSize: "1.1rem",
-      },
+      fontSize: "1rem",
+      letterSpacing: "0.01rem",
     },
     caption: {
       fontSize: ".6rem",
-      letterSpacing: "0.1rem",
+      letterSpacing: ".1rem",
       fontWeight: "bold",
     },
-    btn: { fontFamily: '"Roboto", sans-serif' },
-    fontFamily: ["Roboto", "sans-serif"].join(","),
   },
 });
 

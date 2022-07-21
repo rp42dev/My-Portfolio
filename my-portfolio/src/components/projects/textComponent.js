@@ -32,10 +32,11 @@ export default function TextComponent(props) {
           align={props.position === "left" && !hideTabs ? "right" : "left"}
           color="primary.light"
           variant="h6"
+          component="h2"
         >
           {props.image.title}
         </Typography>
-        <Typography color="primary.dark" variant="body2">
+        <Typography color="primary.dark" variant="body1" component="p">
           {props.image.description}
         </Typography>
         <Box

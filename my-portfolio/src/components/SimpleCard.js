@@ -33,7 +33,7 @@ export default function CardComponent(props) {
           )}
 
           {props.text && (
-            <Typography color="primary" variant="body2" component="p">
+            <Typography color="primary" variant="body1" component="p">
               {props.text}
             </Typography>
           )}

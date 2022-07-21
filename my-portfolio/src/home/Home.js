@@ -8,25 +8,10 @@ import { NavContext } from "../components/nav/NavContext.js";
 import BackToTop from "../components/buttons/ScrollTop";
 import ScrollDown from "../components/buttons/ScrollDown";
 import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
+import data from "./data/data.json";
 import "./Home.css";
 
-const homeContent = [
-  {
-    text: "Hi, I'm Raivis",
-    color: "secondary",
-    variant: "h1",
-  },
-  {
-    text: "I'm a full-stack web, app developer",
-    color: "primary",
-    variant: "h4",
-  },
-  {
-    text: "I'm a coding Boot-camp graduate with a passion for learning and creating new things that live on the internet.",
-    color: "primary.dark",
-    variant: "h6",
-  },
-];
+const homeContent = data.home.content;
 
 //create Fade effect for the element
 const fadeIn = (element, duration) => {
@@ -120,7 +105,7 @@ function HomeApp() {
             p-3
           >
             <InView threshold={0.5} onChange={(inView) => setIsInView(inView)}>
-              <Paper square sx={{ px: 3, pb: 3 }} elevation={8}>
+              <Paper square sx={{ p: 3, pt: 1 }} elevation={8}>
                 {homeContent.map((content, index) => {
                   return (
                     <Box key={index}>

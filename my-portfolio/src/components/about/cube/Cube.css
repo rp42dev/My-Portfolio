@@ -72,10 +72,10 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    color: white;
     display: grid;
     place-items: center;
     backface-visibility: hidden;
+    border: 6px solid #b37142;
     background-image: linear-gradient(rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14));
 }
 

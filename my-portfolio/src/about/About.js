@@ -6,22 +6,10 @@ import TheCube from "../components/about/cube/Cube.js";
 import { InView } from "react-intersection-observer";
 import CardComponent from "../components/SimpleCard.js";
 import Fade from "react-reveal/Fade";
+import data from "./data/data.json";
 import "./About.css";
 
-const aboutContent = [
-  {
-    title: "About Me",
-    text: 'I am a full stack web developer with a passion for building beautiful, responsive websites and a passion for learning new technologies. I am currently volunteering as a web developer for a local charity called, "From lads to dads".',
-  },
-  {
-    title: "Skills",
-    text: "I have a strong foundation in HTML, CSS, JavaScript, Python, React, Django and more.",
-  },
-  {
-    title: "Experience",
-    text: 'I have spearheaded a number of projects including a website for a local charity, a website for a tattoo workshop, and many sprint-like coding events called "Hackathons".',
-  },
-];
+const aboutContent = data.about.content;
 
 const About = memo((props) => {
   return (

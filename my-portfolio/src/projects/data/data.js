@@ -1,10 +1,10 @@
 
-import image from '../../assets/images/fltd.png';
+import image from "../../assets/images/fltd.png";
 import image1 from "../../assets/images/tattoo.png";
-import image2 from '../../assets/images/hats.png';
-import image3 from '../../assets/images/emotify.png';
-import image4 from '../../assets/images/game.png';
-import image5 from '../../assets/images/flower.png';
+import image2 from "../../assets/images/hats.png";
+import image3 from "../../assets/images/emotify.png";
+import image4 from "../../assets/images/game.png";
+import image5 from "../../assets/images/flower.png";
 
 
 const itemData = [

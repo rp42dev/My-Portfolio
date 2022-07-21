@@ -1,0 +1,23 @@
+
+{
+    "home": {
+        "title": "Home",
+        "comment": "This is the home page",
+        "content": [
+            {
+                "text": "Hi, I'm Raivis",
+                "color": "secondary",
+                "variant": "h1"
+            }, {
+                "text": "I'm a full-stack web, app developer",
+                "color": "primary",
+                "variant": "h4"
+            }, {
+                "text": "I'm a coding Boot-camp graduate with a passion for learning and creating new things that live on the internet.",
+                "color": "primary.dark",
+                "variant": "h6"
+            }
+        ]
+    }
+
+}

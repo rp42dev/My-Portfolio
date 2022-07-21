@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Grid } from "@mui/material";
-import data from "./ProjectData";
+import data from "../../projects/data/data";
 import Fade from "react-reveal/Fade";
 import { memo } from "react";
 import TextComponent from "./textComponent.js";

@@ -45,6 +45,11 @@ h1 {
   z-index: 1000;
 }
 
+.home-content h6 {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
 .home-content.animated {
   animation-name: home;
   animation-duration: 2s;

@@ -58,6 +58,7 @@ const themeMode = (mode) => ({
   typography: {
     fontFamily: "'Iceland', cursive",
     h1: {
+      fontSize: "6rem",
       lineHeight: ".8em",
       fontWeight: "bolder",
     },

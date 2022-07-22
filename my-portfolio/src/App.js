@@ -83,10 +83,12 @@ const themeMode = (mode) => ({
     },
     body1: {
       fontSize: "1.2rem",
+      lineHeight: "1em",
       letterSpacing: "0.01rem",
     },
     body2: {
       fontSize: "1rem",
+      lineHeight: "1em",
       letterSpacing: "0.01rem",
     },
     caption: {

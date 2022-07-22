@@ -34,15 +34,7 @@ const About = memo((props) => {
 });
 
 function AboutApp() {
-  const context = useContext(NavContext);
   const isMobile = useMediaQuery("(max-width: 600px)");
-  let [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    if (isInView) {
-      context.actions.changePage("about");
-    }
-  }, [isInView, context.actions]);
 
   return (
     <Container
@@ -51,13 +43,6 @@ function AboutApp() {
     >
       <Box sx={{ position: "relative", width: "100%" }}>
         {isMobile ? null : <TheCube isInView />}
-        <InView
-          rootMargin="0% 0% -25%"
-          as="div"
-          onChange={(inView, entry) => {
-            setIsInView(inView);
-          }}
-        ></InView>
         <About />
       </Box>
     </Container>

@@ -4,7 +4,7 @@ import Slide from '@mui/material/Slide';
 import { useContext } from 'react';
 import { NavContext } from "./NavContext.js";
 
-export default function HideOnScroll(props) {
+export default function Reveal(props) {
     const context = useContext(NavContext);
     const open = context.menuOpen;
     const { children } = props;

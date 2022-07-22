@@ -1,8 +1,4 @@
 import ProjectsComponent from "../components/projects/projectsComponent.js";
-import { NavContext } from "../components/nav/NavContext.js";
-import { useContext, useEffect, useState } from "react";
-import { InView } from "react-intersection-observer";
-import "./Projects.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Fade from "react-reveal/Fade";
 import {
@@ -14,26 +10,12 @@ import {
   Link,
 } from "@mui/material";
 
+import "./Projects.css";
 
 function ProjectsApp() {
-  const [isInView, setIsInView] = useState(false);
-  const context = useContext(NavContext);
-
-  useEffect(() => {
-    if (isInView) {
-      context.actions.changePage("projects");
-    }
-  }, [isInView, context.actions]);
 
   return (
     <Container id="projects">
-      <InView
-        threshold={0.14}
-        as="div"
-        onChange={(inView, entry) => {
-          setIsInView(inView);
-        }}
-      >
         <Box sx={{ position: "relative", height: "100%", overflow: "hidden" }}>
           <Box sx={{ mt: 2 }}>
             <Fade bottom distance="30%" delay={400}>
@@ -66,7 +48,6 @@ function ProjectsApp() {
             </Typography>
           </Fade>
         </Box>
-      </InView>
     </Container>
   );
 }

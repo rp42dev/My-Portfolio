@@ -1,13 +1,10 @@
 import Btn from "../components/buttons/Btn";
 import Typography from "@mui/material/Typography";
 import { Box, Container, Paper } from "@mui/material";
-import { InView } from "react-intersection-observer";
-import { useContext, useEffect, useState, useRef, memo } from "react";
+import { useEffect, memo } from "react";
 import useMediaQuery from "../hooks/viewPortWidth.js";
-import { NavContext } from "../components/nav/NavContext.js";
-import BackToTop from "../components/buttons/ScrollTop";
-import ScrollDown from "../components/buttons/ScrollDown";
 import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
+import ScrollTo from "../components/ScrollTo";
 import data from "./data/data.json";
 import "./Home.css";
 
@@ -71,9 +68,6 @@ const Boxes = memo(() => {
 });
 
 function HomeApp() {
-  const [isInView, setIsInView] = useState(false);
-  const context = useContext(NavContext);
-  const inViewRef = useRef(null);
   const isMobile = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
@@ -84,50 +78,37 @@ function HomeApp() {
     });
   }, [isMobile]);
 
-  useEffect(() => {
-    if (isInView) {
-      context.actions.changePage("home");
-    }
-  }, [isInView, context.actions]);
-
   return (
     <div className="wrapper">
       {isMobile ? null : <Boxes />}
-      <Container id="back-to-top-anchor" ref={inViewRef}>
+      <Container id="back-to-top-anchor">
         {isMobile ? null : <RunAwayBox isMobile />}
 
         <Box id="home">
-          <BackToTop />
-
           <Box
             sx={{ zIndex: 4 }}
             className="home-content animate angle-border"
             p-3
           >
-            <InView threshold={0.5} onChange={(inView) => setIsInView(inView)}>
-              <Paper square sx={{ p: 3, pt: 1 }} elevation={8}>
-                {homeContent.map((content, index) => {
-                  return (
-                    <Box key={index}>
-                      <Typography
-                        color={content.color}
-                        variant={content.variant}
-                      >
-                        {content.text}
-                      </Typography>
-                    </Box>
-                  );
-                })}
+            <Paper square sx={{ p: 3, pt: 1 }} elevation={8}>
+              {homeContent.map((content, index) => {
+                return (
+                  <Box key={index}>
+                    <Typography color={content.color} variant={content.variant}>
+                      {content.text}
+                    </Typography>
+                  </Box>
+                );
+              })}
 
-                <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+              <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+                <ScrollTo anchor={"contact"}>
                   <Btn text="message me" />
-                </Box>
-              </Paper>
-            </InView>
+                </ScrollTo>
+              </Box>
+            </Paper>
           </Box>
         </Box>
-
-    
       </Container>
     </div>
   );

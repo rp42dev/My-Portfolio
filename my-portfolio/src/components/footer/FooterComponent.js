@@ -13,6 +13,7 @@ export default function Footer() {
   return (
     <Fade bottom delay={500}>
       <Paper
+        id="footer"
         sx={{
           backgroundColor:
             colorMode.colorMode === "dark" ? "#141415" : "#28282a",

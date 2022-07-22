@@ -5,15 +5,29 @@
   min-height: 100vh;
 }
 
+.down-comp{
+  animation: name 1s ease-in-out infinite;
+}
+
+@keyframes name {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 #home, #about, #projects, #contact { 
   padding-top: 4vmin;
   padding-bottom: 4vmin;
 }
 
 @media screen and (max-width: 768px) {
-  #home {
-    min-height: 105vh;
-  }
+
 }
 
 .angle-border {

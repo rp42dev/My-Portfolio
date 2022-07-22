@@ -1,12 +1,12 @@
-import { useContext, useEffect, useState, memo } from "react";
-import { NavContext } from "../components/nav/NavContext.js";
+import { memo } from "react";
+
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
 import useMediaQuery from "../hooks/viewPortWidth.js";
 import TheCube from "../components/about/cube/Cube.js";
-import { InView } from "react-intersection-observer";
+
 import CardComponent from "../components/SimpleCard.js";
 import Fade from "react-reveal/Fade";
-import data from "./data/data.json";
+import data from "./data/data";
 import "./About.css";
 
 const aboutContent = data.about.content;
@@ -33,8 +33,7 @@ const About = memo((props) => {
   );
 });
 
-function AboutApp() {
-  const isMobile = useMediaQuery("(max-width: 600px)");
+function AboutApp(props) {
 
   return (
     <Container
@@ -42,7 +41,7 @@ function AboutApp() {
       sx={{ position: "relative", display: "flex", alignItems: "center" }}
     >
       <Box sx={{ position: "relative", width: "100%" }}>
-        {isMobile ? null : <TheCube isInView />}
+        <TheCube isInView={props.isInView} />
         <About />
       </Box>
     </Container>

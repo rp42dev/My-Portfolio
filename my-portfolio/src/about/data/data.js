@@ -1,12 +1,12 @@
 
-{
+const data ={
     "about": {
         "title": "About",
         "comment": "This is the about page",
         "content": [
             {
                 "title": "About Me",
-                "text": "I am a full stack web developer with a passion for building beautiful, responsive websites and a passion for learning new technologies. I am currently volunteering as a web developer for a local charity called, 'From lads to dads'."
+                "text": "I'm a coding Boot-camp graduate with a passion for building beautiful, responsive web apps, and a passion for learning new technologies. I am currently volunteering as a web developer for a local charity called, 'From lads to dads'."
             },
             {
                 "title": "Skills",
@@ -20,3 +20,4 @@
     }
 
 }
+ export default data;

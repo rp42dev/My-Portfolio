@@ -1,9 +1,9 @@
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import { Box, IconButton } from "@mui/material";
-import { NavContext } from "../nav/NavContext";
-import { useContext, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useContext } from "react";
+import { NavContext } from "../NavContext.js";
 import Slide from "@mui/material/Slide";
-
+import ScrollTo from "../ScrollTo";
 
 function HideOnScroll(props) {
   const { children } = props;
@@ -34,12 +34,27 @@ function HideOnScroll(props) {
 }
 
 export default function DownComp(props) {
+  const context = useContext(NavContext);
+  const [anchor, setAnchor] = useState(null);
+    
+  useEffect(() => {
+    let current = props.page;
+    let index = context.menuItems.indexOf(current)+1;
+    if(index < context.menuItems.length){
+      setAnchor(context.menuItems[index]);
+    } else {
+      setAnchor('footer');
+    }
+  }, [context.menuItems, props.page]);
 
   return (
+   
     <HideOnScroll {...props}>
       <Box
+        className="down-comp"
         sx={{
-          bottom: 0,
+          zIndex: 1000,
+          bottom: 20,
           left: 0,
           position: "fixed",
           transform: "translate(0%, 0%)",
@@ -47,9 +62,11 @@ export default function DownComp(props) {
         }}
         color="primary.dark"
       >
-        <IconButton onClick={props.onClick}>
-          <KeyboardDoubleArrowDownIcon sx={{ fontSize: 80, m: 0, p: 0 }} />
-        </IconButton>
+        <ScrollTo {...props} anchor={anchor}>
+          <IconButton >
+            <KeyboardDoubleArrowDownIcon sx={{ fontSize: 80, m: 0, p: 0 }} />
+          </IconButton>
+        </ScrollTo>
       </Box>
     </HideOnScroll>
   );

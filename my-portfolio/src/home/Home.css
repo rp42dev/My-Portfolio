@@ -4,7 +4,6 @@
   overflow: hidden;
 }
 
-
 #home {
   padding-top: 56px;
   display: flex;
@@ -13,6 +12,7 @@
   position: relative;
   max-width: 1920px;
 }
+
 
 /* Button */
 h1 {
@@ -143,16 +143,16 @@ h1 {
   }
 
   100% {
-    top: 10%;
+    top: 15%;
     opacity: 1;
   }
 }
 
 .box2 {
   right: -100%;
-  top: 15%;
-  width: 220px;
-  height: 220px;
+  top: 60%;
+  width: 200px;
+  height: 200px;
 }
 
 .box2 div:first-child {

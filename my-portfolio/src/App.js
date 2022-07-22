@@ -14,8 +14,8 @@ import ProjectsApp from "./projects/Projects";
 import ContactApp from "./contact/Contact";
 import Footer from "./components/footer/FooterComponent";
 import Nav from "./components/nav/Nav";
-import ScrollDown from "./components/buttons/ScrollDown";
-import BackToTop from "./components/buttons/BackToTop";
+import ScrollDown from "./components/nav/buttons/ScrollDown";
+import BackToTop from "./components/nav/buttons/BackToTop";
 
 const themeMode = (mode) => ({
   palette: {
@@ -83,6 +83,7 @@ const themeMode = (mode) => ({
     },
     body1: {
       fontSize: "1.2rem",
+      fontWeight: "lighter",
       lineHeight: "1em",
       letterSpacing: "0.01rem",
     },
@@ -103,12 +104,10 @@ function App() {
   const colorMode = useColorContext();
   const theme = createTheme(themeMode(colorMode.colorMode));
   const navState = useContext(NavContext);
-  const context = useContext(NavContext);
 
   const ChangePage = useCallback(
     (page) => {
       if (page) {
-        console.log(page);
         navState.actions.changePage(page);
       }
     },
@@ -139,7 +138,7 @@ function App() {
               threshold={0.5}
               onChange={(inView) => inView && ChangePage("about", inView)}
             >
-              <AboutApp />
+              <AboutApp isInView={navState.page === "about" ? true : false}/>
             </InView>
 
             <InView
@@ -157,8 +156,8 @@ function App() {
             >
               <ContactApp />
             </InView>
-            <ScrollDown />
-            <BackToTop />
+            <ScrollDown page={navState.page}/>
+            {navState.page === "home" ? null:<BackToTop />}
             <Footer />
           </div>
         </CssBaseline>

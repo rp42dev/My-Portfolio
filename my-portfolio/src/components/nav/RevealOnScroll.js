@@ -9,12 +9,14 @@ function Reveal(props) {
   });
 
   return (
+    
     <Slide
       direction={props.direction}
       in={props.trigger == "up" ? !trigger : trigger}
       mountOnEnter
       unmountOnExit
     >
+      
       {children}
     </Slide>
   );

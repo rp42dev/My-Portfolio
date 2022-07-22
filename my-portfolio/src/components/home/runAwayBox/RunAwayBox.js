@@ -1,16 +1,16 @@
 import { Paper, useTheme, Box } from "@mui/material";
-import { useEffect, memo } from "react";
+import { useEffect, useCallback, memo } from "react";
 import "./RunAwayBox.css";
 
 const getElement = (elem) => {
   return document.querySelector(elem);
 };
 
-const startAnimation = (isMobile) => {
+const startAnimation = (isPc) => {
   const run__inner = getElement(".run__inner");
   const run__outer = getElement(".run__outer");
 
-  if (isMobile) {
+  if (isPc) {
     run__inner.classList.add("animated");
     run__outer.classList.add("animated");
   } else {
@@ -101,7 +101,7 @@ const animateMove = (run__inner) => {
   run__inner.style.left = left + "px";
 };
 
-const RunAwayBox = (isMobile) => {
+const RunAwayBox = (isPc) => {
   const theme = useTheme();
 
   useEffect(() => {
@@ -109,10 +109,10 @@ const RunAwayBox = (isMobile) => {
   }, []);
 
   useEffect(() => {
-    if (isMobile) {
-      startAnimation(isMobile);
+    if (isPc) {
+      startAnimation(isPc);
     }
-  }, [isMobile]);
+  }, [isPc]);
 
   return (
     <>

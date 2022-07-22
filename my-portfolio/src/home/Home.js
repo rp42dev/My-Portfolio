@@ -4,8 +4,8 @@ import { Box, Container, Paper } from "@mui/material";
 import { useEffect, memo } from "react";
 import useMediaQuery from "../hooks/viewPortWidth.js";
 import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
-import ScrollTo from "../components/ScrollTo";
-import data from "./data/data.json";
+import ScrollTo from "../components/nav/ScrollTo";
+import data from "./data/data";
 import "./Home.css";
 
 const homeContent = data.home.content;
@@ -56,6 +56,7 @@ const Boxes = memo(() => {
 
   return (
     <>
+      <div className="box-overlay"></div>
       {[...boxes].map((box, index) => {
         return (
           <Box zIndex={box.zIndex} key={index} className={box.className}>
@@ -68,7 +69,7 @@ const Boxes = memo(() => {
 });
 
 function HomeApp() {
-  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isPc = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     [...document.getElementsByClassName("animate")].forEach((element) => {
@@ -76,13 +77,14 @@ function HomeApp() {
         generateRandomAnimation("animate");
       }, 50);
     });
-  }, [isMobile]);
+  }, [isPc]);
 
   return (
     <div className="wrapper">
-      {isMobile ? null : <Boxes />}
+ 
+      <Boxes />
       <Container id="back-to-top-anchor">
-        {isMobile ? null : <RunAwayBox isMobile />}
+        <RunAwayBox />
 
         <Box id="home">
           <Box

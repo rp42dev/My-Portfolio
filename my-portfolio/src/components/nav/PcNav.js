@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Tab, Tabs, Box } from "@mui/material/";
-import ModeButton from "./ThemeButton";
 import { NavContext } from "./NavContext.js";
 import { useContext } from "react";
+import ModeButton from "./buttons/ThemeButton.js";;
 
 export default function PcMenu(props) {
   const context = useContext(NavContext);

@@ -1,5 +1,4 @@
 import { Box, Typography, useTheme, Paper } from "@mui/material";
-import { useColorContext } from "../../../ColorContext";
 import { useEffect, memo } from "react";
 import "./Cube.css";
 
@@ -8,15 +7,16 @@ const GetElement = (props) => {
   return cube;
 };
 
+const RemoveListener = (cube) => {
+  cube.removeEventListener("click", (e) => {});
+};
+
 const addListener = (cube) => {
   cube.addEventListener("click", (e) => {
     pauseAnimationState(cube);
   });
 };
 
-const removeListener = (cube) => {
-  cube.removeEventListener("click", (e) => {});
-};
 
 const SpinCube = () => {
   const cube = GetElement(".cube");
@@ -28,7 +28,7 @@ const SpinCube = () => {
 const stopSpinCube = () => {
   const cube = GetElement(".cube");
   cube.classList.remove("spin");
-  removeListener(cube);
+  RemoveListener(cube);
 };
 
 let timeout;
@@ -67,22 +67,23 @@ const cubeText = [
   "Full Stack",
   "Responsive",
   "Intuitive",
-  "Website",
+  "Application",
   "Design And",
   "Development",
 ];
 
 const Cube = memo(() => {
   let theme = useTheme();
-  const colorTheme = useColorContext().colorMode;
   return (
     <>
       {cubeText.map((text, index) => {
         return (
           <Paper
+            elevation={4}
             key={index}
             square
             sx={{
+              boxShadow: "none",
               color: "primary",
               backgroundColor: theme.palette.background.paper,
             }}

@@ -1,5 +1,5 @@
 
-{
+ const data = {
     "home": {
         "title": "Home",
         "comment": "This is the home page",
@@ -13,11 +13,12 @@
                 "color": "primary",
                 "variant": "h4"
             }, {
-                "text": "I'm a coding Boot-camp graduate with a passion for learning and creating new things that live on the internet.",
+                "text": "With passion for creating new things that live on the internet.",
                 "color": "primary.dark",
                 "variant": "h6"
             }
         ]
     }
-
 }
+
+export default data;

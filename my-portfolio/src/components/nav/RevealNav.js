@@ -6,16 +6,20 @@ import { NavContext } from "./NavContext.js";
 
 export default function Reveal(props) {
     const context = useContext(NavContext);
-    const open = context.menuOpen;
+    const menuOpen = context.state.menuOpen;
     const { children } = props;
 
     const trigger = useScrollTrigger({
-        disableHysteresis: open,
+      disableHysteresis: menuOpen,
     });
 
     return (
-        <Slide appear={false} direction="down" in={!open ? !trigger : open}>
-            {children}
-        </Slide>
+      <Slide
+        appear={false}
+        direction="down"
+        in={!menuOpen ? !trigger : menuOpen}
+      >
+        {children}
+      </Slide>
     );
 }

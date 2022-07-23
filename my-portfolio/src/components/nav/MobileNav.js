@@ -13,20 +13,31 @@ import {
 
 import { NavContext } from "./NavContext.js";
 
-
 export default function MobileMenu(props) {
-  const context = useContext(NavContext);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  let theme = useTheme();
+   const context = useContext(NavContext);
+   const [anchorEl, setAnchorEl] = useState(null);
+   const [menuOpen, setMenuOpen] = useState(false);
+   let theme = useTheme();
 
-  useEffect(() => {
-    if (open) {
-      context.setValue.setMenu(true);
-    } else {
-      context.setValue.setMenu(false);
-    }	
-  }, [anchorEl, context.setValue, open]);
+   const handleClick = (event) => {
+     context.dispatch({ type: "setMenu", payload: true });
+     setAnchorEl(event.currentTarget);
+     setMenuOpen(true);
+   };
+   const handleClose = () => {
+     context.dispatch({ type: "setMenu", payload: false });
+     setAnchorEl(null);
+     setMenuOpen(false);
+   };
+
+   const handleChange = (event, newValue) => {
+     context.dispatch({ type: "setTab", payload: newValue });
+
+     document.querySelector(`#${newValue}`).scrollIntoView({
+       behavior: "smooth",
+       block: "start",
+     });
+   };
    
 
   return (
@@ -35,12 +46,12 @@ export default function MobileMenu(props) {
         <ModeButton />
         <Tooltip title="Expand Menu">
           <IconButton
-            onClick={(event)=>setAnchorEl(event.currentTarget)}
+            onClick={(event) => handleClick(event)}
             size="large"
             sx={{ p: 0, px: 1 }}
-            aria-controls={open ? "mobile-menu" : undefined}
+            aria-controls={menuOpen ? "mobile-menu" : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+            aria-expanded={menuOpen ? "true" : undefined}
           >
             <MenuIcon fontSize="large" color="secondary" />
           </IconButton>
@@ -49,8 +60,8 @@ export default function MobileMenu(props) {
       <Menu
         anchorEl={anchorEl}
         id="mobile-menu"
-        open={open}
-        onClose={() => setAnchorEl(null)}
+        open={menuOpen}
+        onClose={() => handleClose()}
         PaperProps={{
           elevation: 4,
           sx: {
@@ -74,16 +85,15 @@ export default function MobileMenu(props) {
       >
         <Tabs
           orientation="vertical"
-          value={context.page}
+          value={context.state.tab}
           textColor="secondary"
           indicatorColor="secondary"
+          onChange={(event, value) => handleChange(event, value)}
         >
-          {context.menuItems.map((option, index) => (
+          {context.tabs.map((option, index) => (
             <Tab
               key={index}
-              onClick={() => {
-                context.setScrollTo.setScroll(option);
-              }}
+             
               label={option}
               value={option}
             ></Tab>

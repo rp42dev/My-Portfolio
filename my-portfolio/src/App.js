@@ -1,10 +1,9 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useCallback, useContext} from "react";
+import { useContext } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { InView } from "react-intersection-observer";
 
-import { NavContext } from "./components/nav/NavContext";
+import { ContextWrapper, NavContext } from "./components/nav/NavContext";
 import { useColorContext } from "./ColorContext";
 import "./App.css";
 
@@ -16,6 +15,7 @@ import Footer from "./components/footer/FooterComponent";
 import Nav from "./components/nav/Nav";
 import ScrollDown from "./components/nav/buttons/ScrollDown";
 import BackToTop from "./components/nav/buttons/BackToTop";
+
 
 const themeMode = (mode) => ({
   palette: {
@@ -100,19 +100,10 @@ const themeMode = (mode) => ({
   },
 });
 
-function App() {
+function App(props) {
   const colorMode = useColorContext();
   const theme = createTheme(themeMode(colorMode.colorMode));
-  const navState = useContext(NavContext);
-
-  const ChangePage = useCallback(
-    (page) => {
-      if (page) {
-        navState.actions.changePage(page);
-      }
-    },
-    [navState.actions]
-  );
+  const context = useContext(NavContext);
 
   window.onbeforeunload = () => {
     window.scrollTo(0, 0);
@@ -124,40 +115,21 @@ function App() {
         <CssBaseline>
           <div className="App">
             <Nav />
-
-            <InView
-              as="div"
-              threshold={0.4}
-              onChange={(inView) => inView && ChangePage("home", inView)}
-            >
+            <div id="homeRef" className="wrapper">
               <HomeApp />
-            </InView>
-
-            <InView
-              as="div"
-              threshold={0.5}
-              onChange={(inView) => inView && ChangePage("about", inView)}
-            >
-              <AboutApp isInView={navState.page === "about" ? true : false}/>
-            </InView>
-
-            <InView
-              as="div"
-              threshold={0.1}
-              onChange={(inView) => inView && ChangePage("projects", inView)}
-            >
+            </div>
+            <div id="aboutRef" className="wrapper">
+              <AboutApp />
+            </div>
+            <div id="projectsRef" className="wrapper">
               <ProjectsApp />
-            </InView>
-
-            <InView
-              as="div"
-              threshold={0.3}
-              onChange={(inView) => inView && ChangePage("contact", inView)}
-            >
+            </div>
+            <div id="contactRef" className="wrapper">
               <ContactApp />
-            </InView>
-            <ScrollDown page={navState.page}/>
-            {navState.page === "home" ? null:<BackToTop />}
+            </div>
+     
+            {context.state.tab === "contact" ? null : <ScrollDown />}
+            {context.state.tab === "home" ? null : <BackToTop />}
             <Footer />
           </div>
         </CssBaseline>

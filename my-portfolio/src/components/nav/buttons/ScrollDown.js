@@ -38,14 +38,14 @@ export default function DownComp(props) {
   const [anchor, setAnchor] = useState(null);
     
   useEffect(() => {
-    let current = props.page;
-    let index = context.menuItems.indexOf(current)+1;
-    if(index < context.menuItems.length){
-      setAnchor(context.menuItems[index]);
+    let current = context.state.tab;
+    let index = context.tabs.indexOf(current)+1;
+    if(index < context.tabs.length){
+      setAnchor(context.tabs[index]);
     } else {
       setAnchor('footer');
     }
-  }, [context.menuItems, props.page]);
+  }, [context.tabs]);
 
   return (
    

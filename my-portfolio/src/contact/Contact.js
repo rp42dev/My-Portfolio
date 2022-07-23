@@ -10,14 +10,6 @@ import ContactForm from '../components/forms/ContactForm';
 
 function ContactApp() {
   const context = useContext(NavContext);
-  const [isInView, setIsInView] = useState(false);
-  
-  useEffect(() => {
-    if (isInView) {
-      context.actions.changePage("contact");
-    }
-  }, [isInView, context.actions]);
-
 
   return (
     <Container
@@ -41,13 +33,7 @@ function ContactApp() {
             feel free to send me a message and I will get back to you!
           </Typography>
         </Fade>
-        <InView
-          rootMargin="0% 0% 0%"
-          as="div"
-          onChange={(inView, entry) => {
-            setIsInView(inView);
-          }}
-        ></InView>
+     
         <Fade bottom distance="20%" delay={400}>
           <ContactForm />
         </Fade>

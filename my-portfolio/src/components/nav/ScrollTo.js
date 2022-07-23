@@ -1,18 +1,22 @@
+import { NavContext } from "./NavContext";
+import { useContext } from "react";
 import Box from "@mui/material/Box";
 
 
 function ScrollTop(props) {
-  
   const { children } = props;
+  const context = useContext(NavContext);
 
   const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      `#${props.anchor}`
-    );
+    context.dispatch({ type: "setTab", payload: props.anchor });
 
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth" });
-    }
+    event.preventDefault();
+
+    document.querySelector(`#${props.anchor}`).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
   };
 
   return <Box onClick={handleClick}>{children}</Box>;

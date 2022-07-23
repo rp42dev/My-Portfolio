@@ -1,7 +1,6 @@
 import { memo } from "react";
 
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
-import useMediaQuery from "../hooks/viewPortWidth.js";
 import TheCube from "../components/about/cube/Cube.js";
 
 import CardComponent from "../components/SimpleCard.js";
@@ -14,17 +13,16 @@ const aboutContent = data.about.content;
 const About = memo((props) => {
   return (
     <>
-     <Fade bottom distance="30%" delay={400}>
-      <Typography color="secondary" variant="h2">
-        About
-      </Typography>
+      <Fade bottom distance="30%" delay={400}>
+        <Typography color="secondary" variant="h2">
+          About
+        </Typography>
       </Fade>
       <Box className="priorities-text" sx={{ mt: 1 }}>
         <Grid container rowSpacing={{ xs: 3, md: 6 }}>
           {aboutContent.map((text, index) => (
             <Grid item xs={12} key={index}>
-             
-                <CardComponent title={text.title} text={text.text} />
+              <CardComponent title={text.title} text={text.text} />
             </Grid>
           ))}
         </Grid>
@@ -34,7 +32,6 @@ const About = memo((props) => {
 });
 
 function AboutApp(props) {
-
   return (
     <Container
       id="about"

@@ -16,27 +16,24 @@ import { NavContext } from "./NavContext.js";
 export default function MobileMenu(props) {
    const context = useContext(NavContext);
    const [anchorEl, setAnchorEl] = useState(null);
-   const [menuOpen, setMenuOpen] = useState(false);
+   const menuOpen = Boolean(anchorEl);
    let theme = useTheme();
 
    const handleClick = (event) => {
      context.dispatch({ type: "setMenu", payload: true });
      setAnchorEl(event.currentTarget);
-     setMenuOpen(true);
    };
+
    const handleClose = () => {
      context.dispatch({ type: "setMenu", payload: false });
      setAnchorEl(null);
-     setMenuOpen(false);
    };
 
    const handleChange = (event, newValue) => {
-     context.dispatch({ type: "setTab", payload: newValue });
-
      document.querySelector(`#${newValue}`).scrollIntoView({
-       behavior: "smooth",
        block: "start",
      });
+
    };
    
 

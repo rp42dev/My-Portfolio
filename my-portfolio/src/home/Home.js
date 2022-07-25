@@ -81,12 +81,11 @@ function HomeApp() {
 
   return (
     <div className="wrapper">
- 
       <Boxes />
       <Container id="back-to-top-anchor">
         <RunAwayBox />
 
-        <Box id="home">
+        <Box id="home" className="wrapperRef">
           <Box
             sx={{ zIndex: 4 }}
             className="home-content animate angle-border"

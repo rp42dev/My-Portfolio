@@ -1,21 +1,19 @@
 import * as React from "react";
 import { Tab, Tabs, Box } from "@mui/material/";
 import { NavContext } from "./NavContext.js";
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import ModeButton from "./buttons/ThemeButton.js";
 
 export default function PcMenu() {
   const context = useContext(NavContext);
 
   const handleChange = (event, newValue) => {
-    context.dispatch({ type: "setTab", payload: newValue });
-
     document.querySelector(`#${newValue}`).scrollIntoView({
-      behavior: "smooth",
       block: "start",
     });
   };
 
+  
   return (
     <React.Fragment>
       <Box sx={{ display: "flex" }}>

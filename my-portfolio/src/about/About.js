@@ -35,10 +35,11 @@ function AboutApp(props) {
   return (
     <Container
       id="about"
+      className="wrapperRef"
       sx={{ position: "relative", display: "flex", alignItems: "center" }}
     >
       <Box sx={{ position: "relative", width: "100%" }}>
-        <TheCube isInView={props.isInView} />
+        <TheCube />
         <About />
       </Box>
     </Container>

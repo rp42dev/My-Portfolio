@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme, Paper } from "@mui/material";
-import { useEffect, memo } from "react";
+import { NavContext } from "../../nav/NavContext.js";
+import { useEffect, memo, useContext } from "react";
 import "./Cube.css";
 
 const GetElement = (props) => {
@@ -73,6 +74,7 @@ const cubeText = [
 ];
 
 const Cube = memo(() => {
+
   let theme = useTheme();
   return (
     <>
@@ -98,14 +100,15 @@ const Cube = memo(() => {
 });
 
 function TheCube(props) {
+  const context = useContext(NavContext);
   useEffect(() => {
-    if (props.isInView) {
+    if (context.state.tab === "about") {
       InitAnimation();
       SpinCube();
     } else {
       stopSpinCube();
     }
-  }, [props.isInView]);
+  }, [context.state]);
 
   return (
     <Box className="cube-outer">

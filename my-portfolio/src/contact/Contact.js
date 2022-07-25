@@ -14,6 +14,7 @@ function ContactApp() {
   return (
     <Container
       id="contact"
+      className="wrapperRef"
       sx={{
         display: "flex",
         alignItems: "center",
@@ -33,7 +34,7 @@ function ContactApp() {
             feel free to send me a message and I will get back to you!
           </Typography>
         </Fade>
-     
+
         <Fade bottom distance="20%" delay={400}>
           <ContactForm />
         </Fade>

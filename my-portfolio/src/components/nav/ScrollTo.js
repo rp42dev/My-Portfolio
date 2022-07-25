@@ -3,12 +3,12 @@ import { useContext } from "react";
 import Box from "@mui/material/Box";
 
 
-function ScrollTop(props) {
+function ScrollTo(props) {
   const { children } = props;
   const context = useContext(NavContext);
 
   const handleClick = (event) => {
-    context.dispatch({ type: "setTab", payload: props.anchor });
+    context.dispatch({ type: "setTabOnClick", payload: props.anchor });
 
     event.preventDefault();
 
@@ -22,4 +22,4 @@ function ScrollTop(props) {
   return <Box onClick={handleClick}>{children}</Box>;
 }
 
-export default ScrollTop;
+export default ScrollTo;

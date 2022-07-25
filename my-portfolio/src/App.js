@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import { ContextWrapper, NavContext } from "./components/nav/NavContext";
@@ -15,7 +15,6 @@ import Footer from "./components/footer/FooterComponent";
 import Nav from "./components/nav/Nav";
 import ScrollDown from "./components/nav/buttons/ScrollDown";
 import BackToTop from "./components/nav/buttons/BackToTop";
-
 
 const themeMode = (mode) => ({
   palette: {
@@ -103,7 +102,29 @@ const themeMode = (mode) => ({
 function App(props) {
   const colorMode = useColorContext();
   const theme = createTheme(themeMode(colorMode.colorMode));
+  const [clicked, setClicked] = React.useState(false);
   const context = useContext(NavContext);
+
+  const observerCallBack = useCallback((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        context.dispatch({ type: "scroll", payload: entry.target.id });
+      }
+    });
+  });
+
+  React.useEffect(() => {
+    const elements = document.querySelectorAll(".wrapperRef");
+
+    const observer = new IntersectionObserver(observerCallBack, {
+      threshold: 0.2,
+    });
+
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+  }, []);
+
 
   window.onbeforeunload = () => {
     window.scrollTo(0, 0);
@@ -115,19 +136,14 @@ function App(props) {
         <CssBaseline>
           <div className="App">
             <Nav />
-            <div id="homeRef" className="wrapper">
-              <HomeApp />
-            </div>
-            <div id="aboutRef" className="wrapper">
-              <AboutApp />
-            </div>
-            <div id="projectsRef" className="wrapper">
-              <ProjectsApp />
-            </div>
-            <div id="contactRef" className="wrapper">
-              <ContactApp />
-            </div>
-     
+            <HomeApp />
+
+            <AboutApp />
+
+            <ProjectsApp />
+
+            <ContactApp />
+
             {context.state.tab === "contact" ? null : <ScrollDown />}
             {context.state.tab === "home" ? null : <BackToTop />}
             <Footer />

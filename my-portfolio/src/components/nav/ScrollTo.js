@@ -1,6 +1,6 @@
 import { NavContext } from "./NavContext";
 import { useContext } from "react";
-import Box from "@mui/material/Box";
+import { Box }from "@mui/material";
 
 
 function ScrollTo(props) {
@@ -8,7 +8,7 @@ function ScrollTo(props) {
   const context = useContext(NavContext);
 
   const handleClick = (event) => {
-    context.dispatch({ type: "setTabOnClick", payload: props.anchor });
+    context.setReducer("click", props.anchor);
 
     event.preventDefault();
 

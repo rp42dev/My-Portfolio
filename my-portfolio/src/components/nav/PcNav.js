@@ -3,6 +3,7 @@ import { Tab, Tabs, Box } from "@mui/material/";
 import { NavContext } from "./NavContext.js";
 import { useContext, useCallback } from "react";
 import ModeButton from "./buttons/ThemeButton.js";
+import ScrollTo from "./ScrollTo";
 
 export default function PcMenu() {
   const context = useContext(NavContext);

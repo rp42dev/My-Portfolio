@@ -8,6 +8,8 @@ export default function PcMenu() {
   const context = useContext(NavContext);
 
   const handleChange = (event, newValue) => {
+    context.setReducer("click", newValue);
+
     document.querySelector(`#${newValue}`).scrollIntoView({
       block: "start",
     });

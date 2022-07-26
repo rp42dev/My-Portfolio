@@ -15,21 +15,23 @@ import { NavContext } from "./NavContext.js";
 
 export default function MobileMenu(props) {
    const context = useContext(NavContext);
+   
    const [anchorEl, setAnchorEl] = useState(null);
-   const menuOpen = Boolean(anchorEl);
    let theme = useTheme();
 
    const handleClick = (event) => {
-     context.dispatch({ type: "setMenu", payload: true });
+     context.setReducer("setMenu", true);
      setAnchorEl(event.currentTarget);
    };
 
    const handleClose = () => {
-     context.dispatch({ type: "setMenu", payload: false });
+     context.setReducer("setMenu", false);
      setAnchorEl(null);
    };
 
    const handleChange = (event, newValue) => {
+      context.setReducer("click", newValue);
+
      document.querySelector(`#${newValue}`).scrollIntoView({
        block: "start",
      });
@@ -46,9 +48,9 @@ export default function MobileMenu(props) {
             onClick={(event) => handleClick(event)}
             size="large"
             sx={{ p: 0, px: 1 }}
-            aria-controls={menuOpen ? "mobile-menu" : undefined}
+            aria-controls={context.menuOpen ? "mobile-menu" : undefined}
             aria-haspopup="true"
-            aria-expanded={menuOpen ? "true" : undefined}
+            aria-expanded={context.menuOpen ? "true" : undefined}
           >
             <MenuIcon fontSize="large" color="secondary" />
           </IconButton>
@@ -57,7 +59,7 @@ export default function MobileMenu(props) {
       <Menu
         anchorEl={anchorEl}
         id="mobile-menu"
-        open={menuOpen}
+        open={context.menuOpen}
         onClose={() => handleClose()}
         PaperProps={{
           elevation: 4,

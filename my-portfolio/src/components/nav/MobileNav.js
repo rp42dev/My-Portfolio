@@ -29,16 +29,6 @@ export default function MobileMenu(props) {
      setAnchorEl(null);
    };
 
-   const handleChange = (event, newValue) => {
-      context.setReducer("click", newValue);
-
-     document.querySelector(`#${newValue}`).scrollIntoView({
-       block: "start",
-     });
-
-   };
-   
-
   return (
     <Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -87,12 +77,11 @@ export default function MobileMenu(props) {
           value={context.state.tab}
           textColor="secondary"
           indicatorColor="secondary"
-          onChange={(event, value) => handleChange(event, value)}
+          onChange={(event, value) => context.setReducer("click", value)}
         >
           {context.tabs.map((option, index) => (
             <Tab
               key={index}
-             
               label={option}
               value={option}
             ></Tab>

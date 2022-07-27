@@ -1,7 +1,6 @@
-import React, { useReducer, useState, useCallback, useEffect } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import {
   Events,
-  animateScroll as scroll,
   scrollSpy,
   scroller,
 } from "react-scroll";
@@ -21,22 +20,20 @@ const reducer = (state, action) => {
   }
 };
 
-
 export const ContextWrapper = ({ children }) => {
   const tabs = ["home", "about", "projects", "contact"];
   const initialState = { tab: tabs[0], menuOpen: false, action: "" };
   const [state, dispatch] = useReducer(reducer, initialState);
   const [active, setActive] = useState(false);
 
-  const Scroller = useCallback((props) => {
-    
+  const Scroller = (props) => {
     scroller.scrollTo(props, {
       duration: 1000,
       smooth: "easeInOutQuad",
       delay: 0,
       offset: 0,
     });
-  });
+  };
 
   useEffect(() => {
     if (state.action === "click") {
@@ -48,7 +45,7 @@ export const ContextWrapper = ({ children }) => {
       });
       scrollSpy.update();
     }
-  }, [state.action]);
+  }, [state.tab, state.action]);
 
   const value = {
     active: active,

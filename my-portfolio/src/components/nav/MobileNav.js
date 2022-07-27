@@ -2,8 +2,6 @@ import {
   useState,
   useContext,
   Fragment,
-  useCallback,
-  useTransition,
 } from "react";
 import ModeButton from "./buttons/ThemeButton.js";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -25,22 +23,22 @@ export default function MobileMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   let theme = useTheme();
 
-  const handleChange = useCallback((event, newValue) => {
+  const handleChange = (event, newValue) => {
     context.setReducer("click", newValue);
       setTimeout(() => {
         handleClose();
       }, 50);
-  }, []);
+  };
 
-  const handleClick = useCallback((event) => {
+  const handleClick = (event) => {
     context.setReducer("setMenu", true);
     setAnchorEl(event.currentTarget);
-  });
+  };
 
-  const handleClose = useCallback(() => {
+  const handleClose = () => {
     context.setReducer("setMenu", false);
     setAnchorEl(null);
-  });
+  };
 
   return (
     <Fragment>

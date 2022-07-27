@@ -29,8 +29,9 @@ export const ContextWrapper = ({ children }) => {
   const [active, setActive] = useState(false);
 
   const Scroller = useCallback((props) => {
+    
     scroller.scrollTo(props, {
-      duration: 1500,
+      duration: 1000,
       smooth: "easeInOutQuad",
       delay: 0,
       offset: 0,

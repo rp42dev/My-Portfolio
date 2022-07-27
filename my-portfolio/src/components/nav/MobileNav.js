@@ -1,8 +1,14 @@
-import { useState, useContext, Fragment, useEffect } from "react";
+import {
+  useState,
+  useContext,
+  Fragment,
+  useCallback,
+  useTransition,
+} from "react";
 import ModeButton from "./buttons/ThemeButton.js";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
-  useTheme, 
+  useTheme,
   Tabs,
   Tab,
   Box,
@@ -14,20 +20,27 @@ import {
 import { NavContext } from "./NavContext.js";
 
 export default function MobileMenu(props) {
-   const context = useContext(NavContext);
-   
-   const [anchorEl, setAnchorEl] = useState(null);
-   let theme = useTheme();
+  const context = useContext(NavContext);
 
-   const handleClick = (event) => {
-     context.setReducer("setMenu", true);
-     setAnchorEl(event.currentTarget);
-   };
+  const [anchorEl, setAnchorEl] = useState(null);
+  let theme = useTheme();
 
-   const handleClose = () => {
-     context.setReducer("setMenu", false);
-     setAnchorEl(null);
-   };
+  const handleChange = useCallback((event, newValue) => {
+    context.setReducer("click", newValue);
+      setTimeout(() => {
+        handleClose();
+      }, 50);
+  }, []);
+
+  const handleClick = useCallback((event) => {
+    context.setReducer("setMenu", true);
+    setAnchorEl(event.currentTarget);
+  });
+
+  const handleClose = useCallback(() => {
+    context.setReducer("setMenu", false);
+    setAnchorEl(null);
+  });
 
   return (
     <Fragment>
@@ -77,14 +90,10 @@ export default function MobileMenu(props) {
           value={context.state.tab}
           textColor="secondary"
           indicatorColor="secondary"
-          onChange={(event, value) => context.setReducer("click", value)}
+          onChange={(event, value) => handleChange(event, value)}
         >
           {context.tabs.map((option, index) => (
-            <Tab
-              key={index}
-              label={option}
-              value={option}
-            ></Tab>
+            <Tab key={index} label={option} value={option}></Tab>
           ))}
         </Tabs>
       </Menu>

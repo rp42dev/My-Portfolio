@@ -7,19 +7,13 @@ import TextComponent from "./textComponent.js";
 import ImageComponent from "./imageComponent.js";
 import "./projectsComponent.css";
 
-
 export default memo(function ProjectsComponent() {
-  
   return (
     <>
       {data.map((image, i) =>
         i % 2 === 0 ? (
           <Fade key={i} bottom distance="30%">
-            <Grid
-              container
-              mb={{ xs: 3, md: 6 }}
-              rowSpacing={{ xs: 0, md: 6 }}
-            >
+            <Grid container mb={{ xs: 3, md: 6 }} rowSpacing={{ xs: 0, md: 6 }}>
               <Grid item xs={12} md={7} order={{ xs: 1 }}>
                 <ImageComponent image={image} />
               </Grid>
@@ -40,11 +34,7 @@ export default memo(function ProjectsComponent() {
           </Fade>
         ) : (
           <Fade key={i} bottom distance="30%">
-            <Grid
-              container
-              mb={{ xs: 3, md: 6 }}
-              rowSpacing={{ xs: 0, md: 6 }}
-            >
+            <Grid container mb={{ xs: 3, md: 6 }} rowSpacing={{ xs: 0, md: 6 }}>
               <Grid item xs={12} md={7} order={{ xs: 1, md: 2 }}>
                 <ImageComponent image={image} />
               </Grid>

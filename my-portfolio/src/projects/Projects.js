@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import { InView } from "react-intersection-observer";
 import { useContext } from "react";
 import { NavContext } from "../components/nav/NavContext.js";
+import { Element } from "react-scroll";
 
 import {
   Typography,
@@ -13,11 +14,7 @@ import {
   Tooltip,
   Link,
 } from "@mui/material";
-
 import "./Projects.css";
-
-var Scroll = require("react-scroll");
-var Element = Scroll.Element;
 
 function ProjectsApp() {
   const context = useContext(NavContext);

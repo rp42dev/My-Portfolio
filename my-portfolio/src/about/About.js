@@ -1,17 +1,14 @@
-import { memo } from "react";
-import { Box, Container, Typography, Paper, Grid } from "@mui/material";
+import { Box, Container, Typography, Grid } from "@mui/material";
 import { InView } from "react-intersection-observer";
 import TheCube from "../components/about/cube/Cube.js";
-import { useContext } from "react";
 import { NavContext } from "../components/nav/NavContext.js";
+import { useContext, memo } from "react";
 
 import CardComponent from "../components/SimpleCard.js";
+import { Element } from "react-scroll";
 import Fade from "react-reveal/Fade";
 import data from "./data/data";
 import "./About.css";
-
-var Scroll = require("react-scroll");
-var Element = Scroll.Element;
 
 const aboutContent = data.about.content;
 

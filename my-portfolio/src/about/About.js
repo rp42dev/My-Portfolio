@@ -1,12 +1,17 @@
 import { memo } from "react";
-
 import { Box, Container, Typography, Paper, Grid } from "@mui/material";
+import { InView } from "react-intersection-observer";
 import TheCube from "../components/about/cube/Cube.js";
+import { useContext } from "react";
+import { NavContext } from "../components/nav/NavContext.js";
 
 import CardComponent from "../components/SimpleCard.js";
 import Fade from "react-reveal/Fade";
 import data from "./data/data";
 import "./About.css";
+
+var Scroll = require("react-scroll");
+var Element = Scroll.Element;
 
 const aboutContent = data.about.content;
 
@@ -32,17 +37,29 @@ const About = memo((props) => {
 });
 
 function AboutApp(props) {
+  const context = useContext(NavContext);
   return (
-    <Container
-      id="about"
-      className="wrapperRef"
-      sx={{ position: "relative", display: "flex", alignItems: "center" }}
+    <InView
+      threshold={0.5}
+      skip={context.active}
+      onChange={(inView, entry) => {
+        if (inView) context.setReducer("scroll", "about");
+      }}
     >
-      <Box sx={{ position: "relative", width: "100%" }}>
-        <TheCube />
-        <About />
-      </Box>
-    </Container>
+      <Element name="about">
+        <Container
+          id="about"
+          className="wrapperRef"
+          sx={{ position: "relative", display: "flex", alignItems: "center" }}
+        >
+          {" "}
+          <Box sx={{ position: "relative", width: "100%" }}>
+            <TheCube />
+            <About />
+          </Box>
+        </Container>
+      </Element>
+    </InView>
   );
 }
 

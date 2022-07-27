@@ -3,7 +3,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useContext, useCallback } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import { ContextWrapper, NavContext } from "./components/nav/NavContext";
+import { NavContext } from "./components/nav/NavContext";
 import { useColorContext } from "./ColorContext";
 import "./App.css";
 
@@ -15,6 +15,9 @@ import Footer from "./components/footer/FooterComponent";
 import Nav from "./components/nav/Nav";
 import ScrollDown from "./components/nav/buttons/ScrollDown";
 import BackToTop from "./components/nav/buttons/BackToTop";
+
+
+
 
 const themeMode = (mode) => ({
   palette: {
@@ -102,65 +105,7 @@ const themeMode = (mode) => ({
 function App(props) {
   const colorMode = useColorContext();
   const theme = createTheme(themeMode(colorMode.colorMode));
-  const [clicked, setClicked] = React.useState(false);
-
   const context = useContext(NavContext);
-
-  React.useEffect(() => {
-    if (context.state.action === "click") {
-      setClicked(true);
-    } else {
-      setClicked(false);
-    }
-  }, [context.state.action]);
-
-  const observerCallBack = useCallback((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        context.setReducer("scroll", entry.target.id);
-      }
-    });
-  }, []);
-
-  const observerCall = useCallback(() => {
-    const observer = new IntersectionObserver(observerCallBack, {
-      threshold: 0.2,
-    });
-    return observer;
-  });
-
-  const startObserve = useCallback((observer, elements) => {
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
-  }, []);
-
-  const stopObserve = useCallback((observer) => {
-    observer.disconnect();
-  }, []);
-
-  const setTimeoutCall = useCallback((observer, elements) => {
-
-    setTimeout(() => {
-      startObserve(observer, elements);
-    }, 1500);
-
-  }, []);
-
-  React.useEffect(() => {
-    const elements = document.querySelectorAll(".wrapperRef");
-    let observer = observerCall();
-
-    if (clicked) {
-      stopObserve(observer);
-      setTimeoutCall(observer, elements);
-    } else {
-      startObserve(observer, elements);
-    }
-    return () => {
-      stopObserve(observer);
-    };
-  }, [clicked]);
 
   window.onbeforeunload = () => {
     window.scrollTo(0, 0);
@@ -172,14 +117,15 @@ function App(props) {
         <CssBaseline>
           <div className="App">
             <Nav />
+    
             <HomeApp />
-
+      
             <AboutApp />
-
+     
             <ProjectsApp />
-
+           
             <ContactApp />
-
+          
             {context.state.tab === "contact" ? null : <ScrollDown />}
             {context.state.tab === "home" ? null : <BackToTop />}
             <Footer />

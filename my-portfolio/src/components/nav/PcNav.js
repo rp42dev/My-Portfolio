@@ -1,22 +1,12 @@
 import * as React from "react";
 import { Tab, Tabs, Box } from "@mui/material/";
 import { NavContext } from "./NavContext.js";
-import { useContext, useCallback } from "react";
+import { useContext, useTransition } from "react";
 import ModeButton from "./buttons/ThemeButton.js";
-import ScrollTo from "./ScrollTo";
 
 export default function PcMenu() {
   const context = useContext(NavContext);
 
-  const handleChange = (event, newValue) => {
-    context.setReducer("click", newValue);
-
-    document.querySelector(`#${newValue}`).scrollIntoView({
-      block: "start",
-    });
-  };
-
-  
   return (
     <React.Fragment>
       <Box sx={{ display: "flex" }}>
@@ -24,7 +14,9 @@ export default function PcMenu() {
           value={context.state.tab}
           indicatorColor="secondary"
           textColor="secondary"
-          onChange={(event, value) => handleChange(event, value)}
+          onChange={(event, newValue) => {
+            context.setReducer("click", newValue);
+          }}
         >
           {context.tabs.map((option, index) => (
             <Tab

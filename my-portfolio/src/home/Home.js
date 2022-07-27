@@ -4,9 +4,16 @@ import { Box, Container, Paper } from "@mui/material";
 import { useEffect, memo } from "react";
 import useMediaQuery from "../hooks/viewPortWidth.js";
 import RunAwayBox from "../components/home/runAwayBox/RunAwayBox";
-import ScrollTo from "../components/nav/ScrollTo";
+import ScrollToView from "../components/nav/ScrollToView";
+import { useContext } from "react";
+import { NavContext } from "../components/nav/NavContext.js";
+
+import { InView } from "react-intersection-observer";
 import data from "./data/data";
 import "./Home.css";
+
+var Scroll = require("react-scroll");
+var Element = Scroll.Element;
 
 const homeContent = data.home.content;
 
@@ -68,8 +75,9 @@ const Boxes = memo(() => {
   );
 });
 
-function HomeApp() {
+function HomeApp(props) {
   const isPc = useMediaQuery("(max-width: 600px)");
+  const context = useContext(NavContext);
 
   useEffect(() => {
     [...document.getElementsByClassName("animate")].forEach((element) => {
@@ -82,35 +90,48 @@ function HomeApp() {
   return (
     <div className="wrapper">
       <Boxes />
-      <Container id="back-to-top-anchor">
-        <RunAwayBox />
+      <InView
+        as="div"
+        threshold={0.5}
+        skip={context.active}
+        onChange={(inView, entry) => {
+          if (inView) context.setReducer("scroll", "home");
+        }}
+      >
+        <Container id="back-to-top-anchor">
+          <Element name="home">
+            <RunAwayBox />
+            <Box id="home">
+              <Box
+                sx={{ zIndex: 4 }}
+                className="home-content animate angle-border"
+                p-3
+              >
+                <Paper square sx={{ p: 3, pt: 1 }} elevation={8}>
+                  {homeContent.map((content, index) => {
+                    return (
+                      <Box key={index}>
+                        <Typography
+                          color={content.color}
+                          variant={content.variant}
+                        >
+                          {content.text}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
 
-        <Box id="home" className="wrapperRef">
-          <Box
-            sx={{ zIndex: 4 }}
-            className="home-content animate angle-border"
-            p-3
-          >
-            <Paper square sx={{ p: 3, pt: 1 }} elevation={8}>
-              {homeContent.map((content, index) => {
-                return (
-                  <Box key={index}>
-                    <Typography color={content.color} variant={content.variant}>
-                      {content.text}
-                    </Typography>
+                  <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
+                    <ScrollToView {...props} anchor={"contact"}>
+                      <Btn text="message me" />
+                    </ScrollToView>
                   </Box>
-                );
-              })}
-
-              <Box sx={{ mt: 3, position: "relative", zIndex: 4 }}>
-                <ScrollTo anchor={"contact"}>
-                  <Btn text="message me" />
-                </ScrollTo>
+                </Paper>
               </Box>
-            </Paper>
-          </Box>
-        </Box>
-      </Container>
+            </Box>
+          </Element>
+        </Container>
+      </InView>
     </div>
   );
 }

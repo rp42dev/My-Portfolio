@@ -3,12 +3,12 @@ import { Box, IconButton } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
 import { NavContext } from "../NavContext.js";
 import Slide from "@mui/material/Slide";
-import ScrollTo from "../ScrollTo";
+import ScrollToView from "../ScrollToView";
 
 function HideOnScroll(props) {
   const { children } = props;
   const [trigger, setTrigger] = useState(true);
-
+  
   useEffect(() => {
     var delayedExec = function (after, fn) {
       var timer;
@@ -18,14 +18,14 @@ function HideOnScroll(props) {
         setTrigger(false);
       };
     };
-
+    
     var scrollStopper = delayedExec(500, function () {
       setTrigger(true);
     });
-
+    
     window.addEventListener("scroll", scrollStopper);
   }, [trigger]);
-
+  
   return (
     <Slide direction="up" in={trigger}>
       {children}
@@ -62,11 +62,11 @@ export default function DownComp(props) {
         }}
         color="primary.dark"
       >
-        <ScrollTo {...props} anchor={anchor}>
+        <ScrollToView {...props} anchor={anchor}>
           <IconButton >
             <KeyboardDoubleArrowDownIcon sx={{ fontSize: 80, m: 0, p: 0 }} />
           </IconButton>
-        </ScrollTo>
+        </ScrollToView>
       </Box>
     </HideOnScroll>
   );

@@ -6,10 +6,11 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import Fetch from "../../utils/Fetch";
-import { rootShouldForwardProp } from "@mui/material/styles/styled";
+
+import useMediaQuery from "../../hooks/viewPortWidth";
 
 export default function BasicCard() {
-
+  const matches = useMediaQuery("(min-width:600px)");
   const [data, setData] = React.useState([]);
   const [repos, setRepos] = React.useState([]);
   const avatar = data.avatar_url;
@@ -44,25 +45,36 @@ export default function BasicCard() {
       sx={{
         p: 4,
         margin: "auto",
-        width: 800,
+        maxWidth: 800,
         minWidth: 275,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
       }}
       elevation={4}
     >
       <Box
-        sx={{ mb: 4, minWidth: 275, display: "flex", justifyContent: "center" }}
+        classList="avatar-container"
+        sx={{
+          mb: 4,
+          minWidth: 275,
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: matches ? "row" : "column",
+        }}
       >
         <Stack direction="row" spacing={2}>
-          <Button sx={{ borderRadius: "50%" }} href={data.html_url} target="_blank">
-          <Avatar
-            alt="Remy Sharp"
-            src={avatar}
-            sx={{ width: 150, height: 150 }}
-          />
-          </Button>	
+          <Button
+            sx={{ borderRadius: "50%" }}
+            href={data.html_url}
+            target="_blank"
+          >
+            <Avatar
+              alt="Remy Sharp"
+              src={avatar}
+              sx={{ width: 150, height: 150 }}
+            />
+          </Button>
         </Stack>
 
         <Box
@@ -71,8 +83,8 @@ export default function BasicCard() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            ml: 4,
           }}
+          classList="name-container"
         >
           <Box>
             <Typography color={"primary"} variant="h4" component="div">
@@ -85,9 +97,9 @@ export default function BasicCard() {
           </Box>
 
           <Typography
-            color={"primary"}
+            color={"primary.dark"}
             variant="body2"
-            sx={{ display: "flex", justifyContent: "space-around" }}
+            sx={{ display: "flex", justifyContent: "space-between" }}
           >
             <span>Followers: {followers}</span>
             <span>Following: {following}</span>

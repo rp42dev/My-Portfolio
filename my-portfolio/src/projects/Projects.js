@@ -46,24 +46,14 @@ function ProjectsApp() {
         </Box>
         <Box>
           <Fade bottom distance="30%">
-            <Typography color="primary.dark" variant="body1">
+            <Typography sx={{ mb: 4 }} color="primary.dark" variant="h5">
               More projects on my GitHub page
-              <Tooltip title="On GitHub">
-                <IconButton
-                  component={Link}
-                  onClick={() =>
-                    window.open("https://github.com/Raivis80", "_blank")
-                  }
-                  color="secondary"
-                  aria-label="github"
-                >
-                  <GitHubIcon fontSize="large" />
-                </IconButton>
-              </Tooltip>
             </Typography>
           </Fade>
         </Box>
+        <Fade bottom distance="30%">
             <GithubCard />
+        </Fade>
       </InView>
     </Container>
   );

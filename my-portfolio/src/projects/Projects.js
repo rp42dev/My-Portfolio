@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { NavContext } from "../components/nav/NavContext.js";
 import { Element } from "react-scroll";
 
+import GithubCard from "../components/projects/GithubCard.js";
+
 import {
   Typography,
   Box,
@@ -61,6 +63,7 @@ function ProjectsApp() {
             </Typography>
           </Fade>
         </Box>
+            <GithubCard />
       </InView>
     </Container>
   );

@@ -14,6 +14,7 @@ function ContactApp() {
 
   return (
     <Container
+      id="contact"
       sx={{
         display: "flex",
         alignItems: "center",

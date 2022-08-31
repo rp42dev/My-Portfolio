@@ -29,7 +29,7 @@ function ContactApp() {
           if (inView) context.setReducer("scroll", "contact");
         }}
       >
-        <Element id="contact" name="contact" />
+       
         <Box mt={2} sx={{ maxWidth: "500px" }}>
           <Fade distance="30%" bottom>
             <Typography color="secondary" variant="h2">

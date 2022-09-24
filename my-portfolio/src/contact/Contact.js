@@ -5,8 +5,6 @@ import { useContext } from "react";
 import { NavContext } from "../components/nav/NavContext.js";
 import "./Contact.css";
 import ContactForm from "../components/forms/ContactForm";
-
-import { Element } from "react-scroll";
 import { InView } from "react-intersection-observer";
 
 function ContactApp() {

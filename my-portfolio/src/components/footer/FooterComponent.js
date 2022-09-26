@@ -5,6 +5,7 @@ import ImageButton from "../buttons/ImageButton";
 import Fade from "react-reveal/Fade";
 import { useColorContext } from "../../ColorContext";
 import { useTheme } from "@mui/material/styles";
+import Logo from "../buttons/Logo";
 
 
 export default function Footer() {
@@ -29,7 +30,7 @@ export default function Footer() {
             alignItems="center"
             sx={{
               width: "100%",
-              height: "100px",
+              minHeight: "100px",
               color: "primary.contrastText",
               textAlign: "center",
               p: 2,
@@ -43,7 +44,7 @@ export default function Footer() {
               xs={6}
               md={6}
             >
-              <ImageButton img={require("../../assets/images/logo.png")} />
+              <Logo />
             </Grid>
             <Grid
               sx={{ display: "flex", justifyContent: "end" }}
@@ -60,7 +61,7 @@ export default function Footer() {
                 variant="caption"
                 sx={{ display: "flex", justifyContent: "start" }}
               >
-                © 2022 - RP 80
+                © 2022 - rp 42
               </Typography>
             </Grid>
             <Grid

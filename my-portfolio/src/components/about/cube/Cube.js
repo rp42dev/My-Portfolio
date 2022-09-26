@@ -124,4 +124,4 @@ function TheCube(props) {
 
 export default TheCube;
 // Language: javascript
-// Path: my-portfolio\src\components\cube\Cube.js
+// Path: portfolio\src\components\cube\Cube.js

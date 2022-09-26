@@ -1,12 +1,12 @@
 import * as React from "react";
-import { AppBar, Toolbar, Stack, Container } from "@mui/material/";
+import { AppBar, Toolbar, Stack, Container, Typography } from "@mui/material/";
 
 import MobileMenu from "./MobileNav.js";
 import useMediaQuery from "../../hooks/viewPortWidth.js";
 import PcMenu from "./PcNav.js";
 import Reveal from "./RevealNav.js";
 import SocialButtons from "../social/SocialButtons.js";
-import ImageButton from "../buttons/ImageButton.js";
+import Logo from "../buttons/Logo.js";
 import "./Nav.css";
 
 
@@ -29,7 +29,7 @@ export default function Nav(props) {
         <Container>
           <Toolbar sx={{ justifyContent: "space-between" }} disableGutters>
             <Stack direction="row" spacing={2} alignItems="center">
-              <ImageButton img={require("../../assets/images/logo.png")} />
+              <Logo />
               <SocialButtons />
             </Stack>
             {!hideMobile && (

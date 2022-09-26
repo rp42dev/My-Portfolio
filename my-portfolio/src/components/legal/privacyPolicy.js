@@ -75,16 +75,16 @@ export default function PrivacyPolicyModal() {
                 variant="h5"
                 component="h1"
               >
-                Privacy Policy for RP 80
+                Privacy Policy for rp 42
               </Typography>
               <Box id="transition-modal-description" sx={{ mt: 2 }}>
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  At RP 80, accessible from
-                  https://raivis80.github.io/My-Portfolio/, one of our main
+                  At rp 42, accessible from
+                  https://raivis80.github.io/portfolio/, one of our main
                   priorities is the privacy of our visitors. This Privacy Policy
                   document contains types of information that is collected and
-                  recorded by RP 80 and how we use it.
+                  recorded by rp 42 and how we use it.
                 </Typography>
 
                 <Typography color="primary.dark" variant="body1">
@@ -97,7 +97,7 @@ export default function PrivacyPolicyModal() {
                   {" "}
                   This Privacy Policy applies only to our online activities and
                   is valid for visitors to our website with regards to the
-                  information that they shared and/or collect in RP 80. This
+                  information that they shared and/or collect in rp 42. This
                   policy is not applicable to any information collected offline
                   or via channels other than this website. Our Privacy Policy
                   was created with the help of the{" "}
@@ -211,7 +211,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  RP 80 follows a standard procedure of using log files. These
+                  rp 42 follows a standard procedure of using log files. These
                   files log visitors when they visit websites. All hosting
                   companies do this and a part of hosting services' analytics.
                   The information collected by log files include internet
@@ -232,14 +232,14 @@ export default function PrivacyPolicyModal() {
                 <Typography color="primary.dark" variant="body1">
                   {" "}
                   You may consult this ul to find the Privacy Policy for each of
-                  the advertising partners of RP 80.
+                  the advertising partners of rp 42.
                 </Typography>
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
                   Third-party ad servers or ad networks uses technologies like
                   cookies, JavaScript, or Web Beacons that are used in their
-                  respective advertisements and links that appear on RP 80,
+                  respective advertisements and links that appear on rp 42,
                   which are sent directly to users' browser. They automatically
                   receive your IP address when this occurs. These technologies
                   are used to measure the effectiveness of their advertising
@@ -249,7 +249,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  Note that RP 80 has no access to or control over these cookies
+                  Note that rp 42 has no access to or control over these cookies
                   that are used by third-party advertisers.
                 </Typography>
 
@@ -260,7 +260,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  RP 80's Privacy Policy does not apply to other advertisers or
+                  rp 42's Privacy Policy does not apply to other advertisers or
                   websites. Thus, we are advising you to consult the respective
                   Privacy Policies of these third-party ad servers for more
                   detailed information. It may include their practices and
@@ -377,7 +377,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  RP 80 does not knowingly collect any Personal Identifiable
+                  rp 42 does not knowingly collect any Personal Identifiable
                   Information from children under the age of 13. If you think
                   that your child provided this kind of information on our
                   website, we strongly encourage you to contact us immediately

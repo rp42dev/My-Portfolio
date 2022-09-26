@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/My-Portfolio/static/css/main.bd1737b2.css",
-    "main.js": "/My-Portfolio/static/js/main.ec1f7a45.js",
-    "static/js/787.1ed0c42c.chunk.js": "/My-Portfolio/static/js/787.1ed0c42c.chunk.js",
-    "static/media/fltd.png": "/My-Portfolio/static/media/fltd.ffcdf0d3e714e0e3513b.png",
-    "static/media/genquality.png": "/My-Portfolio/static/media/genquality.56a3a45914b2d1a4eaf6.png",
-    "static/media/tattoo.png": "/My-Portfolio/static/media/tattoo.705d9d5a1804bc0edf7d.png",
-    "static/media/flower.png": "/My-Portfolio/static/media/flower.7ab14ace916ae2a38260.png",
-    "static/media/hats.png": "/My-Portfolio/static/media/hats.fd42aa9470153277a6de.png",
-    "static/media/emotify.png": "/My-Portfolio/static/media/emotify.42871cb49a663c680480.png",
-    "service-worker.js": "/My-Portfolio/service-worker.js",
-    "static/media/game.png": "/My-Portfolio/static/media/game.c72bc7a6fe0b0a201167.png",
-    "index.html": "/My-Portfolio/index.html",
-    "main.bd1737b2.css.map": "/My-Portfolio/static/css/main.bd1737b2.css.map",
-    "main.ec1f7a45.js.map": "/My-Portfolio/static/js/main.ec1f7a45.js.map",
-    "787.1ed0c42c.chunk.js.map": "/My-Portfolio/static/js/787.1ed0c42c.chunk.js.map"
+    "main.css": "/static/css/main.bd1737b2.css",
+    "main.js": "/static/js/main.f35555b8.js",
+    "static/js/787.dde12e82.chunk.js": "/static/js/787.dde12e82.chunk.js",
+    "static/media/fltd.png": "/static/media/fltd.ffcdf0d3e714e0e3513b.png",
+    "static/media/genquality.png": "/static/media/genquality.56a3a45914b2d1a4eaf6.png",
+    "static/media/tattoo.png": "/static/media/tattoo.705d9d5a1804bc0edf7d.png",
+    "static/media/flower.png": "/static/media/flower.7ab14ace916ae2a38260.png",
+    "static/media/hats.png": "/static/media/hats.fd42aa9470153277a6de.png",
+    "static/media/emotify.png": "/static/media/emotify.42871cb49a663c680480.png",
+    "service-worker.js": "/service-worker.js",
+    "static/media/game.png": "/static/media/game.c72bc7a6fe0b0a201167.png",
+    "index.html": "/index.html",
+    "main.bd1737b2.css.map": "/static/css/main.bd1737b2.css.map",
+    "main.f35555b8.js.map": "/static/js/main.f35555b8.js.map",
+    "787.dde12e82.chunk.js.map": "/static/js/787.dde12e82.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bd1737b2.css",
-    "static/js/main.ec1f7a45.js"
+    "static/js/main.f35555b8.js"
   ]
 }

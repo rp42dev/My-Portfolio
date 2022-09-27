@@ -43,7 +43,7 @@ function ProjectsApp() {
         <Box>
           <Fade bottom distance="50%">
             <Typography color="primary.dark" variant="h5">
-              More projects on my GitHub page <span> </span>
+              More projects on my GitHub <span> </span>
             <GitHub />
             </Typography>
           </Fade>

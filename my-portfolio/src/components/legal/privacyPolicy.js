@@ -81,7 +81,7 @@ export default function PrivacyPolicyModal() {
                 <Typography color="primary.dark" variant="body1">
                   {" "}
                   At rp 42, accessible from
-                  https://rp42dev.github.io/portfolio/, one of our main
+                  https://rp42.dev/, one of our main
                   priorities is the privacy of our visitors. This Privacy Policy
                   document contains types of information that is collected and
                   recorded by rp 42 and how we use it.

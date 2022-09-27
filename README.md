@@ -1,13 +1,8 @@
 
-## *The live site link can be found [Here](https://raivis80.github.io/My-Portfolio/)*
-### Table of contents
-
-1. [License](#License)
-
+## *The live site link can be found [Here](https://rp42.dev/)*
 ## Introduction
 
 An online representation of the work I have created provides a convenient way for potential clients to view my skills and services.
-
 
 The website is build using primarily with React library combined with HTML5, CSS3, JavaScript.
 

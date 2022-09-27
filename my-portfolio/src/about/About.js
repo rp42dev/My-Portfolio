@@ -51,6 +51,7 @@ function AboutApp(props) {
         >
           {" "}
           <Box sx={{ position: "relative", width: "100%" }}>
+            
             <TheCube />
             <About />
           </Box>

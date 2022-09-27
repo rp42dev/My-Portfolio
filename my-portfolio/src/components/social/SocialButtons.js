@@ -7,11 +7,11 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 
 const links = [ {
     title: 'Github',
-    link: 'https://github.com/Raivis80',
+    link: 'https://github.com/rp42dev',
     icon: <GitHubIcon fontSize="2.5rem" />
 }, {
     title: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/raivis-petrovskis',
+    link: 'https://www.linkedin.com/in/rp42',
     icon: <LinkedIn fontSize="2.5rem" />
 }];
 

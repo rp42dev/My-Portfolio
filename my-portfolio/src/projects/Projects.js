@@ -1,22 +1,18 @@
 import ProjectsComponent from "../components/projects/projectsComponent.js";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import Fade from "react-reveal/Fade";
 import { InView } from "react-intersection-observer";
 import { useContext } from "react";
 import { NavContext } from "../components/nav/NavContext.js";
 import { Element } from "react-scroll";
 
-import GithubCard from "../components/projects/GithubCard.js";
 
 import {
   Typography,
   Box,
   Container,
-  IconButton,
-  Tooltip,
-  Link,
 } from "@mui/material";
 import "./Projects.css";
+import GitHub from "../components/social/GitHub.js";
 
 function ProjectsApp() {
   const context = useContext(NavContext);
@@ -45,15 +41,13 @@ function ProjectsApp() {
           <ProjectsComponent />
         </Box>
         <Box>
-          <Fade bottom distance="30%">
-            <Typography sx={{ mb: 4 }} color="primary.dark" variant="h5">
-              More projects on my GitHub page
+          <Fade bottom distance="50%">
+            <Typography color="primary.dark" variant="h5">
+              More projects on my GitHub page <span> </span>
+            <GitHub />
             </Typography>
           </Fade>
         </Box>
-        <Fade bottom distance="30%">
-            <GithubCard />
-        </Fade>
       </InView>
     </Container>
   );

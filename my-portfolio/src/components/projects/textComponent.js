@@ -44,7 +44,7 @@ export default function TextComponent(props) {
           sx={{ width: "100%" }}
         >
           <Typography
-            sx={{ width: "100%", fontWeight: "bold" }}
+            sx={{ width: "100%" }}
             variant="caption"
             color="primary.light"
             align={!hideTabs ? "right" : "left"}

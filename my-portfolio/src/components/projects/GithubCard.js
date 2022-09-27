@@ -22,7 +22,7 @@ export default function BasicCard() {
   const following = data.following;
 
   React.useEffect(() => {
-    Fetch("https://api.github.com/users/Raivis80")
+    Fetch("https://api.github.com/users/rp42dev")
       .then(data => {
         setData(data);
       }).catch(error => {
@@ -31,7 +31,7 @@ export default function BasicCard() {
       );
   }, []);
   React.useEffect(() => {
-    Fetch("https://api.github.com/users/Raivis80/repos")
+    Fetch("https://api.github.com/users/rp42dev/repos")
       .then(data => {
         setRepos(data);
       }).catch(error => {

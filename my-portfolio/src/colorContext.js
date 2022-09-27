@@ -79,8 +79,8 @@ export const themeMode = (mode) => ({
     },
     caption: {
       fontSize: ".6rem",
-      letterSpacing: ".1rem",
-      fontWeight: "bold",
+      letterSpacing: ".15rem",
+      fontWeight: "bolder",
     },
   },
 });

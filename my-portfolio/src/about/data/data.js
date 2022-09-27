@@ -6,11 +6,11 @@ const data ={
         "content": [
             {
                 "title": "About Me",
-                "text": "I'm a coding Boot-camp graduate with a passion for building beautiful, responsive web apps, and a passion for learning new technologies. I am currently volunteering as a web developer for a local charity called, 'From lads to dads'."
+                "text": "I'm a Full Stack Web Developer from Latvia, currently living in Dublin Ireland. I'm passionate about learning new technologies and creating new projects. I'm always looking for new opportunities to learn and grow as a developer."
             },
             {
-                "title": "Skills",
-                "text": "I have a strong foundation in HTML, CSS, JavaScript, Python, React, Django and more."
+                "title": "Tech I worked with",
+                "text": "HTML, CSS, JavaScript, Python, React, Django and more..."
             },
             {
                 "title": "Experience",

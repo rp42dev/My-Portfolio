@@ -19,10 +19,3 @@
   opacity: 1;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) .8s;
 }
-
-.logo {
-  color: #b37142;
-  border: #b37142 1px solid;
-  padding: 0 5px;
-  border-radius: 5px;
-}

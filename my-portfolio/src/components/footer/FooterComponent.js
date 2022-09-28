@@ -61,7 +61,7 @@ export default function Footer() {
                 variant="caption"
                 sx={{ display: "flex", justifyContent: "start" }}
               >
-                © 2022 - rp 42
+                © 2022 - rp42
               </Typography>
             </Grid>
             <Grid

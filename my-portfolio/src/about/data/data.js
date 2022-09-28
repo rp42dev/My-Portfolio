@@ -10,7 +10,7 @@ const data ={
             },
             {
                 "title": "Tech I worked with",
-                "text": "I have a wide range of skills and experience in web development in both front-end and back-end web development. I have experience working with different programming languages/frameworks such as HTML, CSS, JavaScript, Python, React, Django and more. I am also experienced in using different Content Management Systems (CMS) such as Squarespace and Wix."
+                "text": "I have a wide range of skills and experience in both front-end and back-end web development. I have experience working with different programming languages/frameworks such as HTML, CSS, JavaScript, Python, React, Django and more. I am also experienced in using different Content Management Systems (CMS) such as Squarespace and Wix."
             },
             {
                 "title": "Experience",

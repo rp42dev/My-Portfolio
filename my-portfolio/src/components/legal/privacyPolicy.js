@@ -33,8 +33,6 @@ export default function PrivacyPolicyModal() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const theme = useTheme();
-    let bg = useColorContext().colorMode === "dark" ? theme.palette.background.paper.light : theme.palette.background.paper.main;
-
 
     return (
       <div>
@@ -54,7 +52,7 @@ export default function PrivacyPolicyModal() {
           }}
         >
           <Fade in={open}>
-            <Container sx={style} style={{ backgroundColor: bg }}>
+            <Container sx={style} style={{ backgroundColor: theme.palette.background.paper }}>
               <AppBar>
                 <Toolbar>
                   <Container sx={{ display: "flex", justifyContent: "end" }}>
@@ -75,16 +73,16 @@ export default function PrivacyPolicyModal() {
                 variant="h5"
                 component="h1"
               >
-                Privacy Policy for rp 42
+                Privacy Policy for rp42
               </Typography>
               <Box id="transition-modal-description" sx={{ mt: 2 }}>
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  At rp 42, accessible from
+                  At rp42, accessible from
                   https://rp42.dev/, one of our main
                   priorities is the privacy of our visitors. This Privacy Policy
                   document contains types of information that is collected and
-                  recorded by rp 42 and how we use it.
+                  recorded by rp42 and how we use it.
                 </Typography>
 
                 <Typography color="primary.dark" variant="body1">
@@ -97,7 +95,7 @@ export default function PrivacyPolicyModal() {
                   {" "}
                   This Privacy Policy applies only to our online activities and
                   is valid for visitors to our website with regards to the
-                  information that they shared and/or collect in rp 42. This
+                  information that they shared and/or collect in rp42. This
                   policy is not applicable to any information collected offline
                   or via channels other than this website. Our Privacy Policy
                   was created with the help of the{" "}
@@ -211,7 +209,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  rp 42 follows a standard procedure of using log files. These
+                  rp42 follows a standard procedure of using log files. These
                   files log visitors when they visit websites. All hosting
                   companies do this and a part of hosting services' analytics.
                   The information collected by log files include internet
@@ -232,14 +230,14 @@ export default function PrivacyPolicyModal() {
                 <Typography color="primary.dark" variant="body1">
                   {" "}
                   You may consult this ul to find the Privacy Policy for each of
-                  the advertising partners of rp 42.
+                  the advertising partners of rp42.
                 </Typography>
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
                   Third-party ad servers or ad networks uses technologies like
                   cookies, JavaScript, or Web Beacons that are used in their
-                  respective advertisements and links that appear on rp 42,
+                  respective advertisements and links that appear on rp42,
                   which are sent directly to users' browser. They automatically
                   receive your IP address when this occurs. These technologies
                   are used to measure the effectiveness of their advertising
@@ -249,7 +247,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  Note that rp 42 has no access to or control over these cookies
+                  Note that rp42 has no access to or control over these cookies
                   that are used by third-party advertisers.
                 </Typography>
 
@@ -260,7 +258,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  rp 42's Privacy Policy does not apply to other advertisers or
+                  rp42's Privacy Policy does not apply to other advertisers or
                   websites. Thus, we are advising you to consult the respective
                   Privacy Policies of these third-party ad servers for more
                   detailed information. It may include their practices and
@@ -377,7 +375,7 @@ export default function PrivacyPolicyModal() {
 
                 <Typography color="primary.dark" variant="body1">
                   {" "}
-                  rp 42 does not knowingly collect any Personal Identifiable
+                  rp42 does not knowingly collect any Personal Identifiable
                   Information from children under the age of 13. If you think
                   that your child provided this kind of information on our
                   website, we strongly encourage you to contact us immediately

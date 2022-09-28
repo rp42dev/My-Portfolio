@@ -1,8 +1,16 @@
 import { Typography, Button } from "@mui/material";
 
+const logoStyle = {
+    color: "#b37142",
+    border: "#b37142 1px solid",
+    padding: "0 5px",
+    borderRadius: "5px",
+};
+
+
 export default function Logo() {
     return (
-        <Button href="/" color="secondary" sx={{ textTransform: "none" }}>
+        <Button href="/" color="secondary" sx={{ paddingLeft: 0, textTransform: "none" }}>
         <Typography
             variant="h3"
             component="div"
@@ -10,10 +18,10 @@ export default function Logo() {
                 fontWeight: "bolder",
                 
                 letterSpacing: "0.1rem",
-                color: "primary.main",
+                color: "#D8D8D8",
             }}
         >   rp
-            <span className="logo">42</span>
+            <span style={logoStyle}>42</span>
         </Typography>
         </Button>
     );

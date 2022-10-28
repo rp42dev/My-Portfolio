@@ -14,7 +14,7 @@ const itemData = [
     img: image7,
     title: "ED Tattoo",
     description: "This is a portfolio of Ed-Tattoo work. Ed is a tattoo artist in the Oslo area of Norway. This website was built with Preact and Netlify-cms for content management. The site is hosted on Netlify.",
-    url: "https://edtattoo.netlify.app/",
+    url: "https://ed-tattoo.netlify.app/",
     github: "https://github.com/rp42dev/ed-tattoo",
     tech: ["CSS", "Html", "JavaScript", "Preact", "Netlify-cms", "Netlify"]
   },

@@ -3,7 +3,7 @@ import SocialLButtons from "../social/SocialButtons";
 import PrivacyPolicyModal from "../legal/privacyPolicy";
 import ImageButton from "../buttons/ImageButton";
 import Fade from "react-reveal/Fade";
-import { useColorContext } from "../../ColorContext";
+import { useColorContext } from "../../colorContext";
 import { useTheme } from "@mui/material/styles";
 import Logo from "../buttons/Logo";
 

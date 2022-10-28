@@ -4,7 +4,7 @@ import { useContext } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import { NavContext } from "./components/nav/NavContext";
-import { useColorContext }  from "./ColorContext";
+import { useColorContext }  from "./colorContext";
 import "./App.css";
 
 import HomeApp from "./home/Home";

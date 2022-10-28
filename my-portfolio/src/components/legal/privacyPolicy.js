@@ -7,7 +7,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { Button, Container, IconButton } from '@mui/material';
 import {useTheme} from '@mui/material/styles';
-import { useColorContext } from "../../ColorContext";
+import { useColorContext } from "../../colorContext";
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';

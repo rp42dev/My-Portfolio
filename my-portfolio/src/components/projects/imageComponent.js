@@ -1,6 +1,6 @@
 import { Typography, Paper, ButtonBase, styled } from "@mui/material";
-import PreLoader from "./PreLoader";
-import { useColorContext } from "../../ColorContext";
+import PreLoader from "./preLoader";
+import { useColorContext } from "../../colorContext";
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",

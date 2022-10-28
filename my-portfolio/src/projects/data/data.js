@@ -1,4 +1,5 @@
 
+import image7 from "../../assets/images/edtattoo.png";
 import image6 from "../../assets/images/genquality.png";
 import image5 from "../../assets/images/fltd.png";
 import image4 from "../../assets/images/tattoo.png";
@@ -10,12 +11,20 @@ import image from "../../assets/images/flower.png";
 
 const itemData = [
   {
+    img: image7,
+    title: "ED Tattoo",
+    description: "This is a portfolio of Ed-Tattoo work. Ed is a tattoo artist in the Oslo area of Norway. This website was built with Preact and Netlify-cms for content management. The site is hosted on Netlify.",
+    url: "https://edtattoo.netlify.app/",
+    github: "https://github.com/rp42dev/ed-tattoo",
+    tech: ["CSS", "Html", "JavaScript", "Preact", "Netlify-cms", "Netlify"]
+  },
+  {
     img: image6,
     title: "Genqualiity",
     description: "A winning project for September's Hackathon with Code Institute, Deloitte and Trust in Soda. The theme was 'Closing the gender gap'. So we decided a good way to tackle this issue was with an educational and enlightening quiz",
     url: "rp42dev.github.io/Genquality/index.html",
     github: "https://github.com/rp42dev/Genquality",
-    tech: ["HTML, CSS, JavaScript, Bootstrap, Git, GitHub"],
+    tech: ["HTML", "CSS", "JavaScript", "Bootstrap", "Git", "GitHub"],
   },
   {
     img: image5,

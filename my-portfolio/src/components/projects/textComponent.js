@@ -1,7 +1,7 @@
 import { Typography, Paper, Stack, Box, styled } from "@mui/material";
 import ProjectIcons from "./projectIcons.js";
 import useMediaQuery from "../../hooks/viewPortWidth.js";
-import { useColorContext } from "../../ColorContext";
+import { useColorContext } from "../../colorContext";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),

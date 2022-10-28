@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Tooltip, IconButton, Link, Stack } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import { useColorContext } from "../../ColorContext";
-import PreLoader from "./PreLoader";
+import { useColorContext } from "../../colorContext";
+import PreLoader from "./preLoader";
 
 
 export default function ProjectIcons(props) {

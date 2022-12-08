@@ -43,24 +43,7 @@ const itemData = [
     github: "https://github.com/rp42dev/TattooSkWorkshop",
     tech: ["HTML", "CSS", "JS", "Django", "PostgreSQL", "Engin-x"],
   },
-  {
-    img: image3,
-    title: "A Hat Shop",
-    description:
-      "Bootcamp Milestone Project 4. This is a Django full-stack site based around business logic. With an user authentication, Stripe payment service, relational database schema to store and manipulate data records and structured and navigation.",
-    url: "a-hat-shop.herokuapp.com",
-    github: "https://github.com/rp42dev/MS-4-Django-Full-Stack-Project",
-    tech: ["HTML", "CSS", "JS", "Django", "PostgreSQL", "AWS"],
-  },
-  {
-    img: image2,
-    title: "Emotify",
-    description:
-      "Bootcamp Milestone Project 3. A Flask full stack project with user authentication allowing users register and log in. Authenticated users are able to store and manipulate data records. Data handling: build on MongoDB-backed CRUD functionality.",
-    url: "emotify-ms-3.herokuapp.com",
-    github: "https://github.com/rp42dev/Milestone-Project-3",
-    tech: ["HTML", "CSS", "JS", "Flask", "MongoDB", "Cloudinary"],
-  },
+  
   {
     img: image1,
     title: "The Game",
@@ -69,16 +52,7 @@ const itemData = [
     url: "rp42dev.github.io/The-Game",
     github: "https://github.com/rp42dev/The-Game",
     tech: ["HTML", "CSS", "JS", "EmailJs"],
-  },
-  {
-    img: image,
-    title: "Floral Fantasy",
-    description:
-      "Bootcamp Milestone Project 1. This website was created using primarily HTML5 and CSS3. The main focus for the site is to create an online presence allowing users to view various flower arrangements from the best florists.",
-    url: "rp42dev.github.io/First-Milestone-Project",
-    github: "https://github.com/rp42dev/First-Milestone-Project",
-    tech: ["HTML", "CSS", "JS", "Bootstrap"],
-  },
+  }
 ];
 export default itemData;
 

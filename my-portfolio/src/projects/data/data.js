@@ -2,7 +2,7 @@
 import image7 from "../../assets/images/edtattoo.png";
 import image6 from "../../assets/images/genquality.png";
 import image5 from "../../assets/images/fltd.png";
-import image4 from "../../assets/images/tattoo.png";
+import image4 from "../../assets/images/tattoo.jpg";
 import image3 from "../../assets/images/hats.png";
 import image2 from "../../assets/images/emotify.png";
 import image1 from "../../assets/images/game.png";
@@ -41,7 +41,7 @@ const itemData = [
       "Django Full Stack project created for a Tattoo artist business in Norway. Features Two Languages and backend functionality allowing owner to easily store and manipulate an image gallery and other content.",
     url: "www.tattooskworkshop.no",
     github: "https://github.com/rp42dev/TattooSkWorkshop",
-    tech: ["HTML", "CSS", "JS", "Django", "PostgreSQL", "Engin-x"],
+    tech: ["HTML", "CSS", "JS", "Django", "HTMX", "PostgreSQL", "Engin-x"],
   },
   
   {

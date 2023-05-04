@@ -1,15 +1,31 @@
-
+import image8 from "../../assets/images/rp42.cloud.jpg";
 import image7 from "../../assets/images/edtattoo.png";
 import image6 from "../../assets/images/genquality.png";
 import image5 from "../../assets/images/fltd.png";
 import image4 from "../../assets/images/tattoo.jpg";
-import image3 from "../../assets/images/hats.png";
+import image3 from "../../assets/images/iammobilefriendly.jpg";
 import image2 from "../../assets/images/emotify.png";
 import image1 from "../../assets/images/game.png";
 import image from "../../assets/images/flower.png";
 
 
 const itemData = [
+  {
+    img: image3,
+    title: "I am Mobile Friendly",
+    description: "This is a website I built for Web Dev business. It is built with Django and hosted on linux server, static files are served by Nginx. Two color themes are available and the site is fully responsive.",
+    url: "www.iammobilefriendly.dev",
+    github: "https://github.com/rp42dev/i_am_mobile_friendly",
+    tech: ["HTML", "CSS", "JS", "Django", "Guniocorn", "PostgreSQL", "Engin-x", "Nginx"],
+  },
+  {
+    img: image8,
+    title: "rp42 Cloud",
+    description: "This is a website I built Web Dev business. It is built with Django and hosted on linux server, static files are served by Nginx. Gsap is used for animations and the site is fully responsive.",
+    url: "www.rp42.cloud",
+    github: "https://github.com/rp42dev/django_project",
+    tech: ["HTML", "CSS", "JS", "Django", "PostgreSQL", "Engin-x", "Nginx"],
+  },
   {
     img: image7,
     title: "ED Tattoo",

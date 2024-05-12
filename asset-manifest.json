@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.bd1737b2.css",
-    "main.js": "/static/js/main.1a50a134.js",
-    "static/js/787.3ba77f5c.chunk.js": "/static/js/787.3ba77f5c.chunk.js",
-    "static/media/oslorenoveringbygg.webp": "/static/media/oslorenoveringbygg.bb541d153b3d8dcf9532.webp",
-    "static/media/genquality.webp": "/static/media/genquality.fc74cb25724c60ebfc0f.webp",
-    "static/media/andrejsfineart.webp": "/static/media/andrejsfineart.4f71ab6ca03d8d620392.webp",
-    "static/media/rrpartners.webp": "/static/media/rrpartners.ded557ecbe8ef7fcc2a7.webp",
-    "static/media/iammobilefriendly.webp": "/static/media/iammobilefriendly.45df8a90f29e01fe3afc.webp",
-    "static/media/maya.webp": "/static/media/maya.d96845773557f7c6a350.webp",
-    "static/media/fltpd.webp": "/static/media/fltpd.f3b718942a456f08bb15.webp",
-    "static/media/ed_tattoo.webp": "/static/media/ed_tattoo.a87666a146043b060c33.webp",
-    "static/media/tattoo_sk.webp": "/static/media/tattoo_sk.12c165d48fb1ff43a25e.webp",
-    "static/media/game.webp": "/static/media/game.6e8710df786b2dc39775.webp",
-    "service-worker.js": "/service-worker.js",
-    "index.html": "/index.html",
-    "main.bd1737b2.css.map": "/static/css/main.bd1737b2.css.map",
-    "main.1a50a134.js.map": "/static/js/main.1a50a134.js.map",
-    "787.3ba77f5c.chunk.js.map": "/static/js/787.3ba77f5c.chunk.js.map"
+    "main.css": "/My-Portfolio/static/css/main.bd1737b2.css",
+    "main.js": "/My-Portfolio/static/js/main.21e83929.js",
+    "static/js/787.3ba77f5c.chunk.js": "/My-Portfolio/static/js/787.3ba77f5c.chunk.js",
+    "static/media/oslorenoveringbygg.webp": "/My-Portfolio/static/media/oslorenoveringbygg.bb541d153b3d8dcf9532.webp",
+    "static/media/genquality.webp": "/My-Portfolio/static/media/genquality.fc74cb25724c60ebfc0f.webp",
+    "static/media/andrejsfineart.webp": "/My-Portfolio/static/media/andrejsfineart.4f71ab6ca03d8d620392.webp",
+    "static/media/rrpartners.webp": "/My-Portfolio/static/media/rrpartners.ded557ecbe8ef7fcc2a7.webp",
+    "static/media/iammobilefriendly.webp": "/My-Portfolio/static/media/iammobilefriendly.45df8a90f29e01fe3afc.webp",
+    "static/media/maya.webp": "/My-Portfolio/static/media/maya.d96845773557f7c6a350.webp",
+    "static/media/fltpd.webp": "/My-Portfolio/static/media/fltpd.f3b718942a456f08bb15.webp",
+    "static/media/ed_tattoo.webp": "/My-Portfolio/static/media/ed_tattoo.a87666a146043b060c33.webp",
+    "static/media/tattoo_sk.webp": "/My-Portfolio/static/media/tattoo_sk.12c165d48fb1ff43a25e.webp",
+    "static/media/game.webp": "/My-Portfolio/static/media/game.6e8710df786b2dc39775.webp",
+    "service-worker.js": "/My-Portfolio/service-worker.js",
+    "index.html": "/My-Portfolio/index.html",
+    "main.bd1737b2.css.map": "/My-Portfolio/static/css/main.bd1737b2.css.map",
+    "main.21e83929.js.map": "/My-Portfolio/static/js/main.21e83929.js.map",
+    "787.3ba77f5c.chunk.js.map": "/My-Portfolio/static/js/787.3ba77f5c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bd1737b2.css",
-    "static/js/main.1a50a134.js"
+    "static/js/main.21e83929.js"
   ]
 }

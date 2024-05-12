@@ -15,7 +15,7 @@ const itemData = [
     img: iammobilefriendly,
     title: "I am Mobile Friendly",
     description: "Discover 'I am Mobile Friendly', a website developed for my Web Development business using Django. It's hosted on a Linux server with Nginx serving static files. The site features a chatbot and utilizes Email automation for seamless email integration. Explore our mobile-friendly design and contact form.",
-    url: "www.iammobilefriendly.dev",
+    url: "iammobilefriendly.dev",
     github: "https://github.com/rp42dev/i_am_mobile_friendly",
     tech: ["HTML", "CSS", "JavaScript", "Django", "Gunicorn", "PostgreSQL", "Nginx", "Linux", "OpenAI ChatBot", "Email automation"],
   },

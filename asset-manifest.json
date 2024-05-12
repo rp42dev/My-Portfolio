@@ -1,25 +1,26 @@
 {
   "files": {
     "main.css": "/static/css/main.bd1737b2.css",
-    "main.js": "/static/js/main.7f59657d.js",
+    "main.js": "/static/js/main.1a50a134.js",
     "static/js/787.3ba77f5c.chunk.js": "/static/js/787.3ba77f5c.chunk.js",
-    "static/media/genquality.png": "/static/media/genquality.56a3a45914b2d1a4eaf6.png",
-    "static/media/flower.png": "/static/media/flower.7ab14ace916ae2a38260.png",
-    "static/media/edtattoo.png": "/static/media/edtattoo.a9ad34772060fe1b8163.png",
-    "static/media/iammobilefriendly.jpg": "/static/media/iammobilefriendly.ce09b5115ae1dc09231b.jpg",
-    "static/media/fltd.png": "/static/media/fltd.0dc38a1a0ce05c0f3484.png",
-    "static/media/rp42.cloud.jpg": "/static/media/rp42.cloud.1829104ac08f6d896ab8.jpg",
-    "static/media/emotify.png": "/static/media/emotify.42871cb49a663c680480.png",
-    "static/media/tattoo.jpg": "/static/media/tattoo.691f53d5ac9ae7175aad.jpg",
+    "static/media/oslorenoveringbygg.webp": "/static/media/oslorenoveringbygg.bb541d153b3d8dcf9532.webp",
+    "static/media/genquality.webp": "/static/media/genquality.fc74cb25724c60ebfc0f.webp",
+    "static/media/andrejsfineart.webp": "/static/media/andrejsfineart.4f71ab6ca03d8d620392.webp",
+    "static/media/rrpartners.webp": "/static/media/rrpartners.ded557ecbe8ef7fcc2a7.webp",
+    "static/media/iammobilefriendly.webp": "/static/media/iammobilefriendly.45df8a90f29e01fe3afc.webp",
+    "static/media/maya.webp": "/static/media/maya.d96845773557f7c6a350.webp",
+    "static/media/fltpd.webp": "/static/media/fltpd.f3b718942a456f08bb15.webp",
+    "static/media/ed_tattoo.webp": "/static/media/ed_tattoo.a87666a146043b060c33.webp",
+    "static/media/tattoo_sk.webp": "/static/media/tattoo_sk.12c165d48fb1ff43a25e.webp",
+    "static/media/game.webp": "/static/media/game.6e8710df786b2dc39775.webp",
     "service-worker.js": "/service-worker.js",
-    "static/media/game.png": "/static/media/game.c72bc7a6fe0b0a201167.png",
     "index.html": "/index.html",
     "main.bd1737b2.css.map": "/static/css/main.bd1737b2.css.map",
-    "main.7f59657d.js.map": "/static/js/main.7f59657d.js.map",
+    "main.1a50a134.js.map": "/static/js/main.1a50a134.js.map",
     "787.3ba77f5c.chunk.js.map": "/static/js/787.3ba77f5c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bd1737b2.css",
-    "static/js/main.7f59657d.js"
+    "static/js/main.1a50a134.js"
   ]
 }

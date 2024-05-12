@@ -1,74 +1,91 @@
-import image8 from "../../assets/images/rp42.cloud.jpg";
-import image7 from "../../assets/images/edtattoo.png";
-import image6 from "../../assets/images/genquality.png";
-import image5 from "../../assets/images/fltd.png";
-import image4 from "../../assets/images/tattoo.jpg";
-import image3 from "../../assets/images/iammobilefriendly.jpg";
-import image2 from "../../assets/images/emotify.png";
-import image1 from "../../assets/images/game.png";
-import image from "../../assets/images/flower.png";
+import andrejfineart from "../../assets/images/andrejsfineart.webp";
+import edtattoo from "../../assets/images/ed_tattoo.webp";
+import genquality from "../../assets/images/genquality.webp";
+import fltd from "../../assets/images/fltpd.webp";
+import tattoosk from "../../assets/images/tattoo_sk.webp";
+import iammobilefriendly from "../../assets/images/iammobilefriendly.webp";
+import game from "../../assets/images/game.webp";
+import maya from "../../assets/images/maya.webp";
+import rrpartners from "../../assets/images/rrpartners.webp";
+import oslorenoveringbygg from "../../assets/images/oslorenoveringbygg.webp";
 
 
 const itemData = [
   {
-    img: image3,
+    img: iammobilefriendly,
     title: "I am Mobile Friendly",
-    description: "This is a website I built for Web Dev business. It is built with Django and hosted on linux server, static files are served by Nginx. Two color themes are available and the site is fully responsive.",
+    description: "Discover 'I am Mobile Friendly', a website developed for my Web Development business using Django. It's hosted on a Linux server with Nginx serving static files. The site features a chatbot and utilizes Email automation for seamless email integration. Explore our mobile-friendly design and contact form.",
     url: "www.iammobilefriendly.dev",
     github: "https://github.com/rp42dev/i_am_mobile_friendly",
-    tech: ["HTML", "CSS", "JS", "Django", "Guniocorn", "PostgreSQL", "Engin-x", "Nginx"],
+    tech: ["HTML", "CSS", "JavaScript", "Django", "Gunicorn", "PostgreSQL", "Nginx", "Linux", "OpenAI ChatBot", "Email automation"],
   },
   {
-    img: image8,
-    title: "rp42 Cloud",
-    description: "This is a website I built Web Dev business. It is built with Django and hosted on linux server, static files are served by Nginx. Gsap is used for animations and the site is fully responsive.",
-    url: "www.rp42.cloud",
-    github: "https://github.com/rp42dev/django_project",
-    tech: ["HTML", "CSS", "JS", "Django", "PostgreSQL", "Engin-x", "Nginx"],
+    img: oslorenoveringbygg,
+    title: "Oslo Renovering & Bygg",
+    description: "Check out 'Oslo Renovering & Bygg', a website developed for a construction company in Oslo. It's built and hosted on Hostinger, featuring a clean, responsive design and a gallery showcasing the company's work. Contact us through the integrated form.",
+    url: "www.oslorenoveringbygg.no",
+    tech: ["Hostinger Builder"],
   },
   {
-    img: image7,
+    img: rrpartners,
+    title: "RR Partners",
+    description: "Explore 'RR Partners', a website for a company providing Expert Legal and Financial Advisory Services. It's built with Django and hosted on Hostinger.",
+    url: "www.rrpartners.lv",
+    tech: ["Hostinger Builder"],
+  },
+  {
+    img: andrejfineart,
+    title: "Andrej Fine Art",
+    description: "Introducing 'Andrej Fine Art', a website created for an artist and hosted on Hostinger. Experience the simple, responsive design featuring the artist's gallery and contact form.",
+    url: "www.andrejfineart.com",
+    tech: ["Hostinger Builder"],
+  },
+  {
+    img: maya,
+    title: "Maya Nurtures",
+    description: "Discover 'Maya Nurtures', a website for a children's emotional and mental health services company. Built and hosted on systeme.io, it features automated funnels, email marketing, and a blog.",
+    url: "www.mayanurtures.net",
+    tech: ["systeme.io", "Email Marketing", "Funnel Automation"],
+  },
+  {
+    img: edtattoo,
     title: "ED Tattoo",
-    description: "This is a portfolio of Ed-Tattoo work. Ed is a tattoo artist in the Oslo area of Norway. This website was built with Preact and Netlify-cms for content management. The site is hosted on Netlify.",
+    description: "Explore 'ED Tattoo', a portfolio showcasing the work of tattoo artist Ed from Oslo. Built with Preact and Netlify CMS for easy content management, hosted on Netlify.",
     url: "www.edtattoo.no",
     github: "https://github.com/rp42dev/ed-tattoo",
-    tech: ["CSS", "Html", "JavaScript", "Preact", "Netlify-cms"]
+    tech: ["CSS", "HTML", "JavaScript", "Preact", "Netlify CMS"]
   },
   {
-    img: image6,
+    img: fltd,
+    title: "From Lads To Dads",
+    description: "Learn about 'From Lads To Dads', a project providing support to fathers. I contributed as a web designer and developer. The site was built using Squarespace.",
+    url: "www.fromladstodads.com",
+    tech: ["Squarespace"],
+  },
+  {
+    img: genquality,
     title: "Genqualiity",
-    description: "A winning project for September's Hackathon with Code Institute, Deloitte and Trust in Soda. The theme was 'Closing the gender gap'. So we decided a good way to tackle this issue was with an educational and enlightening quiz",
+    description: "Discover 'Genqualiity', an educational quiz addressing the gender gap issue. It was developed for a Hackathon using HTML, CSS, JavaScript, and Bootstrap.",
     url: "rp42dev.github.io/Genquality/index.html",
     github: "https://github.com/rp42dev/Genquality",
     tech: ["HTML", "CSS", "JavaScript", "Bootstrap", "Git", "GitHub"],
   },
   {
-    img: image5,
-    title: "From Lads To Dads",
-    description:
-      "Volunteering as a web designer and  developer on the project From lads to dads. This program will provide practical and emotional support to equip fathers with the necessary tools, guidance for becoming a Dad",
-    url: "www.fromladstodads.com",
-    tech: ["HTML", "CSS", "JS", "Squarespace"],
-  },
-  {
-    img: image4,
+    img: tattoosk,
     title: "Tattoo Sk Workshop",
-    description:
-      "Django Full Stack project created for a Tattoo artist business in Norway. Features Two Languages and backend functionality allowing owner to easily store and manipulate an image gallery and other content.",
+    description: "Explore 'Tattoo Sk Workshop', a Django Full Stack project for a tattoo artist business in Norway. It supports two languages and includes backend functionality for image gallery management.",
     url: "www.tattooskworkshop.no",
     github: "https://github.com/rp42dev/TattooSkWorkshop",
-    tech: ["HTML", "CSS", "JS", "Django", "HTMX", "PostgreSQL", "Engin-x"],
+    tech: ["HTML", "CSS", "JavaScript", "Django", "HTMX", "PostgreSQL", "Nginx"],
   },
-  
   {
-    img: image1,
+    img: game,
     title: "The Game",
-    description:
-      "Bootcamp Milestone Project 2. Simple JavaScript, single-player game, the objective of this game is to click or tap the objects spawning randomly as quickly as you can. The difficulty will increase throughout the game",
+    description: "Play 'The Game', a simple JavaScript single-player game. Click or tap on objects that appear randomly and try to score as quickly as possible. The difficulty increases as you play.",
     url: "rp42dev.github.io/The-Game",
     github: "https://github.com/rp42dev/The-Game",
-    tech: ["HTML", "CSS", "JS", "EmailJs"],
+    tech: ["HTML", "CSS", "JavaScript", "EmailJs"],
   }
 ];
-export default itemData;
 
+export default itemData;

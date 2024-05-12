@@ -9,7 +9,7 @@
                 "color": "secondary",
                 "variant": "h1"
             }, {
-                "text": "I'm a full-stack Web developer",
+                "text": "I'm a full-stack Web and app developer",
                 "color": "primary",
                 "variant": "h4"
             }, {

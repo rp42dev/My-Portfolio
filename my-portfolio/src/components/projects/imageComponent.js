@@ -5,11 +5,7 @@ import { useColorContext } from "../../colorContext";
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
   height: 400,
-  width: 100,
-  boxShadow: theme.shadows[6],
-  transition: theme.transitions.create("box-shadow", {
-    duration: theme.transitions.duration.short,
-  }),
+  width: "auto",
   "@media (max-width:600px)": {
     height: 300,
     width: "auto",
@@ -26,11 +22,6 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     transition: "all .2s ease-in-out",
   },
   "&:hover": {
-    boxShadow: theme.shadows[10],
-    zIndex: 1,
-    "& .MuiImageBackdrop-root": {
-      opacity: 0.15,
-    },
 
     "& .MuiTypography-root": {
       opacity: 1,
@@ -47,12 +38,11 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 
 const ImageSrc = styled("span")({
   position: "absolute",
-  left: 0,
-  right: 0,
+  inset: 0,
   top: 0,
   bottom: 0,
   backgroundSize: "cover",
-  backgroundPosition: "center 40%",
+  backgroundPosition: "center",
 });
 
 const ImageBackdrop = styled("span")(({ theme }) => ({
@@ -75,8 +65,7 @@ export default function ImageComponent(props) {
   };
 
   return (
-    <Paper elevation={3}>
-      <ImageButton
+    <ImageButton
         title="View live site"
         onClick={() => call(props.image.url)}
         focusRipple
@@ -86,13 +75,10 @@ export default function ImageComponent(props) {
         }}
       >
         <ImageSrc style={{ backgroundImage: `url(${props.image.img})` }} />
-
         <Typography variant="h6" className="MuiTypography-root">
           {props.image.title}
-        </Typography>
-
-        <ImageBackdrop className="MuiImageBackdrop-root"></ImageBackdrop>
+      </Typography>
+      <ImageBackdrop className="MuiBackdrop-root" />
       </ImageButton>
-    </Paper>
   );
 }

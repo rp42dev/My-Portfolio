@@ -1,23 +1,23 @@
 
-const data ={
+const data = {
     "about": {
         "title": "About",
-        "comment": "This is the about page",
+        "comment": "Learn more about my skills, experience, and projects.",
         "content": [
             {
                 "title": "What I Do",
-                "text": "As a Full Stack Developer, I develop custom websites or web applications, from start to finish. I strive to make sure the websites I create are user-friendly and mobile-friendly. I also provide support and maintenance for existing websites and applications. This includes troubleshooting errors, as well as adding new features and functionality."
+                "text": "As a Full Stack Developer, I specialize in building custom websites and web applications from start to finish. I focus on creating user-friendly and mobile-responsive solutions. Additionally, I offer support and maintenance services for existing websites, including troubleshooting, feature enhancements, and updates."
             },
             {
-                "title": "Tech I worked with",
-                "text": "I have a wide range of skills and experience in both front-end and back-end web development. I have experience working with different programming languages/frameworks such as HTML, CSS, JavaScript, Python, React, Django and more. I am also experienced in using different Content Management Systems (CMS) such as Squarespace and Wix."
+                "title": "Technologies I Use",
+                "text": "I have extensive experience in front-end and back-end web development, utilizing programming languages and frameworks such as HTML, CSS, JavaScript, Python, React, and Django. I am proficient in various Content Management Systems (CMS) including Squarespace and Wix."
             },
             {
                 "title": "Experience",
-                "text": "I have spearheaded a number of projects including a website for a local charity, a website for a tattoo workshop, and many sprint-like coding events called 'Hackathons'."
+                "text": "I have led numerous projects and participated in competitive coding events like 'Hackathons', achieving success in winning one hosted by Deloitte and Code Institute."
             }
         ]
     }
+};
 
-}
- export default data;
+export default data;

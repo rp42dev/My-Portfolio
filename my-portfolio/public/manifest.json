@@ -34,7 +34,7 @@
       "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://rp42dev.github.io/My-Portfolio/",
   "display": "standalone",
   "theme_color": "#28282a",
   "background_color": "#28282a"
